@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Checklist NR-1</title>
+  <meta name="description" content="Autodiagnóstico de conformidade com a NR-1 (GRO/PGR e riscos psicossociais) por porte da empresa, com score e relatório.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b6e5f'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="barra">
+    <div class="barra__linha">
+      <button type="button" class="barra__marca" data-acao="inicio">Checklist NR-1</button>
+      <p class="barra__contexto" id="barra-contexto"></p>
+      <button type="button" class="botao-icone" data-acao="tema" aria-label="Tema: automático" title="Tema: automático">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div class="progresso" role="progressbar" aria-label="Progresso do checklist" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden>
+      <div class="progresso__barra"></div>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="etapa" id="etapa-boas-vindas" data-etapa="boas-vindas" aria-labelledby="titulo-boas-vindas" hidden></section>
+    <section class="etapa" id="etapa-porte" data-etapa="porte" aria-labelledby="titulo-porte" hidden></section>
+    <section class="etapa" id="etapa-perguntas" data-etapa="perguntas" aria-label="Perguntas" hidden></section>
+    <section class="etapa" id="etapa-revisao" data-etapa="revisao" aria-labelledby="titulo-revisao" hidden></section>
+    <section class="etapa" id="etapa-relatorio" data-etapa="relatorio" aria-labelledby="titulo-relatorio" hidden></section>
+    <noscript><p class="aviso-js">Este checklist precisa de JavaScript ativado para funcionar.</p></noscript>
+  </main>
+
+  <p class="anuncio" id="anuncio" aria-live="polite"></p>
+</body>
+</html>
