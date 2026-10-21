@@ -211,6 +211,7 @@ input {
 
 main {
   padding: var(--espaco-6) var(--gutter) var(--espaco-8);
+  overflow-x: clip;
 }
 
 main:focus {
@@ -221,6 +222,7 @@ main:focus {
   max-width: var(--largura-texto);
   margin: 0 auto;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--espaco-5);
 }
 
