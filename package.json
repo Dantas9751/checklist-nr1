@@ -1,0 +1,9 @@
+{
+  "name": "checklist-nr1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test site/tests/*.test.mjs",
+    "dados": "python3 -I tools/montar_questionario.py && python3 -I tools/gerar_docs_humanizado.py"
+  }
+}
