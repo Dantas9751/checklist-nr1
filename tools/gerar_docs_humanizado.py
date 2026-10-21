@@ -3,6 +3,7 @@ import json
 
 orig = {p['id']: p for p in json.load(open('docs/extracao/original.json'))}
 hum = json.load(open('docs/extracao/humanizado.json'))
+TITULOS = {'conformidade': 'Em conformidade', 'atencao': 'Atenção', 'exposta': 'Exposta', 'critica': 'Crítica'}
 portes = {'P': 'Pequena', 'M': 'Média', 'G': 'Grande'}
 letras = {v['titulo']: k for k, v in hum['pilares'].items()}
 assert set(orig) == set(hum['perguntas']), 'IDs divergentes'
@@ -30,7 +31,7 @@ for porte in hum['portes']:
     fx = hum['faixas'][porte['id']]
     md.append(f"\n### Faixas e próximos passos\n\n")
     for k, f in fx.items():
-        md.append(f"- **{k}**: {f['resumo']} {' '.join(f['passos'])} Prazo sugerido: {f['prazo']}.\n")
+        md.append(f"- **{TITULOS[k]}**: {f['resumo']} {' '.join(f['passos'])} Prazo sugerido: {f['prazo']}.\n")
     md.append(f"\n{porte['priorizacao']}\n")
 md.append(f"\n---\n\n## Encerramento\n\n{hum['meta']['encerramento']}\n\n{hum['meta']['prazos_nota']}\n")
 open('docs/extracao/humanizado.md', 'w').write(''.join(md))

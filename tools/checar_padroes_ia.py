@@ -11,7 +11,8 @@ def textos(no):
         for ok in PERMITIDOS: no = no.replace(ok, '')
         yield no
     elif isinstance(no, dict):
-        for v in no.values(): yield from textos(v)
+        for k, v in no.items():
+            if k != "base": yield from textos(v)  # citação literal da norma
     elif isinstance(no, list):
         for v in no: yield from textos(v)
 

@@ -285,10 +285,10 @@ Reflita: Quem trabalha aí sem ser funcionário da empresa? E quem cuida da segu
 
 ### Faixas e próximos passos
 
-- **conformidade**: Rotina em dia. Mantenha as evidências. Reavalie pelo menos a cada 2 anos e sempre que algo mudar. Prazo sugerido: Revisão em até 24 meses.
-- **atencao**: Lacunas pontuais. Feche primeiro os itens de peso 3, depois os de peso 2. Prazo sugerido: 30 a 60 dias.
-- **exposta**: Vários pilares frágeis e exposição a autuação. Defina um responsável. Faça o levantamento de perigos e a AEP. Busque apoio técnico. Prazo sugerido: Início imediato; fechar em 90 dias.
-- **critica**: A base do GRO não existe. Comece por P-01 (enquadramento), P-04 (levantamento de perigos), P-06 (AEP) e P-09 (medidas registradas). Prazo sugerido: Início imediato; fechar o mínimo em 60 dias.
+- **Em conformidade**: Rotina em dia. Mantenha as evidências. Reavalie pelo menos a cada 2 anos e sempre que algo mudar. Prazo sugerido: Revisão em até 24 meses.
+- **Atenção**: Lacunas pontuais. Feche primeiro os itens de peso 3, depois os de peso 2. Prazo sugerido: 30 a 60 dias.
+- **Exposta**: Vários pilares frágeis e exposição a autuação. Defina um responsável. Faça o levantamento de perigos e a AEP. Busque apoio técnico. Prazo sugerido: Início imediato; fechar em 90 dias.
+- **Crítica**: A base do GRO não existe. Comece por P-01 (enquadramento), P-04 (levantamento de perigos), P-06 (AEP) e P-09 (medidas registradas). Prazo sugerido: Início imediato; fechar o mínimo em 60 dias.
 
 Escolha as 3 lacunas de maior peso. Em caso de empate, escolha a que atinge mais pessoas.
 
@@ -578,10 +578,10 @@ Reflita: Quem trabalha aí sob contrato está protegido por qual documento?
 
 ### Faixas e próximos passos
 
-- **conformidade**: Sistema consistente. Mantenha a rotina de revisão (a cada 2 anos ou nos gatilhos). Monitore os indicadores. Prazo sugerido: Revisão em até 24 meses.
-- **atencao**: A estrutura existe, com falhas localizadas. Priorize os itens de peso 3, depois o pilar mais fraco. Prazo sugerido: 30 a 60 dias.
-- **exposta**: Documentos ou rotina incompletos em vários pilares. Monte um plano de ação formal. Defina um responsável com orçamento. Busque apoio especializado. Prazo sugerido: Início imediato; 90 dias.
-- **critica**: PGR ausente ou só no papel. Comece por M-01, M-04, M-05, M-07 e M-10. Avalie buscar ajuda externa multidisciplinar. Prazo sugerido: Início imediato; 60 dias para o mínimo.
+- **Em conformidade**: Sistema consistente. Mantenha a rotina de revisão (a cada 2 anos ou nos gatilhos). Monitore os indicadores. Prazo sugerido: Revisão em até 24 meses.
+- **Atenção**: A estrutura existe, com falhas localizadas. Priorize os itens de peso 3, depois o pilar mais fraco. Prazo sugerido: 30 a 60 dias.
+- **Exposta**: Documentos ou rotina incompletos em vários pilares. Monte um plano de ação formal. Defina um responsável com orçamento. Busque apoio especializado. Prazo sugerido: Início imediato; 90 dias.
+- **Crítica**: PGR ausente ou só no papel. Comece por M-01, M-04, M-05, M-07 e M-10. Avalie buscar ajuda externa multidisciplinar. Prazo sugerido: Início imediato; 60 dias para o mínimo.
 
 Ordem de escolha das 3 maiores lacunas: itens de peso 3 em Não atende, depois o pilar com menor percentual, depois os itens que atingem mais trabalhadores.
 
@@ -951,10 +951,10 @@ Reflita: Quem coordena a segurança do espaço que vocês compartilham?
 
 ### Faixas e próximos passos
 
-- **conformidade**: Sistema integrado e demonstrável. Mantenha a auditoria interna. Leve os indicadores à alta direção. Revise nos gatilhos. Prazo sugerido: Revisão em até 24 meses (36, se certificada).
-- **atencao**: Estrutura sólida, com lacunas. Feche os itens de peso 3 e os pilares abaixo do piso. Dê atenção às unidades mais fracas. Prazo sugerido: 30 a 60 dias.
-- **exposta**: Falhas relevantes em vários pilares ou unidades. Monte um plano corporativo com orçamento, patrocínio da diretoria e prazos por unidade. Prazo sugerido: Início imediato; 90 dias.
-- **critica**: GRO sem consistência. Leve o tema à alta direção. Reforce o SESMT e busque ajuda especializada. Comece pelos itens de peso 3. Prazo sugerido: Início imediato; 60 dias para o mínimo.
+- **Em conformidade**: Sistema integrado e demonstrável. Mantenha a auditoria interna. Leve os indicadores à alta direção. Revise nos gatilhos. Prazo sugerido: Revisão em até 24 meses (36, se certificada).
+- **Atenção**: Estrutura sólida, com lacunas. Feche os itens de peso 3 e os pilares abaixo do piso. Dê atenção às unidades mais fracas. Prazo sugerido: 30 a 60 dias.
+- **Exposta**: Falhas relevantes em vários pilares ou unidades. Monte um plano corporativo com orçamento, patrocínio da diretoria e prazos por unidade. Prazo sugerido: Início imediato; 90 dias.
+- **Crítica**: GRO sem consistência. Leve o tema à alta direção. Reforce o SESMT e busque ajuda especializada. Comece pelos itens de peso 3. Prazo sugerido: Início imediato; 60 dias para o mínimo.
 
 Liste as 5 maiores lacunas: itens de peso 3 primeiro, depois as unidades e os pilares mais fracos.
 
