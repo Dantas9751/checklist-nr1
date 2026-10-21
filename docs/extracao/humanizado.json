@@ -1,0 +1,557 @@
+{
+  "meta": {
+    "titulo": "Checklist NR-1 por porte da empresa",
+    "chamada": "NR-1 · GRO / PGR · Riscos psicossociais",
+    "subtitulo": "Um autodiagnóstico de conformidade com perguntas diferentes para pequena, média e grande empresa, com score no final.",
+    "introducao": [
+      "Este checklist segue o que o capítulo 1.5 da NR-1 pede: identificar perigos, avaliar, controlar, acompanhar, envolver os trabalhadores e documentar. As perguntas estão agrupadas em 8 pilares, de A a H.",
+      "O que muda de um porte para outro é a profundidade. A pequena empresa responde sobre o essencial e sobre a dispensa de PGR. A média, sobre o PGR completo e a rotina de gestão. A grande, sobre governança, várias unidades e prova de conformidade."
+    ],
+    "glossario": "GRO é o processo contínuo de identificar perigos, avaliar e controlar riscos. O PGR é o documento que registra esse processo.",
+    "como_marcar": "Marque com honestidade, não com otimismo. Cada pergunta traz um \"Reflita\" para testar sua resposta: se você hesitar ao respondê-lo, provavelmente o item é Parcial.",
+    "pesos": [
+      { "peso": 3, "nome": "Crítico (trava)", "texto": "Exigência expressa da NR-1 cuja falta costuma levar a autuação. Se um item de peso 3 ficar em Não atende, a faixa final fica limitada, mesmo com percentual alto." },
+      { "peso": 2, "nome": "Importante", "texto": "Exigência relevante ou pilar de apoio." },
+      { "peso": 1, "nome": "Maturidade", "texto": "Boa prática que fortalece o sistema." }
+    ],
+    "workflow": [
+      { "titulo": "Triagem", "texto": "Descobrir o porte e o enquadramento" },
+      { "titulo": "Checklist", "texto": "Abrir a checklist do seu porte" },
+      { "titulo": "Marcar", "texto": "Atende, Parcial, Não atende ou N/A" },
+      { "titulo": "Score", "texto": "Somar pontos e calcular a faixa" },
+      { "titulo": "Agir", "texto": "Priorizar lacunas e montar o plano" }
+    ],
+    "triagem_nota": "A NR-1 só diferencia MEI, ME e EPP, pela receita (Lei Complementar 123/2006). Os cortes por número de empregados são uma referência de mercado para escolher o checklist. Na dúvida entre dois portes, use o maior. Se a empresa tem mais de um CNPJ, aplique o checklist a cada estabelecimento.",
+    "aviso": "Ferramenta de autodiagnóstico. Não substitui o texto oficial da norma, parecer jurídico nem a avaliação de um profissional de SST. Se houver divergência, vale o texto publicado no Diário Oficial da União.",
+    "rodape": "Autodiagnóstico baseado na NR-1, no Guia de riscos psicossociais e no Manual do GRO/PGR. Não substitui parecer técnico ou jurídico.",
+    "encerramento": "Agora é agir: priorize as lacunas e monte o plano. Os pesos, faixas, travas e prazos são desenho deste material, não exigências legais. Eles servem para priorizar, não para certificar conformidade.",
+    "prazos_nota": "Os prazos são sugestões práticas deste material, não prazos legais.",
+    "contexto_legal": [
+      {
+        "titulo": "O que o capítulo 1.5 da NR-1 exige",
+        "itens": [
+          "GRO é o processo contínuo de identificar perigos, avaliar e controlar riscos. O PGR documenta esse processo. A implementação é por estabelecimento (1.5.3.1).",
+          "Abrange agentes físicos, químicos e biológicos, acidentes e fatores ergonômicos, incluindo os psicossociais ligados ao trabalho (1.5.3.1.4), considerando as condições de trabalho da NR-17 (1.5.3.2.1).",
+          "Documentos mínimos do PGR: inventário de riscos e plano de ação (1.5.7.1), mais o documento de critérios de avaliação (1.5.4.4.2.2).",
+          "Participação e consulta dos trabalhadores, e comunicação de riscos e medidas (1.5.3.3).",
+          "Revisão da avaliação a cada 2 anos ou nos gatilhos listados (1.5.4.4.6). Histórico guardado por no mínimo 20 anos (1.5.7.3.3.1).",
+          "A contratante responde pelas condições de quem trabalha em suas dependências (1.5.8)."
+        ]
+      },
+      {
+        "titulo": "Linha do tempo",
+        "itens": [
+          "27/08/2024: a Portaria MTE nº 1.419 dá nova redação ao capítulo 1.5 e inclui expressamente os fatores psicossociais.",
+          "24/04/2025: o MTE publica o Guia de informações sobre Fatores de Riscos Psicossociais.",
+          "15/05/2025: a Portaria MTE nº 765 fixa a vigência da nova redação em 26/05/2026.",
+          "26/05/2026: a nova redação entra em vigor. Pelo Q&A do MTE (noticiado por fontes secundárias), os 90 dias seguintes priorizariam a orientação (dupla visita). Esse período, se valeu, já terminou."
+        ]
+      },
+      {
+        "titulo": "Quem está obrigado, e como ficam MEI, ME e EPP",
+        "itens": [
+          "As NR obrigam empregadores e empregados, urbanos e rurais, com empregados regidos pela CLT (1.2.1.1). Cumprir e fazer cumprir é dever do empregador (1.4.1 a).",
+          "Três dispensas diferentes não se confundem. A dispensa do PGR (1.8) não dispensa o GRO, a AEP da NR-17 nem as demais NR. A dispensa do PCMSO (1.8.6) não dispensa os exames e o ASO (1.8.7.1).",
+          "A dispensa de PGR de ME e EPP exige todos os critérios: grau de risco 1 ou 2 (NR-4), nenhuma exposição a agentes físicos, químicos ou biológicos no levantamento preliminar e declaração digital divulgada aos trabalhadores (1.8.4)."
+        ]
+      },
+      {
+        "titulo": "Psicossociais: o que é e o que não é",
+        "itens": [
+          "São os perigos que vêm da forma como o trabalho é concebido, organizado e gerido (sobrecarga, assédio, pouco apoio, papéis pouco claros, mudanças mal geridas) e que podem gerar estresse, esgotamento e outros agravos.",
+          "Não é avaliar a saúde mental de cada pessoa nem o que acontece fora do trabalho (Guia, FAQ 5 e 6). Avalia-se o trabalho real, com participação e anonimato.",
+          "Não há ferramenta obrigatória. Questionário isolado não prova gestão (MTE)."
+        ]
+      },
+      {
+        "titulo": "Penalidades: o que se sabe e o que não se sabe",
+        "itens": [
+          "NR-1 1.9.1: descumprir a norma leva às penalidades da legislação.",
+          "O valor da multa segue a NR-28, de acordo com a gravidade da infração e o número de empregados. Não existe um valor único por tema.",
+          "Fontes de mercado citam valores-base entre R$ 1,7 mil e R$ 5,2 mil por infração, que se somam quando há várias. Trate como estimativa e confirme a tabela vigente."
+        ]
+      }
+    ],
+    "fontes": {
+      "base": [
+        "NR-1 atualizada (redação da Portaria MTE nº 1.419/2024 e vigência em 26/05/2026 pela Portaria MTE nº 765/2025).",
+        "Guia de informações sobre os Fatores de Riscos Psicossociais Relacionados ao Trabalho (MTE, 2025).",
+        "Manual de Interpretação e Aplicação do Capítulo 1.5 da NR-1: Gerenciamento de Riscos Ocupacionais (Secretaria de Inspeção do Trabalho)."
+      ],
+      "complementar": [
+        "Contábeis: NR-1 entra em fase de fiscalização (26/05/2026) · contabeis.com.br/noticias/76472",
+        "AMDJUS: início da vigência e aplicação de multas por 90 dias · amdjus.com.br/nr-1-inicio-da-vigencia-adia-aplicacao-de-multas-por-90-dias",
+        "Migalhas: NR-1, vigência, fiscalização e multas · migalhas.com.br/depeso/451671",
+        "GSGA: encerramento do período educativo e início da fiscalização punitiva · gsga.com.br (informativo NR-1, 26/05/2026)",
+        "RS Data: perguntas e respostas do MTE sobre NR-1 e riscos psicossociais · rsdata.com.br/mte-perguntas-respostas-nr1-riscos-psicossociais-gro",
+        "Sólides: multas por descumprimento da NR-1 · solides.com.br/blog/multas-por-descumprimento-da-nr-1"
+      ],
+      "verificar": [
+        "As fontes secundárias divergem sobre a fase educativa (dupla visita) depois de 26/05/2026. Confirme a orientação vigente em gov.br/trabalho-e-emprego.",
+        "Os valores de multa são estimativas de mercado. A base legal é a NR-28. Confirme a tabela atual.",
+        "Os cortes de porte por número de empregados (SEBRAE/IBGE) e os de ME/EPP por receita (Lei Complementar 123/2006) são referências de apoio. A NR-1 só distingue MEI, ME e EPP.",
+        "Os pesos, faixas, travas e prazos de score são desenho deste material, não exigências legais. Servem para priorizar, não para certificar conformidade.",
+        "Grau de risco (NR-4), CIPA (NR-5), PCMSO (NR-7), agentes ambientais (NR-9) e ergonomia (NR-17) têm regras próprias, citadas aqui só onde a NR-1 as menciona."
+      ]
+    }
+  },
+  "opcoes": [
+    { "id": "atende", "texto": "Atende", "descricao": "A prática existe, está em uso e tem evidência (documento, registro, relato verificável)." },
+    { "id": "parcial", "texto": "Parcial", "descricao": "Existe só em parte: em alguns setores, desatualizada, sem registro ou sem responsável." },
+    { "id": "nao_atende", "texto": "Não atende", "descricao": "Não existe, ou existe só na intenção." },
+    { "id": "na", "texto": "N/A", "descricao": "A pergunta não se aplica ao seu caso (por exemplo, não há terceiros). Sai do cálculo." }
+  ],
+  "portes": [
+    {
+      "id": "pequena",
+      "nome": "Pequena",
+      "criterio": "MEI, ME ou EPP. Em geral, até 49 empregados (comércio e serviços) ou até 99 (indústria).",
+      "foco": "Enquadramento, dispensa de PGR, AEP com psicossociais e registro simples.",
+      "subtitulo": "Para MEI, ME e EPP e empresas com poucos empregados",
+      "o_que_muda": "Perguntas curtas e práticas, ligadas à rotina. Começa pelo enquadramento (P-01 e P-02), porque a dispensa de PGR é a decisão que molda o resto. Se a empresa for dispensada, não precisa de inventário formal, mas continuam valendo a AEP com psicossociais, as medidas registradas, os treinamentos, os exames e o ASO, as emergências e a informação aos trabalhadores.",
+      "particularidade": "Capítulo 1.8: o MEI é dispensado do PGR. ME e EPP de grau de risco 1 e 2 podem ser dispensadas se cumprirem todos os critérios. A AEP continua obrigatória.",
+      "score_nome": "SCE · Score de Conformidade Essencial",
+      "score_texto": "Uma conta só, de 0 a 100: pontos obtidos divididos pelos pontos aplicáveis, sem peso por pilar. Pensado para quem tem pouco tempo e poucos recursos. Itens críticos funcionam como trava.",
+      "priorizacao": "Escolha as 3 lacunas de maior peso. Em caso de empate, escolha a que atinge mais pessoas."
+    },
+    {
+      "id": "media",
+      "nome": "Média",
+      "criterio": "De 50 a 99 empregados (comércio e serviços) ou de 100 a 499 (indústria). Também vale para empresas menores que não se enquadram na dispensa de PGR.",
+      "foco": "PGR completo por estabelecimento, critérios escritos, plano de ação, CIPA e terceiros.",
+      "subtitulo": "PGR completo por estabelecimento, com rotina e documentos",
+      "o_que_muda": "As perguntas pedem prova documental e rotina: inventário e plano de ação com conteúdo mínimo, critérios de avaliação por escrito, revisão periódica, integração com PCMSO e CIPA, gestão de mudanças, indicadores psicossociais e terceiros.",
+      "particularidade": "PGR completo (inventário de riscos e plano de ação) por estabelecimento, mais o documento de critérios de avaliação.",
+      "score_nome": "SPP · Score por Pilares",
+      "score_texto": "Cada um dos 8 pilares tem um peso diferente, um piso mínimo e travas. O resultado mostra onde está a fragilidade, não só quanto falta. Responda uma vez por estabelecimento (CNPJ).",
+      "priorizacao": "Ordem de escolha das 3 maiores lacunas: itens de peso 3 em Não atende, depois o pilar com menor percentual, depois os itens que atingem mais trabalhadores."
+    },
+    {
+      "id": "grande",
+      "nome": "Grande",
+      "criterio": "100 ou mais empregados (comércio e serviços) ou 500 ou mais (indústria). Empresas com vários estabelecimentos, contratadas e turnos.",
+      "foco": "Governança, várias unidades, sistema de gestão, indicadores, contratadas e rastreabilidade.",
+      "subtitulo": "Governança, várias unidades e capacidade de provar a conformidade",
+      "o_que_muda": "Perguntas de sistema: patrocínio da alta direção, critérios iguais entre unidades, integração com sistema de gestão, indicadores e auditorias, lideranças, AET, contratadas e riscos de interação, rastreabilidade digital e histórico de 20 anos.",
+      "particularidade": "As mesmas exigências da média, com mais unidades, mais terceiros e mais trabalhadores expostos, o que aumenta a prioridade das ações.",
+      "score_nome": "ICM · Índice de Conformidade e Maturidade",
+      "score_texto": "Um ICM por estabelecimento, com 8 pilares de pesos diferentes, piso e travas. As faixas são mais exigentes, porque a multa cresce com o número de empregados (NR-28). Responda uma vez por estabelecimento (CNPJ).",
+      "priorizacao": "Liste as 5 maiores lacunas: itens de peso 3 primeiro, depois as unidades e os pilares mais fracos.",
+      "indicadores": {
+        "titulo": "Indicadores sugeridos para a alta direção",
+        "itens": [
+          "% de estabelecimentos com PGR vigente e dentro do prazo de revisão",
+          "% das ações do plano concluídas no prazo, por unidade",
+          "Absenteísmo, rotatividade e afastamentos por setor (tendência trimestral)",
+          "Denúncias de assédio e violência: recebidas, apuradas e concluídas",
+          "% de trabalhadores com treinamentos válidos e certificados completos",
+          "% de contratadas com inventário e plano de ação entregues e verificados",
+          "Simulados realizados e ações corretivas fechadas"
+        ],
+        "nota": "Sugestões deste material para acompanhar o desempenho em SST (NR-1 1.5.3.4). A norma não define indicadores específicos."
+      }
+    }
+  ],
+  "pilares": {
+    "A": { "titulo": "Governança e enquadramento", "ponte": "Começamos pela base: quem responde pela gestão de riscos e em que regras a sua empresa se enquadra." },
+    "B": { "titulo": "Identificação de perigos", "ponte": "Agora, os perigos: o que pode machucar ou adoecer alguém no trabalho." },
+    "C": { "titulo": "Avaliação e classificação de riscos", "ponte": "Com os perigos identificados, o passo seguinte é avaliar e decidir o que vem primeiro." },
+    "D": { "titulo": "Riscos psicossociais", "ponte": "Este pilar olha para a organização do trabalho: carga, apoio, relações e assédio." },
+    "E": { "titulo": "Controle e plano de ação", "ponte": "Hora de ver se o que foi avaliado virou medida, com dono, prazo e acompanhamento." },
+    "F": { "titulo": "Participação, comunicação e assédio", "ponte": "Quem faz o trabalho precisa ser ouvido e informado. É isso que este pilar verifica." },
+    "G": { "titulo": "Saúde, acidentes e emergências", "ponte": "Agora, a saúde dos trabalhadores e a resposta quando algo dá errado." },
+    "H": { "titulo": "Documentação, treinamento e terceiros", "ponte": "Por fim, a prova: documentos, treinamentos e quem trabalha na empresa sem ser empregado dela." }
+  },
+  "faixas": {
+    "pequena": {
+      "conformidade": { "resumo": "Rotina em dia.", "passos": ["Mantenha as evidências.", "Reavalie pelo menos a cada 2 anos e sempre que algo mudar."], "prazo": "Revisão em até 24 meses" },
+      "atencao": { "resumo": "Lacunas pontuais.", "passos": ["Feche primeiro os itens de peso 3, depois os de peso 2."], "prazo": "30 a 60 dias" },
+      "exposta": { "resumo": "Vários pilares frágeis e exposição a autuação.", "passos": ["Defina um responsável.", "Faça o levantamento de perigos e a AEP.", "Busque apoio técnico."], "prazo": "Início imediato; fechar em 90 dias" },
+      "critica": { "resumo": "A base do GRO não existe.", "passos": ["Comece por P-01 (enquadramento), P-04 (levantamento de perigos), P-06 (AEP) e P-09 (medidas registradas)."], "prazo": "Início imediato; fechar o mínimo em 60 dias" }
+    },
+    "media": {
+      "conformidade": { "resumo": "Sistema consistente.", "passos": ["Mantenha a rotina de revisão (a cada 2 anos ou nos gatilhos).", "Monitore os indicadores."], "prazo": "Revisão em até 24 meses" },
+      "atencao": { "resumo": "A estrutura existe, com falhas localizadas.", "passos": ["Priorize os itens de peso 3, depois o pilar mais fraco."], "prazo": "30 a 60 dias" },
+      "exposta": { "resumo": "Documentos ou rotina incompletos em vários pilares.", "passos": ["Monte um plano de ação formal.", "Defina um responsável com orçamento.", "Busque apoio especializado."], "prazo": "Início imediato; 90 dias" },
+      "critica": { "resumo": "PGR ausente ou só no papel.", "passos": ["Comece por M-01, M-04, M-05, M-07 e M-10.", "Avalie buscar ajuda externa multidisciplinar."], "prazo": "Início imediato; 60 dias para o mínimo" }
+    },
+    "grande": {
+      "conformidade": { "resumo": "Sistema integrado e demonstrável.", "passos": ["Mantenha a auditoria interna.", "Leve os indicadores à alta direção.", "Revise nos gatilhos."], "prazo": "Revisão em até 24 meses (36, se certificada)" },
+      "atencao": { "resumo": "Estrutura sólida, com lacunas.", "passos": ["Feche os itens de peso 3 e os pilares abaixo do piso.", "Dê atenção às unidades mais fracas."], "prazo": "30 a 60 dias" },
+      "exposta": { "resumo": "Falhas relevantes em vários pilares ou unidades.", "passos": ["Monte um plano corporativo com orçamento, patrocínio da diretoria e prazos por unidade."], "prazo": "Início imediato; 90 dias" },
+      "critica": { "resumo": "GRO sem consistência.", "passos": ["Leve o tema à alta direção.", "Reforce o SESMT e busque ajuda especializada.", "Comece pelos itens de peso 3."], "prazo": "Início imediato; 60 dias para o mínimo" }
+    }
+  },
+  "perguntas": {
+    "P-01": {
+      "texto": "Sua empresa já confirmou o enquadramento (MEI, ME ou EPP), o grau de risco (NR-4) e se cumpre todos os critérios para a dispensa do PGR?",
+      "contexto": "A dispensa vale só para MEI, ME e EPP. ME e EPP ainda precisam ter grau de risco 1 ou 2, não ter exposição a agentes físicos, químicos ou biológicos no levantamento preliminar e ter feito a declaração digital. Falhou um critério, o PGR completo é obrigatório. E a dispensa é do PGR: o GRO e as demais NR continuam valendo.",
+      "reflita": "Se um fiscal pedisse hoje a prova de cada critério, qual deles você não conseguiria mostrar?"
+    },
+    "P-02": {
+      "texto": "Se a sua empresa é dispensada do PGR: a declaração digital foi feita e divulgada aos trabalhadores? Se vocês têm PGR, marque N/A.",
+      "contexto": "O empregador declara as informações no sistema digital da Inspeção do Trabalho (pgr.trabalho.gov.br, segundo o Manual) e precisa divulgá-las aos trabalhadores. Sem a declaração, a dispensa não existe na prática e o PGR volta a ser exigido.",
+      "reflita": "Seus trabalhadores sabem o que foi declarado em nome da empresa?"
+    },
+    "P-03": {
+      "texto": "Existe uma pessoa responsável (com nome e papel definidos) por conduzir a gestão de riscos, com apoio técnico quando for preciso?",
+      "contexto": "As NR não exigem um profissional específico. A responsabilidade é da empresa: ela define quem conduz e busca ajuda se não domina o tema (técnico de segurança, consultoria, CIPA ou designado). Sem um dono definido, a gestão de riscos não sai do papel.",
+      "reflita": "Se essa pessoa saísse amanhã, alguém saberia continuar?"
+    },
+    "P-04": {
+      "texto": "Sua empresa já fez o levantamento preliminar de perigos? Ou seja, olhou o que pode machucar ou adoecer alguém em cada atividade e em cada local de trabalho?",
+      "contexto": "É a primeira etapa. Acontece antes de a empresa começar a funcionar, para as atividades que já existem e sempre que um processo ou atividade muda. Serve para eliminar o que for possível e controlar logo o risco evidente. Também mostra se há exposição a agentes físicos, químicos ou biológicos, que é a base da dispensa.",
+      "reflita": "Quais atividades da sua empresa ninguém olhou ainda com esse olhar?"
+    },
+    "P-05": {
+      "texto": "Vocês sabem priorizar os perigos usando um critério simples e escrito (quão grave e quão provável)?",
+      "contexto": "Nível de risco é a combinação da gravidade possível com a probabilidade. A avaliação pode ser qualitativa, feita por quem avalia a partir das condições reais de trabalho. Sem critério, ou tudo vira urgente, ou nada vira.",
+      "reflita": "Quais dois riscos você resolveria primeiro, e por quê?"
+    },
+    "P-06": {
+      "texto": "A AEP (avaliação ergonômica preliminar) já foi feita? E ela inclui os fatores de risco psicossociais ligados ao trabalho?",
+      "contexto": "A AEP é obrigatória para todas as empresas, inclusive as dispensadas de PGR. Segundo o Manual, a dispensa do PGR não dispensa a AEP. Sobrecarga, assédio e falta de apoio são fatores psicossociais e hoje aparecem expressamente no GRO (em vigor desde 26/05/2026).",
+      "reflita": "Onde está registrado que vocês olharam sobrecarga, assédio e falta de apoio? E quando foi isso?"
+    },
+    "P-07": {
+      "texto": "Vocês conversaram com os trabalhadores sobre o trabalho real (em oficina ou por observação), com garantia de sigilo?",
+      "contexto": "Para equipes pequenas, o Guia sugere oficina (workshop) ou observação da atividade, sempre com a participação de quem trabalha. O foco é o trabalho como ele acontece de fato, não como está descrito. Sem a voz do trabalhador, não há avaliação psicossocial válida. Sem confiança e anonimato, o diagnóstico sai falho.",
+      "reflita": "Sua equipe diria a verdade sem medo de represália?"
+    },
+    "P-08": {
+      "texto": "Vocês acompanham sinais de alerta, como faltas, atestados, rotatividade, conflitos e reclamações?",
+      "contexto": "Esses indicadores ajudam a identificar perigos psicossociais. Eles apontam para a organização do trabalho (carga, prazos, relações). Não servem para diagnosticar ninguém individualmente.",
+      "reflita": "O que os últimos 12 meses de faltas e saídas contam sobre como o trabalho está organizado?"
+    },
+    "P-09": {
+      "texto": "Cada risco relevante tem uma medida definida, com responsável e prazo, registrada por escrito?",
+      "contexto": "O plano de ação indica as medidas a introduzir, melhorar ou manter, com cronograma, responsáveis e forma de acompanhamento. Se a empresa é dispensada do PGR, os registros seguem as demais NR (por exemplo, a AEP). Medida sem dono e sem data é intenção, não prevenção.",
+      "reflita": "Qual medida combinada na última conversa já tem nome e data?"
+    },
+    "P-10": {
+      "texto": "Vocês reavaliam riscos e medidas pelo menos a cada 2 anos e sempre que algo muda (processo, acidente, reclamação)?",
+      "contexto": "A norma prevê revisão a cada 2 anos, ou antes, quando: medidas são implantadas, o processo muda, uma medida se mostra ineficaz, acontece acidente ou doença, a lei muda ou os trabalhadores fazem um pedido justificado. Medida que não funciona precisa ser corrigida.",
+      "reflita": "O que mudou na empresa desde a última avaliação e ainda não foi reavaliado?"
+    },
+    "P-11": {
+      "texto": "Quem entra na empresa ou muda de função recebe informação sobre riscos, medidas de prevenção e o que fazer numa emergência?",
+      "contexto": "A informação cobre os riscos existentes, os meios de prevenção, as medidas da empresa, os procedimentos de emergência e o direito de interromper o trabalho em caso de risco grave e iminente. Pode ser passada em treinamento, diálogo de segurança ou documento.",
+      "reflita": "A última pessoa contratada sabe, sem precisar perguntar, como agir diante de um risco grave?"
+    },
+    "P-12": {
+      "texto": "Os trabalhadores têm um jeito simples de dar opinião sobre riscos (reunião, CIPA ou designado, algum canal)?",
+      "contexto": "A empresa deve ter mecanismos de participação e consulta (a CIPA pode cumprir esse papel, quando existir) e dar noções básicas sobre gerenciamento de riscos. Quem faz o trabalho vê perigos que a gestão não vê.",
+      "reflita": "Quando foi a última vez que uma sugestão de segurança virou ação?"
+    },
+    "P-13": {
+      "texto": "Sua empresa tem regra de conduta contra assédio e violência, divulgada, com um canal de denúncia que protege quem denuncia?",
+      "contexto": "É obrigatória para empresas que precisam ter CIPA (NR-5) e boa prática para as demais. Assédio também é fator de risco psicossocial. A regra prevê apuração dos fatos, sigilo de quem denuncia e ações de orientação pelo menos a cada 12 meses.",
+      "reflita": "Se alguém sofresse assédio hoje, saberia a quem recorrer sem medo?"
+    },
+    "P-14": {
+      "texto": "Os exames médicos e o ASO dos empregados estão em dia, mesmo que a empresa seja dispensada do PCMSO?",
+      "contexto": "A dispensa do PCMSO não libera dos exames médicos nem do ASO. O controle da saúde deve ser preventivo, planejado e contínuo, como pede a NR-7.",
+      "reflita": "Você tem hoje o ASO válido de todos?"
+    },
+    "P-15": {
+      "texto": "Acidentes, doenças do trabalho e quase-acidentes são registrados? E as causas são analisadas?",
+      "contexto": "A análise documentada considera a atividade real, o ambiente, a organização do trabalho e o relato dos trabalhadores. Ela serve para melhorar as medidas. Vale também para eventos perigosos que poderiam ter tido consequência grave.",
+      "reflita": "O que o último incidente ensinou, e o que mudou depois dele?"
+    },
+    "P-16": {
+      "texto": "Existe procedimento de emergência (primeiros socorros, abandono do local) e todos sabem qual é?",
+      "contexto": "O procedimento prevê meios, responsáveis e recursos para primeiros socorros, encaminhamento de acidentados e abandono dos locais afetados, com exercícios simulados na frequência definida.",
+      "reflita": "Se houver um incêndio ou um mal súbito agora, quem faz o quê?"
+    },
+    "P-17": {
+      "texto": "Os treinamentos exigidos pelas NR que se aplicam à sua empresa são feitos, com certificado arquivado?",
+      "contexto": "Há treinamento inicial (antes de começar), periódico e eventual (mudança de procedimento, acidente grave ou volta de afastamento maior que 180 dias). O certificado traz conteúdo, carga horária, data e instrutor. O tempo de treinamento conta como jornada.",
+      "reflita": "Quem trabalha hoje sem o treinamento que a função exige?"
+    },
+    "P-18": {
+      "texto": "Se prestadores de serviço (inclusive MEI) trabalham nas dependências da sua empresa, os riscos deles estão no seu gerenciamento? Se não há prestadores, marque N/A.",
+      "contexto": "A contratante inclui medidas de prevenção para as contratadas que atuam em suas dependências, ou usa os programas delas. A dispensa do MEI não se estende à contratante. Receber o documento e arquivar não basta: existe o dever de vigilância.",
+      "reflita": "Quem trabalha aí sem ser funcionário da empresa? E quem cuida da segurança dessa pessoa?"
+    },
+    "M-01": {
+      "texto": "Cada estabelecimento (CNPJ) tem PGR implementado, cobrindo todas as atividades, mesmo quando ele é organizado por unidade, setor ou atividade?",
+      "contexto": "A regra central é um PGR por estabelecimento. A empresa pode dividir a implementação por unidade operacional, setor ou atividade, mas essa divisão só organiza o trabalho: nenhuma área ou atividade pode ficar de fora. Na média empresa não existe dispensa de PGR por porte.",
+      "reflita": "Existe algum setor, turno ou unidade que ninguém incluiu no PGR?"
+    },
+    "M-02": {
+      "texto": "O GRO/PGR tem um ou mais responsáveis formais, com autoridade e recursos? E o SESMT (se houver) e a CIPA ou o designado participam?",
+      "contexto": "A responsabilidade é da organização, não do documento. É ela que define quem conduz cada etapa e envolve SST, gestores, líderes e trabalhadores. Quem recebe a tarefa sem tempo, orçamento ou autonomia entrega um PGR de gaveta.",
+      "reflita": "Quem decide se uma medida de prevenção custa o que precisa custar?"
+    },
+    "M-03": {
+      "texto": "O PGR está integrado ao PCMSO, às avaliações de agentes (NR-9), à ergonomia (NR-17) e aos demais programas de SST, ou pelo menos remete a eles com clareza?",
+      "contexto": "Os dados das avaliações ambientais e da ergonomia alimentam o inventário de riscos, e o inventário embasa o PCMSO. Programas soltos geram contradições entre documentos, e o fiscal percebe.",
+      "reflita": "Se você cruzar o PGR e o PCMSO hoje, os dois contam a mesma história?"
+    },
+    "M-04": {
+      "texto": "O levantamento preliminar de perigos foi feito para as atividades atuais, para novas instalações e para cada mudança relevante?",
+      "contexto": "Ele busca evitar ou eliminar perigos e tratar logo o risco evidente. Se não houver medida imediata possível, a medida vai para o plano de ação e o risco vai para o inventário. É a porta de entrada de todo o GRO.",
+      "reflita": "Que perigo óbvio vocês conhecem há tempo e ainda não está no plano de ação?"
+    },
+    "M-05": {
+      "texto": "A identificação de perigos descreve cada perigo, as lesões ou agravos possíveis, as fontes ou circunstâncias e os grupos de trabalhadores expostos, incluindo todos os tipos de risco?",
+      "contexto": "O GRO abrange agentes físicos, químicos e biológicos, acidentes e fatores ergonômicos, incluindo os psicossociais. Também precisa considerar perigos externos previsíveis. Perigo não identificado não é gerenciado nem prevenido.",
+      "reflita": "Que tipo de risco vocês estão tratando menos do que deveriam?"
+    },
+    "M-06": {
+      "texto": "Quando algo muda (novo processo, tecnologia, metas, reorganização, novo turno), uma nova análise de riscos é feita antes de a mudança entrar em vigor?",
+      "contexto": "Mudanças no trabalho alteram ou criam riscos, inclusive psicossociais (reestruturações, metas, troca de liderança). A norma exige levantamento e reavaliação nessas situações. Reorganizar sem avaliar é o caminho mais comum para criar um risco novo.",
+      "reflita": "A última mudança importante passou por análise de riscos antes de acontecer?"
+    },
+    "M-07": {
+      "texto": "Sua empresa tem um documento com os critérios de severidade, probabilidade, níveis de risco, classificação e tomada de decisão que ela usa?",
+      "contexto": "A norma exige que esses critérios estejam detalhados em documento, transparente para gestores, profissionais, trabalhadores e para a Inspeção do Trabalho. Segundo o Manual, é um dos 3 documentos mínimos do PGR. Sem critério escrito, a avaliação fica questionável.",
+      "reflita": "Duas pessoas diferentes classificariam o mesmo risco do mesmo jeito usando esse documento?"
+    },
+    "M-08": {
+      "texto": "Cada risco tem um nível definido (severidade × probabilidade) e uma classificação que orienta a prioridade, levando em conta quantos trabalhadores ele atinge?",
+      "contexto": "A severidade considera a consequência de maior magnitude. A probabilidade considera o cumprimento das NR e a eficácia das medidas existentes. Quanto mais trabalhadores podem ser atingidos, maior a prioridade da ação.",
+      "reflita": "A lista de prioridades reflete o risco real ou o que é mais barato resolver?"
+    },
+    "M-09": {
+      "texto": "A avaliação de riscos é revista a cada 2 anos e também nos gatilhos previstos (medidas, mudanças, ineficácia, acidente, mudança legal, pedido dos trabalhadores ou da CIPA)?",
+      "contexto": "A avaliação é um processo contínuo. Quem tem certificação em sistema de gestão de SST pode chegar a 3 anos. A revisão depois das medidas verifica o risco residual. Documento desatualizado vale pouco numa fiscalização.",
+      "reflita": "Qual é a data da última revisão, e qual evento deveria ter feito vocês a anteciparem?"
+    },
+    "M-10": {
+      "texto": "Os fatores de risco psicossociais ligados ao trabalho foram identificados e avaliados (AEP/AET) e constam no inventário de riscos?",
+      "contexto": "Desde 26/05/2026, a norma cita esses fatores expressamente no GRO. O que se avalia é a organização do trabalho (sobrecarga, falta de autonomia, de apoio ou de clareza de papel, assédio, mudanças mal geridas), não a saúde de cada pessoa. A probabilidade considera as exigências da atividade e a eficácia das medidas.",
+      "reflita": "Quais fatores da organização do trabalho poderiam adoecer alguém, mesmo que ninguém tenha reclamado?"
+    },
+    "M-11": {
+      "texto": "A estratégia de avaliação (observação, oficinas, pesquisa padronizada) foi escolhida com critério, com anonimato garantido e aplicada por um profissional competente?",
+      "contexto": "Não existe ferramenta obrigatória. A escolhida precisa ser adequada ao risco e à empresa, ter base científica e ser aplicada por quem domina o método. Para o MTE, questionário isolado não comprova gestão: o resultado precisa de análise técnica e de integração ao inventário.",
+      "reflita": "Se o resultado da pesquisa fosse ruim, vocês estariam preparados para agir sobre ele?"
+    },
+    "M-12": {
+      "texto": "Indicadores como absenteísmo, rotatividade, afastamentos, conflitos e denúncias são analisados por setor? E as lideranças participam do diagnóstico?",
+      "contexto": "Os indicadores mostram por onde começar (um setor piloto) e medem se as medidas funcionam. Gerentes e supervisores definem carga, prazo e meta. Sem eles envolvidos, o plano não muda a organização do trabalho.",
+      "reflita": "Qual setor tem o pior sinal, e o que ele diz sobre a gestão do trabalho?"
+    },
+    "M-13": {
+      "texto": "O plano de ação tem medidas para cada risco classificado, com cronograma, responsáveis, forma de acompanhamento e medição de resultados?",
+      "contexto": "O plano indica as medidas a introduzir, aprimorar ou manter, de acordo com a classificação. É um documento mínimo do PGR. Sem cronograma e sem dono, o plano não vira prevenção e a empresa não prova nada.",
+      "reflita": "Quantas ações do plano de 12 meses atrás foram concluídas, e por que as outras não?"
+    },
+    "M-14": {
+      "texto": "As medidas seguem a ordem de prioridade: primeiro eliminar, depois proteção coletiva, depois organização do trabalho e medidas administrativas e, por último, EPI?",
+      "contexto": "Essa hierarquia é obrigatória. O Guia reforça: para riscos psicossociais, prefira medidas que mudam a organização do trabalho (priorizar tarefas, criar pausas, redistribuir a carga) a ações apenas individuais ou de comportamento.",
+      "reflita": "As medidas de vocês mudam o trabalho ou pedem que a pessoa aguente melhor?"
+    },
+    "M-15": {
+      "texto": "Vocês acompanham o desempenho das medidas (execução, inspeções, monitoramento, participação dos trabalhadores) e corrigem as que não funcionam?",
+      "contexto": "A implantação e os ajustes devem ser registrados, e o desempenho, acompanhado de forma planejada. Se os dados mostram que uma medida é ineficaz, ela precisa ser corrigida. É o 'Check' e o 'Act' do ciclo PDCA do GRO.",
+      "reflita": "Como vocês saberiam que uma medida deixou de funcionar?"
+    },
+    "M-16": {
+      "texto": "Os trabalhadores participam da identificação de perigos, da avaliação (AEP/AET), das mudanças e do acompanhamento, seja pela CIPA ou por outros meios?",
+      "contexto": "A empresa deve dar noções básicas de GRO e consultar os trabalhadores sobre como eles percebem os riscos. Os quatro momentos de participação são: identificação de perigos, AEP/AET, mudanças e acompanhamento do desempenho das medidas.",
+      "reflita": "Em qual dessas quatro etapas os trabalhadores nunca foram ouvidos?"
+    },
+    "M-17": {
+      "texto": "Os riscos do inventário e as medidas do plano são comunicados a todos? E quem é admitido ou muda de função recebe as informações previstas?",
+      "contexto": "A comunicação cobre os riscos consolidados, as medidas previstas, os limites dessas medidas, os procedimentos de emergência e o direito de interromper o trabalho em risco grave e iminente. Comunicar não é afixar um cartaz: a informação precisa chegar a quem está exposto.",
+      "reflita": "Um operador novo consegue dizer quais são os 3 principais riscos do posto dele?"
+    },
+    "M-18": {
+      "texto": "Para empresas com CIPA: vocês têm regras de conduta sobre assédio e violência, procedimento de denúncia com sigilo e ações de capacitação a cada 12 meses?",
+      "contexto": "É exigência expressa para quem é obrigado a ter CIPA (NR-5). Inclui divulgar as regras, apurar os casos, aplicar sanções administrativas aos responsáveis (diretos e indiretos) e proteger o anonimato de quem denuncia. Também é fator psicossocial do inventário.",
+      "reflita": "O canal de denúncia já foi usado? Se nunca foi, é porque não há casos ou porque ninguém confia nele?"
+    },
+    "M-19": {
+      "texto": "O PCMSO é feito a partir do inventário de riscos, e o controle de saúde é planejado e contínuo?",
+      "contexto": "As ações de saúde ocupacional devem estar integradas às medidas de prevenção e ao risco gerado pelo trabalho (NR-7). O inventário é o ponto de partida para o médico do trabalho definir os exames.",
+      "reflita": "O médico do trabalho recebeu o inventário atualizado?"
+    },
+    "M-20": {
+      "texto": "Acidentes, doenças ligadas ao trabalho e eventos perigosos com potencial grave são analisados e documentados? E os resultados voltam para melhorar as medidas?",
+      "contexto": "A análise considera as atividades realmente feitas, o ambiente, a organização do trabalho, os dados da empresa, os dados epidemiológicos e as informações dos trabalhadores. Ela deve trazer evidências para melhorar as medidas existentes.",
+      "reflita": "A última análise de acidente mudou alguma medida de prevenção?"
+    },
+    "M-21": {
+      "texto": "Existe um procedimento de resposta a emergências proporcional aos riscos, com recursos, responsáveis e simulados periódicos com evidência?",
+      "contexto": "Ele prevê meios para primeiros socorros, encaminhamento de acidentados e abandono dos locais afetados. Os simulados seguem a frequência definida no procedimento e geram evidências (registros, fotos, lista de presença).",
+      "reflita": "Na última simulação, o que falhou e o que vocês corrigiram?"
+    },
+    "M-22": {
+      "texto": "O inventário de riscos e o plano de ação têm o conteúdo mínimo e estão datados, assinados, atualizados e disponíveis para trabalhadores, sindicatos e Inspeção do Trabalho?",
+      "contexto": "O inventário deve trazer a caracterização dos processos e atividades, os perigos, as lesões possíveis, os grupos expostos, as medidas existentes, a exposição, os dados de monitoramento e a avaliação do risco. Os documentos são responsabilidade da organização e precisam estar sempre disponíveis.",
+      "reflita": "Se a Inspeção pedisse os documentos agora, em quanto tempo você os entregaria completos?"
+    },
+    "M-23": {
+      "texto": "Os treinamentos (inicial, periódico e eventual) estão em dia, com certificado e registro nos documentos funcionais?",
+      "contexto": "O inicial acontece antes de a pessoa começar na função. O eventual, quando mudam procedimentos, depois de acidente grave ou na volta de afastamento maior que 180 dias. Capacitação a distância precisa atender ao Anexo II da NR-1.",
+      "reflita": "Que função hoje opera sem o treinamento atualizado?"
+    },
+    "M-24": {
+      "texto": "Para prestadores de serviço que trabalham nas dependências da empresa: o PGR inclui as medidas de prevenção (ou vocês usam os programas deles) e vocês vigiam a execução?",
+      "contexto": "A contratante responde pela segurança e salubridade quando o trabalho acontece nas suas dependências. Receber o PGR da contratada e arquivar não basta. Os riscos de interação entre atividades devem ser definidos em conjunto, sob coordenação da contratante.",
+      "reflita": "Quem trabalha aí sob contrato está protegido por qual documento?"
+    },
+    "G-01": {
+      "texto": "Cada estabelecimento (CNPJ) tem PGR implementado, cobrindo todas as atividades? E existe uma visão consolidada de todas as unidades?",
+      "contexto": "O PGR é obrigatório por estabelecimento. Numa empresa com várias unidades, a falha de uma delas é falha da organização aos olhos da fiscalização. A consolidação mostra padrões (a mesma falha em várias unidades) e ajuda a priorizar recursos.",
+      "reflita": "Qual é a unidade mais fraca em GRO, e quem responde por ela?"
+    },
+    "G-02": {
+      "texto": "A alta direção patrocina formalmente o GRO (política, responsabilidades por nível, orçamento) e acompanha os resultados?",
+      "contexto": "Os riscos psicossociais nascem da organização do trabalho: metas, estrutura, ritmo. Quem decide isso é a gestão. Sem o patrocínio da alta direção, o GRO vira uma tarefa de SST contra as decisões do negócio.",
+      "reflita": "Quando foi a última vez que um indicador de SST mudou uma decisão da diretoria?"
+    },
+    "G-03": {
+      "texto": "SESMT, RH, jurídico ou compliance, gestores e CIPA trabalham de forma integrada, com papéis definidos em cada etapa do GRO?",
+      "contexto": "O Guia recomenda envolver SESMT, níveis gerenciais, alta administração, líderes e trabalhadores, com responsabilidades atribuídas. Em empresa grande, a fragmentação entre áreas é o principal risco de lacuna e de contradição.",
+      "reflita": "Se aparecer um caso de adoecimento mental, qual área lidera e quem apoia?"
+    },
+    "G-04": {
+      "texto": "Se vocês usam um sistema de gestão (por exemplo, ISO 45001) para atender ao GRO, conseguem mostrar onde cada exigência da NR-1 está cumprida?",
+      "contexto": "O sistema de gestão pode atender ao GRO/PGR, desde que cumpra integralmente a NR-1 e os demais dispositivos de SST. Segundo o Manual, a certificação não isenta do cumprimento integral, e a conformidade legal prevalece sobre a certificação voluntária.",
+      "reflita": "Se o fiscal escolher um item da NR-1 ao acaso, vocês acham a evidência dele no sistema em minutos?"
+    },
+    "G-05": {
+      "texto": "Vocês avaliam e melhoram o desempenho em SST com indicadores e verificações (inclusive auditorias internas) de todos os processos do GRO?",
+      "contexto": "A melhoria contínua vai além do plano de ação. Ela monitora identificação de perigos, avaliação, implementação, comunicação, participação e análise de acidentes. A NR-1 segue a lógica PDCA.",
+      "reflita": "Qual indicador mostraria, antes de um acidente ou afastamento, que o GRO está falhando?"
+    },
+    "G-06": {
+      "texto": "Em todos os estabelecimentos, o levantamento preliminar de perigos é feito antes de novas instalações, para as atividades atuais e a cada mudança?",
+      "contexto": "Ele avalia se dá para evitar ou eliminar perigos e identifica riscos evidentes para ação imediata. O que não for resolvido na hora entra no plano de ação e no inventário. Em empresa grande, obras, expansões e mudanças são frequentes, e esse passo costuma ser esquecido.",
+      "reflita": "A próxima expansão ou mudança já tem levantamento de perigos no cronograma?"
+    },
+    "G-07": {
+      "texto": "A identificação de perigos cobre agentes físicos, químicos e biológicos, acidentes, fatores ergonômicos e psicossociais, com fontes, lesões possíveis, grupos expostos e perigos externos previsíveis?",
+      "contexto": "Descrição, fontes ou circunstâncias e grupos expostos são o conteúdo mínimo dessa etapa. Perigos externos previsíveis (eventos climáticos, violência no trajeto a serviço, clientes) também entram quando afetam a saúde e a segurança no trabalho.",
+      "reflita": "Que perigo não vem de dentro da empresa, mas pode atingir seus trabalhadores?"
+    },
+    "G-08": {
+      "texto": "Existe um processo formal de gestão de mudanças (tecnologia, processos, reestruturação, metas, trabalho remoto) que obriga a reavaliar os riscos antes da implantação?",
+      "contexto": "Inovações e mudanças em tecnologia, ambiente, processo, condições, procedimentos e organização do trabalho exigem reavaliação. Reestruturações, trabalho remoto ou isolado e mudanças organizacionais mal geridas aparecem no Guia como fatores psicossociais.",
+      "reflita": "A última reestruturação passou por avaliação de riscos psicossociais antes de ser anunciada?"
+    },
+    "G-09": {
+      "texto": "Os critérios de severidade, probabilidade, níveis de risco, classificação e decisão estão documentados, com ferramentas adequadas a cada tipo de risco e aplicados do mesmo jeito em todas as unidades?",
+      "contexto": "A norma exige ferramentas e técnicas adequadas ao risco avaliado e critérios detalhados em documento. Em empresa grande, critérios diferentes por unidade geram classificações que não se comparam e enfraquecem a priorização corporativa.",
+      "reflita": "O mesmo risco recebe o mesmo nível em duas unidades diferentes?"
+    },
+    "G-10": {
+      "texto": "Na classificação e na priorização dos riscos, vocês também consideram quantos trabalhadores podem ser atingidos?",
+      "contexto": "A classificação define a necessidade de medidas e o plano de ação. Quanto mais pessoas expostas, maior a prioridade. Em empresa grande, pequenas exposições se multiplicam por milhares de pessoas.",
+      "reflita": "Qual risco de baixa gravidade atinge mais gente e, por isso, merece ação antes?"
+    },
+    "G-11": {
+      "texto": "A avaliação é revista no prazo (a cada 2 anos, ou até 3 se houver certificação em sistema de gestão de SST) e nos gatilhos previstos?",
+      "contexto": "Os gatilhos são: depois de implantar medidas, mudanças, ineficácia, acidente ou doença, mudança legal, pedido justificado dos trabalhadores ou da CIPA. O prazo de 3 anos só vale para quem tem certificação em sistema de gestão de SST.",
+      "reflita": "Algum estabelecimento está com a avaliação vencida e ninguém percebeu?"
+    },
+    "G-12": {
+      "texto": "Os fatores de risco psicossociais foram identificados e avaliados (AEP, e AET quando couber) em todas as atividades de todos os estabelecimentos, e estão no inventário?",
+      "contexto": "O processo precisa chegar a todas as atividades da empresa, mesmo que comece por um setor piloto (por exemplo, o que tem mais afastamentos por transtorno mental). A classificação segue os critérios da empresa, e o nível de risco combina severidade e probabilidade.",
+      "reflita": "Quais áreas ainda estão fora do diagnóstico psicossocial, e até quando vão ficar?"
+    },
+    "G-13": {
+      "texto": "A ferramenta ou pesquisa psicossocial tem base científica e é aplicada por um profissional competente, com anonimato, análise técnica e integração ao inventário?",
+      "contexto": "O MTE não indica metodologia. Em empresa grande, uma pesquisa ou questionário que alcance todos os setores costuma ser mais adequado, junto com observação e oficinas. Questionário isolado não comprova gestão, e aplicar sem preparo é só coletar dados sem validade.",
+      "reflita": "O que vocês vão fazer, e em quanto tempo, com os 3 piores resultados da pesquisa?"
+    },
+    "G-14": {
+      "texto": "Os dados de absenteísmo, rotatividade, afastamentos (inclusive CID), conflitos e denúncias são cruzados por setor e estabelecimento para mostrar onde agir?",
+      "contexto": "Informações do acompanhamento de saúde, CAT, indicadores do PCMSO, análises de acidentes e avaliações anteriores fazem parte da preparação descrita no Guia. Servem para focar nas áreas críticas e medir a eficácia das medidas, sem expor casos individuais.",
+      "reflita": "Em que setor os indicadores já estão gritando, e o que vocês fizeram?"
+    },
+    "G-15": {
+      "texto": "Gestores e lideranças são capacitados em organização do trabalho (carga, ritmo, prazos, metas, clareza de papel, apoio), e essas variáveis são revistas quando geram risco?",
+      "contexto": "A NR-17 inclui na organização do trabalho as normas de produção, a exigência de tempo, o ritmo, o conteúdo das tarefas e os aspectos cognitivos. A origem dos riscos psicossociais não está no indivíduo, e sim na forma como o trabalho é concebido e gerido.",
+      "reflita": "As metas e os prazos foram desenhados pensando na carga real de quem executa?"
+    },
+    "G-16": {
+      "texto": "Quando há inadequação, ações insuficientes, indicação do PCMSO ou necessidade vinda da análise de um acidente ou doença, vocês aplicam a AET (análise ergonômica do trabalho) com relatório específico?",
+      "contexto": "A AET é condicional: ela aprofunda as situações em que a AEP não basta. Deve seguir as etapas e o relatório previstos na NR-17.",
+      "reflita": "Existe algum posto ou setor onde a AEP já não responde e a AET ainda não foi feita?"
+    },
+    "G-17": {
+      "texto": "O plano de ação de cada estabelecimento define medidas para cada risco classificado, com cronograma, responsáveis, acompanhamento e medição de resultados, e é consolidado para a direção?",
+      "contexto": "É documento mínimo do PGR. Cronograma com responsáveis e medição de resultados é exigência expressa. Com várias unidades, o consolidado mostra os gargalos e dá base para o orçamento.",
+      "reflita": "Qual percentual das ações do plano está atrasado, e quem responde por isso?"
+    },
+    "G-18": {
+      "texto": "As medidas seguem a hierarquia (eliminar, proteção coletiva, organização do trabalho ou administrativa, EPI), dando prioridade a intervenções na organização do trabalho para riscos psicossociais?",
+      "contexto": "O exemplo do Guia traz medidas como priorizar tarefas, dar mais autonomia, criar pausas regulares, qualificar e redimensionar equipes, preferíveis a ações individuais. Ações pontuais (palestras, campanhas) sozinhas não bastam.",
+      "reflita": "Quantas medidas do plano mudam, de fato, a forma como o trabalho é feito?"
+    },
+    "G-19": {
+      "texto": "Vocês verificam a eficácia das medidas com indicadores e participação dos trabalhadores, reavaliam o risco residual e corrigem o que não funcionou?",
+      "contexto": "O acompanhamento inclui a execução das ações, inspeções, monitoramento e participação dos trabalhadores e da CIPA. A revisão depois da implementação verifica o risco residual, e o resultado vai para o inventário.",
+      "reflita": "Quais medidas do ano passado reduziram o risco de forma comprovada?"
+    },
+    "G-20": {
+      "texto": "A CIPA e outros canais garantem que os trabalhadores participem dos quatro momentos (identificação, AEP/AET, mudanças, acompanhamento), em todos os turnos e unidades?",
+      "contexto": "A empresa deve dar noções básicas de GRO e consultar como os trabalhadores percebem os riscos. Em empresa grande, turnos, unidades e terceirizados podem ficar sem voz se houver só um canal central.",
+      "reflita": "Que grupo de trabalhadores nunca foi consultado (turno noturno, unidade remota, terceirizados)?"
+    },
+    "G-21": {
+      "texto": "Os riscos do inventário e as medidas do plano são comunicados a todos por meios eficazes? E a admissão e a mudança de função incluem as informações do item 1.4.4?",
+      "contexto": "Comunicar os riscos consolidados e as medidas previstas é dever da empresa. A informação cobre riscos, meios de prevenção, medidas adotadas, emergência e direito de interromper o trabalho.",
+      "reflita": "Como vocês medem se a comunicação de riscos chegou ao trabalhador da ponta?"
+    },
+    "G-22": {
+      "texto": "A empresa tem regras de conduta sobre assédio sexual e outras violências, procedimento de denúncia com apuração, sanção e proteção do anonimato, e capacitação de todos os níveis a cada 12 meses?",
+      "contexto": "É obrigatório para organizações com CIPA (NR-5), o que tende a incluir as grandes empresas. Vale para empregados e empregadas de todos os níveis hierárquicos e precisa de ampla divulgação. Também é fator psicossocial no inventário.",
+      "reflita": "Quantas denúncias vocês receberam, apuraram e concluíram no último ano, e com que desfecho?"
+    },
+    "G-23": {
+      "texto": "Existe um procedimento claro para o trabalhador interromper a atividade diante de risco grave e iminente, avisando o superior e protegido contra consequências injustificadas?",
+      "contexto": "O empregador não pode exigir a volta ao trabalho enquanto as medidas corretivas não forem adotadas, e o trabalhador deve ser protegido de retaliação (redação da Portaria MTE 342/2024). Essa informação faz parte da admissão e da mudança de função.",
+      "reflita": "Alguém já interrompeu uma atividade por risco? Se não, a cultura da empresa permite?"
+    },
+    "G-24": {
+      "texto": "O PCMSO é feito a partir do inventário de riscos (inclusive os psicossociais), e o controle de saúde é planejado, sistemático e integrado às medidas de prevenção?",
+      "contexto": "As ações de saúde ocupacional são integradas ao GRO e baseadas na classificação de riscos (NR-7). Atenção: a avaliação psicossocial de aptidão para o trabalho é feita pelo médico no PCMSO e não se confunde com o GRO.",
+      "reflita": "O inventário psicossocial chega ao médico do trabalho e orienta os exames?"
+    },
+    "G-25": {
+      "texto": "A análise de acidentes, doenças e eventos perigosos com potencial de consequências graves é documentada e usada para rever as medidas em todas as unidades?",
+      "contexto": "Ela considera as atividades reais, o ambiente, a organização do trabalho, os dados da empresa e epidemiológicos e o relato dos trabalhadores. Traz evidências para melhorar as medidas. Quase-acidentes graves também precisam ser analisados.",
+      "reflita": "Vocês aprendem mais com os eventos perigosos que não viraram acidente?"
+    },
+    "G-26": {
+      "texto": "Os procedimentos de emergência são adequados aos riscos de cada estabelecimento, com simulados periódicos e evidências?",
+      "contexto": "Eles devem prever meios, responsáveis e recursos para primeiros socorros, encaminhamento e abandono de locais. Os simulados seguem uma frequência definida e geram evidências.",
+      "reflita": "Nas últimas simulações, quais lições viraram ação?"
+    },
+    "G-27": {
+      "texto": "Para emergências de grande magnitude (que atingem a população ou o meio ambiente), existem medidas específicas planejadas e integradas com atores externos?",
+      "contexto": "Emergência de grande magnitude é um evento inesperado, sem aviso, ligado aos processos da empresa, com consequências que vão além dos trabalhadores. A norma exige que as medidas estejam previstas quando isso se aplica.",
+      "reflita": "Que cenário extremo da sua atividade pode extrapolar os muros da empresa?"
+    },
+    "G-28": {
+      "texto": "O inventário e o plano de ação de cada estabelecimento têm o conteúdo mínimo completo, são datados, assinados e mantidos atualizados, com histórico das atualizações por no mínimo 20 anos?",
+      "contexto": "O inventário reúne a caracterização dos processos, os perigos, as lesões possíveis, os grupos expostos, as medidas, a exposição, os dados de monitoramento e a avaliação do risco. O histórico de atualizações deve ser mantido por no mínimo 20 anos.",
+      "reflita": "Se um ex-empregado pedisse a prova das condições de 2015, vocês teriam?"
+    },
+    "G-29": {
+      "texto": "As capacitações (inicial, periódica e eventual) são controladas por sistema, com certificados e, no EAD, atendendo ao Anexo II (projeto pedagógico, avaliação, logs por 2 anos)?",
+      "contexto": "O treinamento a distância ou semipresencial só vale se cumprir os requisitos pedagógicos, operacionais e tecnológicos do Anexo II e guardar os registros de avaliação e de acesso dos participantes. Treinamentos podem ser aproveitados em condições específicas.",
+      "reflita": "Se vocês auditassem 20 certificados ao acaso, quantos teriam todos os elementos exigidos?"
+    },
+    "G-30": {
+      "texto": "Para empresas contratadas que trabalham nas suas dependências: o PGR inclui essas empresas (ou vocês usam os programas delas), há troca de informações de risco nos dois sentidos e vocês coordenam os riscos de interação?",
+      "contexto": "A contratante tem responsabilidade legal que não pode ser afastada (Lei 6.019/74). A contratada deve entregar inventário e plano de ação das atividades contratadas, e a contratante mantém vigilância ativa. Os riscos de interação são definidos em conjunto, sob coordenação da contratante.",
+      "reflita": "Qual contratada hoje cria um risco novo para seus empregados, e vice-versa?"
+    },
+    "G-31": {
+      "texto": "Os documentos de SST digitais ou digitalizados preservam autenticidade, integridade e rastreabilidade (por exemplo, com ICP-Brasil), com acesso amplo e irrestrito para a Inspeção?",
+      "contexto": "A norma permite emitir e guardar documentos em meio digital, com certificado ICP-Brasil, e exige preservar validade jurídica, disponibilidade, rastreabilidade e irretratabilidade. A Inspeção do Trabalho precisa ter acesso amplo e irrestrito.",
+      "reflita": "Os documentos digitais de vocês resistiriam a uma contestação sobre autoria e data?"
+    },
+    "G-32": {
+      "texto": "Quando várias organizações trabalham no mesmo local (condomínio industrial, shopping, evento), vocês têm ações de prevenção integradas?",
+      "contexto": "Mesmo sem contrato de prestação de serviços entre elas, as organizações que atuam ao mesmo tempo no mesmo local de trabalho têm responsabilidade compartilhada. Exemplo: um procedimento de incêndio comum a todas.",
+      "reflita": "Quem coordena a segurança do espaço que vocês compartilham?"
+    }
+  }
+}
