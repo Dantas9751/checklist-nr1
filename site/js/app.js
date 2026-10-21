@@ -38,7 +38,7 @@ function atualizar(novoEstado, { focar = true } = {}) {
 // Renderização --------------------------------------------------------------
 
 const CONTEUDO_DA_ETAPA = {
-  'boas-vindas': () => renderBoasVindas(dados),
+  'boas-vindas': () => renderBoasVindas(dados, estado),
   porte: () => renderPorte(dados, estado),
   perguntas: () => renderPergunta(dados, estado),
   revisao: () => renderRevisao(dados, estado),
@@ -128,6 +128,7 @@ async function copiarResumo() {
 const ACOES = {
   inicio: () => atualizar(irPara(estado, 'boas-vindas')),
   comecar: () => atualizar(irPara(estado, 'porte')),
+  continuar: () => atualizar(irPara(estado, 'perguntas')),
   'trocar-porte': () => atualizar(irPara(estado, 'porte')),
   voltar: () => atualizar(voltar(estado)),
   editar: botao => atualizar(irPara(estado, 'perguntas', Number(botao.dataset.posicao))),

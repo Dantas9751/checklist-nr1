@@ -248,6 +248,10 @@
   margin-top: var(--espaco-3);
 }
 
+.abertura .acoes .nota {
+  flex-basis: 100%;
+}
+
 .abertura .botao--primario {
   min-width: 11rem;
   min-height: 52px;
@@ -838,8 +842,9 @@
   stroke: #1d1300;
 }
 
-.acoes--relatorio .botao {
-  flex: 1 1 10rem;
+.acoes--relatorio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
 }
 
 .secoes-notas {

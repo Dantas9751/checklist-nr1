@@ -77,7 +77,7 @@ function travasAtivas(dados, porteId, respostas, secoes) {
   for (const regra of regras.travas_peso3 ?? []) {
     if (criticosEmFalta.length >= regra.a_partir_de) {
       travas.push({
-        motivo: `${criticosEmFalta.length} item(ns) de peso 3 em Não atende (${criticosEmFalta.map(q => q.id).join(', ')})`,
+        motivo: `${criticosEmFalta.length === 1 ? '1 item' : `${criticosEmFalta.length} itens`} de peso 3 em Não atende (${criticosEmFalta.map(q => q.id).join(', ')})`,
         faixaMaxima: regra.faixa_maxima,
       });
     }

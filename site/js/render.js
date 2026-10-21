@@ -4,6 +4,8 @@ import { respostasDescartadas } from './estado.js';
 
 const SEGUNDOS_POR_PERGUNTA = 20;
 
+export const plural = (n, singular, plural_) => `${n} ${n === 1 ? singular : plural_}`;
+
 export function h(tag, atributos = {}, ...filhos) {
   const el = document.createElement(tag);
   for (const [nome, valor] of Object.entries(atributos)) {
@@ -12,7 +14,7 @@ export function h(tag, atributos = {}, ...filhos) {
     else if (nome in el && typeof valor !== 'string') el[nome] = valor;
     else el.setAttribute(nome, valor === true ? '' : valor);
   }
-  el.append(...filhos.flat().filter(f => f !== null && f !== undefined && f !== false));
+  el.append(...filhos.flat(Infinity).filter(f => f !== null && f !== undefined && f !== false));
   return el;
 }
 
@@ -28,15 +30,26 @@ const paragrafos = textos => textos.map(t => h('p', {}, t));
 
 // Boas-vindas ---------------------------------------------------------------
 
-export function renderBoasVindas(dados) {
+function acoesDeAbertura(dados, estado) {
+  const respondidas = Object.keys(estado.respostas).length;
+  if (!estado.porteId || respondidas === 0) {
+    return [h('button', { type: 'button', class: 'botao botao--primario', 'data-acao': 'comecar' }, 'Começar')];
+  }
+  return [
+    h('button', { type: 'button', class: 'botao botao--primario', 'data-acao': 'continuar' }, 'Continuar de onde parei'),
+    h('button', { type: 'button', class: 'botao botao--secundario', 'data-acao': 'comecar' }, 'Trocar o porte'),
+    h('p', { class: 'nota' }, `Você já respondeu ${plural(respondidas, 'pergunta', 'perguntas')} do porte ${porteDe(dados, estado.porteId).nome}.`),
+  ];
+}
+
+export function renderBoasVindas(dados, estado) {
   const { meta, opcoes } = dados;
   return [
     h('div', { class: 'abertura' },
       h('p', { class: 'chamada' }, meta.chamada),
       h('h1', { id: 'titulo-boas-vindas', tabindex: '-1' }, meta.titulo),
       h('p', { class: 'subtitulo' }, meta.subtitulo),
-      h('div', { class: 'acoes' },
-        h('button', { type: 'button', class: 'botao botao--primario', 'data-acao': 'comecar' }, 'Começar')),
+      h('div', { class: 'acoes' }, acoesDeAbertura(dados, estado)),
       h('p', { class: 'nota' }, `Leva de ${minutosEstimados(dados, dados.portes[0].id)} a ${minutosEstimados(dados, dados.portes.at(-1).id)} minutos, conforme o porte. As respostas ficam só neste navegador.`),
     ),
     h('div', { class: 'texto-corrido' }, paragrafos(meta.introducao), h('p', {}, meta.glossario)),
@@ -78,7 +91,7 @@ export function detalhePorte(dados, estado, porteId) {
     h('p', {}, h('strong', {}, `Score: ${porte.score.nome}. `), porte.score.texto),
     descartadas.length > 0 &&
       h('p', { class: 'alerta', role: 'note' },
-        `Ao trocar para ${porte.nome}, ${descartadas.length} resposta(s) do porte anterior serão descartadas, porque as perguntas são outras.`),
+        `Ao trocar para ${porte.nome}, ${plural(descartadas.length, 'resposta do porte anterior será descartada', 'respostas do porte anterior serão descartadas')}, porque as perguntas são outras.`),
   );
 }
 
