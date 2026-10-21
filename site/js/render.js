@@ -185,7 +185,7 @@ export function renderRevisao(dados, estado) {
             h('button', { type: 'button', class: 'botao-link', 'data-acao': 'editar', 'data-posicao': String(posicao), 'aria-label': `Alterar resposta de ${q.id}` }, 'Alterar'));
         })))),
     h('div', { class: 'navegacao' },
-      h('button', { type: 'button', class: 'botao botao--secundario', 'data-acao': 'editar', 'data-posicao': String(perguntas.length - 1) }, 'Voltar às perguntas'),
+      h('button', { type: 'button', class: 'botao botao--secundario', 'data-acao': 'editar', 'data-posicao': String(perguntas.length - 1) }, 'Voltar'),
       h('button', { type: 'button', class: 'botao botao--primario', 'data-acao': 'relatorio' }, 'Ver relatório')),
   ];
 }

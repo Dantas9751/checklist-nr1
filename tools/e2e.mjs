@@ -38,7 +38,12 @@ async function percorrer(navegador, { porte, estrategia, esperado }, capturar) {
     await pagina.getByRole('button', { name: 'Próxima' }).click();
     if (await pagina.locator('#titulo-revisao').isVisible()) break;
   }
+  const semObjetoSolto = async tela => {
+    if (await pagina.evaluate(() => document.body.innerText.includes('[object'))) erros.push(`"[object" renderizado em ${tela}`);
+  };
+  await semObjetoSolto('revisão');
   await pagina.getByRole('button', { name: 'Ver relatório' }).click();
+  await semObjetoSolto('relatório');
   const score = Number((await pagina.locator('.anel__numero').textContent()).match(/^\d+/)[0]);
   const faixa = await pagina.locator('.selo-faixa').textContent();
   if (capturar) await capturar(pagina, 'relatorio');

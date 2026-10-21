@@ -64,7 +64,7 @@ function render(anterior, focar) {
   for (const regiao of document.querySelectorAll('.etapa')) regiao.hidden = regiao.dataset.etapa !== estado.etapa;
   const regiao = regiaoDa(estado.etapa);
   regiao.getAnimations().forEach(a => a.cancel());
-  regiao.replaceChildren(...[CONTEUDO_DA_ETAPA[estado.etapa]()].flat());
+  regiao.replaceChildren(...[CONTEUDO_DA_ETAPA[estado.etapa]()].flat(Infinity));
   atualizarBarra();
   animarEntrada(regiao, direcaoDaTransicao(anterior));
   if (focar) regiao.querySelector('[tabindex="-1"]')?.focus({ preventScroll: true });
