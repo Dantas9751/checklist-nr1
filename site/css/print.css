@@ -1,0 +1,113 @@
+/* Impressão do relatório: fundo branco, sem controles, quebras de página limpas. */
+
+/* :not(#_) sobe a especificidade acima das regras de tema escuro de base.css. */
+:root:not(#_) {
+  color-scheme: light;
+  --fundo: #ffffff;
+  --superficie: #ffffff;
+  --superficie-2: #f4f5f6;
+  --texto: #000000;
+  --texto-2: #333333;
+  --texto-3: #444444;
+  --linha: #cccccc;
+  --destaque: #0b6e5f;
+}
+
+@page {
+  margin: 16mm 14mm;
+}
+
+html,
+body {
+  background: #ffffff !important;
+  color: #000000;
+  font-size: 11pt;
+}
+
+.barra,
+.pular-para-conteudo,
+.acoes,
+.navegacao,
+.botao-link,
+.anuncio,
+.etapa:not(#etapa-relatorio) {
+  display: none !important;
+}
+
+main {
+  padding: 0;
+}
+
+.etapa {
+  max-width: none;
+  gap: 8mm;
+}
+
+.bloco,
+.recolhivel {
+  box-shadow: none !important;
+  border: 1px solid #cccccc;
+  break-inside: avoid;
+}
+
+.bloco:has(.respostas-lista),
+.bloco:has(.lacunas) {
+  break-inside: auto;
+}
+
+.lacunas li,
+.respostas-lista li {
+  display: block;
+  break-inside: avoid;
+}
+
+.secao-nota {
+  break-inside: avoid;
+}
+
+.lacunas li > span,
+.respostas-lista li > * {
+  display: block;
+}
+
+.recolhivel {
+  break-inside: avoid;
+}
+
+.recolhivel > summary::after {
+  display: none;
+}
+
+/* Imprime as respostas abertas, mesmo com os <details> fechados na tela. */
+.recolhivel > :not(summary) {
+  display: block !important;
+}
+
+.recolhivel:not([open]) > :not(summary) {
+  display: block !important;
+  content-visibility: visible;
+}
+
+details::details-content {
+  content-visibility: visible;
+  display: block;
+}
+
+.anel__valor,
+.secao-nota__barra {
+  animation: none !important;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.secao-nota__trilho,
+.icone-status {
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+h2,
+h3,
+h4 {
+  break-after: avoid;
+}

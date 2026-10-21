@@ -111,7 +111,7 @@ function blocoSecoes(porte, resultado) {
   const { fortes, fracos } = pontosFortesEFracos(resultado);
   const destaqueDe = id => {
     if (fracos.some(s => s.id === id)) return { tipo: 'fraco', rotulo: 'Precisa de atenção' };
-    if (fortes.some(s => s.id === id)) return { tipo: 'forte', rotulo: 'Ponto forte' };
+    if (fortes.some(s => s.id === id)) return { tipo: 'forte', rotulo: 'Entre os mais fortes' };
     return null;
   };
   return h('section', { class: 'bloco', 'aria-labelledby': 'titulo-secoes' },
