@@ -1,7 +1,7 @@
 // Estado do formulário: objeto simples e funções que devolvem um novo estado.
 import { perguntasDoPorte } from './score.js';
 
-export const ETAPAS = ['boas-vindas', 'porte', 'perguntas', 'revisao', 'relatorio'];
+export const ETAPAS = ['boas-vindas', 'como-marcar', 'porte', 'perguntas', 'revisao', 'relatorio', 'contexto'];
 export const CHAVE_ARMAZENAMENTO = 'checklist-nr1:estado';
 
 export const criarEstado = () => ({ etapa: 'boas-vindas', porteId: null, respostas: {}, posicao: 0 });

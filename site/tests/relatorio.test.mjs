@@ -39,3 +39,31 @@ test('resumo sem respostas não quebra', () => {
   assert.match(texto, /sem respostas aplicáveis/);
   assert.match(texto, /Faixa: não calculada/);
 });
+
+test('motivo do pilar diz o que falta, por que pesa e o efeito na nota', async () => {
+  const { motivosDoPilar } = await import('../js/relatorio.js');
+  const { avaliarSecoes } = await import('../js/score.js');
+  const respostas = Object.fromEntries(perguntasDoPorte(dados, 'media').map(q => [q.id, 'atende']));
+  respostas['M-07'] = 'nao_atende';
+  respostas['M-08'] = 'parcial';
+  const porte = dados.portes.find(p => p.id === 'media');
+  const avaliacoes = avaliarSecoes(dados, 'media', respostas);
+  const texto = av => motivosDoPilar(av, porte, dados).map(m => `${m.rotulo}. ${m.texto}`).join(' ').replaceAll('\u2011', '-');
+
+  const c = texto(avaliacoes.find(s => s.id === 'C'));
+  assert.match(c, /O que falta\. Documento de critérios de avaliação, em Não atende \(M-07\) e nível e classificação de cada risco, em Parcial \(M-08\)/);
+  assert.match(c, /Por que pesa\. Sem critério escrito/);
+  assert.match(c, /faixa Crítica pela régua do porte/);
+  assert.match(c, /Abaixo do piso de 50%/);
+  assert.match(c, /Item crítico em Não atende/);
+
+  const a = texto(avaliacoes.find(s => s.id === 'A'));
+  assert.match(a, /O que sustenta\. PGR em todos os estabelecimentos e atividades/);
+  assert.match(a, /Por que conta\./);
+});
+
+test('todas as perguntas têm tema e impacto para o relatório', () => {
+  for (const secao of dados.secoes) for (const q of secao.perguntas) {
+    assert.ok(q.tema && q.impacto, q.id);
+  }
+});

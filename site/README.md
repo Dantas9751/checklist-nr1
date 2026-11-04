@@ -31,6 +31,19 @@ NODE_PATH=$(npm root -g) node tools/e2e.mjs http://localhost:8080/ capturas
 
 Ele percorre os três portes (melhor, média e pior resposta), confere a contagem de perguntas e tira capturas em 390px e 1280px, nos temas claro e escuro.
 
+## Capturas do passo a passo
+
+As imagens da página inicial (`site/img/passo-*-claro.webp` e `-escuro.webp`) são capturas do próprio site. Depois de mudar o visual, gere de novo com o site rodando em `localhost:8080`:
+
+```bash
+NODE_PATH=$(npm root -g) node tools/capturas.mjs
+python3 tools/png_para_webp.py site/img
+```
+
+## Siglas
+
+As siglas aparecem por extenso na primeira vez em cada tela ("Programa de Gerenciamento de Riscos (PGR)"). O glossário fica em `meta.siglas` do `humanizado.json`. Sigla nova no texto precisa entrar ali. Há um teste que falha se a expansão gerar parêntese dentro de parêntese nas perguntas.
+
 ## Como editar o questionário
 
 O `questionario.json` é gerado a partir de dois arquivos em `docs/extracao/`:
@@ -69,10 +82,12 @@ site/
   css/print.css       versão impressa do relatório
   js/score.js         motor de score (funções puras, testadas)
   js/estado.js        estado e navegação (funções puras, testadas)
-  js/render.js        telas de boas-vindas, porte, pergunta e revisão
+  js/render.js        telas de início, como marcar, contexto legal, porte, pergunta e revisão
+  js/siglas.js        siglas por extenso na primeira ocorrência de cada tela
   js/relatorio.js     relatório final e texto do resumo
   js/app.js           liga dados, estado, telas e eventos
   data/               questionario.json e schema.md
+  img/                capturas do passo a passo (claro e escuro)
   tests/              testes com node --test
 ```
 

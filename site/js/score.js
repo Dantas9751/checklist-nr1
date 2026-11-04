@@ -164,3 +164,41 @@ export function lacunasPrioritarias(dados, porteId, respostas) {
     )
     .slice(0, porte.priorizacao.quantidade);
 }
+
+// Fatos por pilar para o relatório: nota, faixa equivalente na régua do porte, respostas que tiraram
+// pontos, regras que o pilar aciona e o destaque (forte, fraco ou nenhum).
+export function avaliarSecoes(dados, porteId, respostas) {
+  const regras = porteDe(dados, porteId).score;
+  const resultado = calcularScore(dados, porteId, respostas);
+  const perguntas = perguntasDoPorte(dados, porteId).filter(q => q.pontua);
+  const avaliadas = resultado.porSecao.filter(s => s.score !== null);
+  const crescente = [...avaliadas].sort((a, b) => a.scoreExato - b.scoreExato);
+  const entreOsPiores = new Set(crescente.slice(0, 3).map(s => s.id));
+  const entreOsMelhores = new Set([...crescente].reverse().slice(0, 3).map(s => s.id));
+  const minimoDaMelhorFaixa = regras.faixas[0].min;
+
+  return resultado.porSecao.map(secao => {
+    const daSecao = perguntas
+      .filter(q => q.secaoId === secao.id)
+      .map(q => ({ q, opcao: opcaoEscolhida(dados, q, respostas) }));
+    const ids = filtro => daSecao.filter(filtro).map(({ q }) => q.id);
+    const criticosEmFalta = ids(({ q, opcao }) => q.peso === PESO_CRITICO && opcao?.pontos === 0);
+    const avaliada = secao.score !== null;
+    const fatos = {
+      ...secao,
+      faixa: avaliada ? faixaDoScore(dados, porteId, secao.score) : null,
+      criticosEmFalta,
+      naoAtende: ids(({ q, opcao }) => opcao?.pontos === 0 && !criticosEmFalta.includes(q.id)),
+      parciais: ids(({ opcao }) => opcao && opcao.pontos !== null && opcao.pontos > 0 && opcao.pontos < 100),
+      atendidas: ids(({ opcao }) => opcao?.pontos === 100),
+      naoSeAplica: ids(({ opcao }) => opcao?.pontos === null),
+      puladas: ids(({ opcao }) => !opcao),
+      abaixoDoPiso: avaliada && regras.piso_secao !== null && secao.score < regras.piso_secao,
+      acionaTravaDaSecao: avaliada && regras.trava_secao?.secao === secao.id && secao.score < regras.trava_secao.abaixo_de,
+      entreOsPiores: avaliada && entreOsPiores.has(secao.id) && secao.score < minimoDaMelhorFaixa,
+      entreOsMelhores: avaliada && entreOsMelhores.has(secao.id) && secao.score >= minimoDaMelhorFaixa,
+    };
+    const fraco = fatos.abaixoDoPiso || fatos.acionaTravaDaSecao || criticosEmFalta.length > 0 || fatos.entreOsPiores;
+    return { ...fatos, destaque: fraco ? 'fraco' : fatos.entreOsMelhores ? 'forte' : null };
+  });
+}

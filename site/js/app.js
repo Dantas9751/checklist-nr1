@@ -2,7 +2,9 @@
 import {
   criarEstado, carregar, salvar, limpar, escolherPorte, responder, avancar, voltar, irPara, progresso,
 } from './estado.js';
-import { renderBoasVindas, renderPorte, detalhePorte, renderPergunta, renderRevisao, porteDe } from './render.js';
+import {
+  renderBoasVindas, renderComoMarcar, renderContexto, renderPorte, detalhePorte, renderPergunta, renderRevisao, porteDe,
+} from './render.js';
 import { renderRelatorio, textoResumo } from './relatorio.js';
 import { perguntasDoPorte, calcularScore } from './score.js';
 
@@ -13,7 +15,8 @@ const TEMAS = [
   { id: 'light', nome: 'claro' },
   { id: 'dark', nome: 'escuro' },
 ];
-const ORDEM_ETAPAS = ['boas-vindas', 'porte', 'perguntas', 'revisao', 'relatorio'];
+const ORDEM_ETAPAS = ['boas-vindas', 'como-marcar', 'porte', 'perguntas', 'revisao', 'relatorio', 'contexto'];
+const MARGEM_POPOVER = 16;
 const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 let dados;
@@ -39,6 +42,8 @@ function atualizar(novoEstado, { focar = true } = {}) {
 
 const CONTEUDO_DA_ETAPA = {
   'boas-vindas': () => renderBoasVindas(dados, estado),
+  'como-marcar': () => renderComoMarcar(dados),
+  contexto: () => renderContexto(dados),
   porte: () => renderPorte(dados, estado),
   perguntas: () => renderPergunta(dados, estado),
   revisao: () => renderRevisao(dados, estado),
@@ -127,9 +132,15 @@ async function copiarResumo() {
 
 const ACOES = {
   inicio: () => atualizar(irPara(estado, 'boas-vindas')),
-  comecar: () => atualizar(irPara(estado, 'porte')),
+  comecar: () => atualizar(irPara(estado, 'como-marcar')),
+  'como-marcar': () => atualizar(irPara(estado, 'como-marcar')),
+  porte: () => atualizar(irPara(estado, 'porte')),
   continuar: () => atualizar(irPara(estado, 'perguntas')),
-  'trocar-porte': () => atualizar(irPara(estado, 'porte')),
+  contexto: () => {
+    if (estado.etapa === 'contexto') return;
+    atualizar({ ...irPara(estado, 'contexto'), retorno: estado.etapa });
+  },
+  'sair-contexto': () => atualizar(irPara(estado, estado.retorno ?? 'boas-vindas')),
   voltar: () => atualizar(voltar(estado)),
   editar: botao => atualizar(irPara(estado, 'perguntas', Number(botao.dataset.posicao))),
   relatorio: () => atualizar(irPara(estado, 'relatorio')),
@@ -149,7 +160,9 @@ const ACOES = {
 
 function aoClicar(evento) {
   const botao = evento.target.closest('[data-acao]');
-  if (botao) ACOES[botao.dataset.acao]?.(botao);
+  if (!botao) return;
+  if (botao.tagName === 'A') evento.preventDefault();
+  ACOES[botao.dataset.acao]?.(botao);
 }
 
 function aoMudar(evento) {
@@ -184,6 +197,20 @@ function aoTeclar(evento) {
   campo.form.requestSubmit();
 }
 
+// Explicação das opções: o popover nativo abre colado ao botão que o chamou, em coordenadas da página,
+// para rolar junto com o conteúdo.
+function posicionarPopover(evento) {
+  const popover = evento.target;
+  if (evento.newState !== 'open' || !popover.classList?.contains('explicacao')) return;
+  const gatilho = document.querySelector(`[popovertarget="${popover.id}"]`).getBoundingClientRect();
+  const largura = popover.offsetWidth;
+  const esquerda = Math.min(Math.max(MARGEM_POPOVER, gatilho.right - largura), window.innerWidth - largura - MARGEM_POPOVER);
+  const abaixo = gatilho.bottom + 8;
+  const cabe = abaixo + popover.offsetHeight < window.innerHeight - MARGEM_POPOVER;
+  popover.style.left = `${esquerda + window.scrollX}px`;
+  popover.style.top = `${(cabe ? abaixo : gatilho.top - popover.offsetHeight - 8) + window.scrollY}px`;
+}
+
 // Início --------------------------------------------------------------------
 
 async function iniciar() {
@@ -207,6 +234,8 @@ async function iniciar() {
   document.addEventListener('change', aoMudar);
   document.addEventListener('submit', aoEnviar);
   document.addEventListener('keydown', aoTeclar);
+  document.addEventListener('toggle', posicionarPopover, true);
+  if (!('popover' in HTMLElement.prototype)) document.documentElement.classList.add('sem-popover');
   render(null, false);
 }
 

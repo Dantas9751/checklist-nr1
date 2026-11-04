@@ -43,8 +43,8 @@ A NR-1 só diferencia MEI, ME e EPP, pela receita (Lei Complementar 123/2006). O
 
 ### Quem está obrigado, e como ficam MEI, ME e EPP
 
-- As NR obrigam empregadores e empregados, urbanos e rurais, com empregados regidos pela CLT (1.2.1.1). Cumprir e fazer cumprir é dever do empregador (1.4.1 a).
-- Três dispensas diferentes não se confundem. A dispensa do PGR (1.8) não dispensa o GRO, a AEP da NR-17 nem as demais NR. A dispensa do PCMSO (1.8.6) não dispensa os exames e o ASO (1.8.7.1).
+- As NR obrigam empregadores e empregados, urbanos e rurais, com empregados regidos pela CLT, conforme o item 1.2.1.1. Cumprir e fazer cumprir é dever do empregador (1.4.1 a).
+- Três dispensas diferentes não se confundem. A dispensa do PGR, no item 1.8, não dispensa o GRO, a AEP da NR-17 nem as demais NR. A dispensa do PCMSO, no item 1.8.6, não dispensa os exames e o ASO, como diz o item 1.8.7.1.
 - A dispensa de PGR de ME e EPP exige todos os critérios: grau de risco 1 ou 2 (NR-4), nenhuma exposição a agentes físicos, químicos ou biológicos no levantamento preliminar e declaração digital divulgada aos trabalhadores (1.8.4).
 
 ### Psicossociais: o que é e o que não é
@@ -77,7 +77,7 @@ _Começamos pela base: quem responde pela gestão de riscos e em que regras a su
 
 **P-01 · Peso 3 · Crítico (trava)**
 
-Sua empresa já confirmou o enquadramento (MEI, ME ou EPP), o grau de risco (NR-4) e se cumpre todos os critérios para a dispensa do PGR?
+Sua empresa já confirmou o enquadramento como MEI, ME ou EPP, o grau de risco (NR-4) e se cumpre todos os critérios para a dispensa do PGR?
 
 Base: NR-1 1.8.1–1.8.4 e 1.8.7
 
@@ -101,7 +101,7 @@ Existe uma pessoa responsável (com nome e papel definidos) por conduzir a gest�
 
 Base: NR-1 1.5.3.1; Guia, FAQ 2
 
-Contexto e impacto: As NR não exigem um profissional específico. A responsabilidade é da empresa: ela define quem conduz e busca ajuda se não domina o tema (técnico de segurança, consultoria, CIPA ou designado). Sem um dono definido, a gestão de riscos não sai do papel.
+Contexto e impacto: As NR não exigem um profissional específico. A responsabilidade é da empresa: ela define quem conduz e busca ajuda se não domina o tema: técnico de segurança, consultoria, CIPA ou designado. Sem um dono definido, a gestão de riscos não sai do papel.
 
 Reflita: Se essa pessoa saísse amanhã, alguém saberia continuar?
 
@@ -139,11 +139,11 @@ _Este pilar olha para a organização do trabalho: carga, apoio, relações e as
 
 **P-06 · Peso 3 · Crítico (trava)**
 
-A AEP (avaliação ergonômica preliminar) já foi feita? E ela inclui os fatores de risco psicossociais ligados ao trabalho?
+A AEP já foi feita? E ela inclui os fatores de risco psicossociais ligados ao trabalho?
 
 Base: NR-1 1.5.3.1.4 e 1.5.3.2.1; NR-17 17.3.1
 
-Contexto e impacto: A AEP é obrigatória para todas as empresas, inclusive as dispensadas de PGR. Segundo o Manual, a dispensa do PGR não dispensa a AEP. Sobrecarga, assédio e falta de apoio são fatores psicossociais e hoje aparecem expressamente no GRO (em vigor desde 26/05/2026).
+Contexto e impacto: A AEP é obrigatória para todas as empresas, inclusive as dispensadas de PGR. Segundo o Manual, a dispensa do PGR não dispensa a AEP. Sobrecarga, assédio e falta de apoio são fatores psicossociais e hoje aparecem expressamente no GRO, pela redação em vigor desde 26/05/2026.
 
 Reflita: Onde está registrado que vocês olharam sobrecarga, assédio e falta de apoio? E quando foi isso?
 
@@ -177,7 +177,7 @@ Cada risco relevante tem uma medida definida, com responsável e prazo, registra
 
 Base: NR-1 1.5.5.2 e 1.5.5.2.2
 
-Contexto e impacto: O plano de ação indica as medidas a introduzir, melhorar ou manter, com cronograma, responsáveis e forma de acompanhamento. Se a empresa é dispensada do PGR, os registros seguem as demais NR (por exemplo, a AEP). Medida sem dono e sem data é intenção, não prevenção.
+Contexto e impacto: O plano de ação indica as medidas a introduzir, melhorar ou manter, com cronograma, responsáveis e forma de acompanhamento. Se a empresa é dispensada do PGR, os registros seguem as demais NR, como a AEP. Medida sem dono e sem data é intenção, não prevenção.
 
 Reflita: Qual medida combinada na última conversa já tem nome e data?
 
@@ -211,7 +211,7 @@ Os trabalhadores têm um jeito simples de dar opinião sobre riscos (reunião, C
 
 Base: NR-1 1.5.3.3 a e b
 
-Contexto e impacto: A empresa deve ter mecanismos de participação e consulta (a CIPA pode cumprir esse papel, quando existir) e dar noções básicas sobre gerenciamento de riscos. Quem faz o trabalho vê perigos que a gestão não vê.
+Contexto e impacto: A empresa deve ter mecanismos de participação e consulta, e a CIPA pode cumprir esse papel quando existir. Também deve dar noções básicas sobre gerenciamento de riscos. Quem faz o trabalho vê perigos que a gestão não vê.
 
 Reflita: Quando foi a última vez que uma sugestão de segurança virou ação?
 
@@ -221,7 +221,7 @@ Sua empresa tem regra de conduta contra assédio e violência, divulgada, com um
 
 Base: NR-1 1.4.1.1
 
-Contexto e impacto: É obrigatória para empresas que precisam ter CIPA (NR-5) e boa prática para as demais. Assédio também é fator de risco psicossocial. A regra prevê apuração dos fatos, sigilo de quem denuncia e ações de orientação pelo menos a cada 12 meses.
+Contexto e impacto: É obrigatória para empresas que precisam ter CIPA, pela NR-5, e boa prática para as demais. Assédio também é fator de risco psicossocial. A regra prevê apuração dos fatos, sigilo de quem denuncia e ações de orientação pelo menos a cada 12 meses.
 
 Reflita: Se alguém sofresse assédio hoje, saberia a quem recorrer sem medo?
 
@@ -302,7 +302,7 @@ _PGR completo por estabelecimento, com rotina e documentos_
 
 **O que muda nas perguntas:** As perguntas pedem prova documental e rotina: inventário e plano de ação com conteúdo mínimo, critérios de avaliação por escrito, revisão periódica, integração com PCMSO e CIPA, gestão de mudanças, indicadores psicossociais e terceiros.
 
-**Score (SPP · Score por Pilares):** Cada um dos 8 pilares tem um peso diferente, um piso mínimo e travas. O resultado mostra onde está a fragilidade, não só quanto falta. Responda uma vez por estabelecimento (CNPJ).
+**Score (SPP · Score por Pilares):** Cada um dos 8 pilares tem um peso diferente, um piso mínimo e travas. O resultado mostra onde está a fragilidade, não só quanto falta. Responda uma vez por estabelecimento, ou seja, por CNPJ.
 
 ### A · Governança e enquadramento
 
@@ -310,7 +310,7 @@ _Começamos pela base: quem responde pela gestão de riscos e em que regras a su
 
 **M-01 · Peso 3 · Crítico (trava)**
 
-Cada estabelecimento (CNPJ) tem PGR implementado, cobrindo todas as atividades, mesmo quando ele é organizado por unidade, setor ou atividade?
+Cada estabelecimento, ou seja, cada CNPJ, tem PGR implementado, cobrindo todas as atividades, mesmo quando ele é organizado por unidade, setor ou atividade?
 
 Base: NR-1 1.5.3.1 e 1.5.3.1.1; Manual p.13–14
 
@@ -320,7 +320,7 @@ Reflita: Existe algum setor, turno ou unidade que ninguém incluiu no PGR?
 
 **M-02 · Peso 2 · Importante**
 
-O GRO/PGR tem um ou mais responsáveis formais, com autoridade e recursos? E o SESMT (se houver) e a CIPA ou o designado participam?
+O GRO e o PGR têm um ou mais responsáveis formais, com autoridade e recursos? E o SESMT, se houver, e a CIPA ou o designado participam?
 
 Base: NR-1 1.5.3.1; Manual p.17–21
 
@@ -412,7 +412,7 @@ _Este pilar olha para a organização do trabalho: carga, apoio, relações e as
 
 **M-10 · Peso 3 · Crítico (trava)**
 
-Os fatores de risco psicossociais ligados ao trabalho foram identificados e avaliados (AEP/AET) e constam no inventário de riscos?
+Os fatores de risco psicossociais ligados ao trabalho foram identificados e avaliados na AEP ou na AET e constam no inventário de riscos?
 
 Base: NR-1 1.5.3.1.4, 1.5.3.2.1 e 1.5.4.4.5.3; NR-17
 
@@ -480,11 +480,11 @@ _Quem faz o trabalho precisa ser ouvido e informado. É isso que este pilar veri
 
 **M-16 · Peso 2 · Importante**
 
-Os trabalhadores participam da identificação de perigos, da avaliação (AEP/AET), das mudanças e do acompanhamento, seja pela CIPA ou por outros meios?
+Os trabalhadores participam da identificação de perigos, da AEP ou da AET, das mudanças e do acompanhamento, seja pela CIPA ou por outros meios?
 
 Base: NR-1 1.5.3.3 a e b; Manual p.22–24
 
-Contexto e impacto: A empresa deve dar noções básicas de GRO e consultar os trabalhadores sobre como eles percebem os riscos. Os quatro momentos de participação são: identificação de perigos, AEP/AET, mudanças e acompanhamento do desempenho das medidas.
+Contexto e impacto: A empresa deve dar noções básicas de GRO e consultar os trabalhadores sobre como eles percebem os riscos. Os quatro momentos de participação são: identificação de perigos, AEP ou AET, mudanças e acompanhamento do desempenho das medidas.
 
 Reflita: Em qual dessas quatro etapas os trabalhadores nunca foram ouvidos?
 
@@ -504,7 +504,7 @@ Para empresas com CIPA: vocês têm regras de conduta sobre assédio e violênci
 
 Base: NR-1 1.4.1.1
 
-Contexto e impacto: É exigência expressa para quem é obrigado a ter CIPA (NR-5). Inclui divulgar as regras, apurar os casos, aplicar sanções administrativas aos responsáveis (diretos e indiretos) e proteger o anonimato de quem denuncia. Também é fator psicossocial do inventário.
+Contexto e impacto: É exigência expressa para quem é obrigado a ter CIPA, pela NR-5. Inclui divulgar as regras, apurar os casos, aplicar sanções administrativas aos responsáveis (diretos e indiretos) e proteger o anonimato de quem denuncia. Também é fator psicossocial do inventário.
 
 Reflita: O canal de denúncia já foi usado? Se nunca foi, é porque não há casos ou porque ninguém confia nele?
 
@@ -595,7 +595,7 @@ _Governança, várias unidades e capacidade de provar a conformidade_
 
 **O que muda nas perguntas:** Perguntas de sistema: patrocínio da alta direção, critérios iguais entre unidades, integração com sistema de gestão, indicadores e auditorias, lideranças, AET, contratadas e riscos de interação, rastreabilidade digital e histórico de 20 anos.
 
-**Score (ICM · Índice de Conformidade e Maturidade):** Um ICM por estabelecimento, com 8 pilares de pesos diferentes, piso e travas. As faixas são mais exigentes, porque a multa cresce com o número de empregados (NR-28). Responda uma vez por estabelecimento (CNPJ).
+**Score (ICM · Índice de Conformidade e Maturidade):** Um ICM por estabelecimento, com 8 pilares de pesos diferentes, piso e travas. As faixas são mais exigentes, porque a multa cresce com o número de empregados (NR-28). Responda uma vez por estabelecimento, ou seja, por CNPJ.
 
 ### A · Governança e enquadramento
 
@@ -603,7 +603,7 @@ _Começamos pela base: quem responde pela gestão de riscos e em que regras a su
 
 **G-01 · Peso 3 · Crítico (trava)**
 
-Cada estabelecimento (CNPJ) tem PGR implementado, cobrindo todas as atividades? E existe uma visão consolidada de todas as unidades?
+Cada estabelecimento, ou seja, cada CNPJ, tem PGR implementado, cobrindo todas as atividades? E existe uma visão consolidada de todas as unidades?
 
 Base: NR-1 1.5.3.1, 1.5.3.1.1; Manual p.13–14
 
@@ -613,7 +613,7 @@ Reflita: Qual é a unidade mais fraca em GRO, e quem responde por ela?
 
 **G-02 · Peso 2 · Importante**
 
-A alta direção patrocina formalmente o GRO (política, responsabilidades por nível, orçamento) e acompanha os resultados?
+A alta direção patrocina formalmente o GRO, com política, responsabilidades por nível e orçamento, e acompanha os resultados?
 
 Base: NR-1 1.5.3.1 e 1.5.3.4; Manual p.17–21
 
@@ -637,7 +637,7 @@ Se vocês usam um sistema de gestão (por exemplo, ISO 45001) para atender ao GR
 
 Base: NR-1 1.5.3.1.2; Manual p.15–16
 
-Contexto e impacto: O sistema de gestão pode atender ao GRO/PGR, desde que cumpra integralmente a NR-1 e os demais dispositivos de SST. Segundo o Manual, a certificação não isenta do cumprimento integral, e a conformidade legal prevalece sobre a certificação voluntária.
+Contexto e impacto: O sistema de gestão pode atender ao GRO e ao PGR, desde que cumpra integralmente a NR-1 e os demais dispositivos de SST. Segundo o Manual, a certificação não isenta do cumprimento integral, e a conformidade legal prevalece sobre a certificação voluntária.
 
 Reflita: Se o fiscal escolher um item da NR-1 ao acaso, vocês acham a evidência dele no sistema em minutos?
 
@@ -725,7 +725,7 @@ _Este pilar olha para a organização do trabalho: carga, apoio, relações e as
 
 **G-12 · Peso 3 · Crítico (trava)**
 
-Os fatores de risco psicossociais foram identificados e avaliados (AEP, e AET quando couber) em todas as atividades de todos os estabelecimentos, e estão no inventário?
+Os fatores de risco psicossociais foram identificados e avaliados na AEP, e na AET quando couber, em todas as atividades de todos os estabelecimentos, e estão no inventário?
 
 Base: NR-1 1.5.3.1.4, 1.5.3.2.1, 1.5.4.4.5.3; NR-17 17.3
 
@@ -765,7 +765,7 @@ Reflita: As metas e os prazos foram desenhados pensando na carga real de quem ex
 
 **G-16 · Peso 2 · Importante**
 
-Quando há inadequação, ações insuficientes, indicação do PCMSO ou necessidade vinda da análise de um acidente ou doença, vocês aplicam a AET (análise ergonômica do trabalho) com relatório específico?
+Quando há inadequação, ações insuficientes, indicação do PCMSO ou necessidade vinda da análise de um acidente ou doença, vocês aplicam a AET com relatório específico?
 
 Base: NR-17 17.3.2; Manual p.111
 
@@ -813,7 +813,7 @@ _Quem faz o trabalho precisa ser ouvido e informado. É isso que este pilar veri
 
 **G-20 · Peso 2 · Importante**
 
-A CIPA e outros canais garantem que os trabalhadores participem dos quatro momentos (identificação, AEP/AET, mudanças, acompanhamento), em todos os turnos e unidades?
+A CIPA e outros canais garantem que os trabalhadores participem, em todos os turnos e unidades, dos quatro momentos: identificação de perigos, AEP ou AET, mudanças e acompanhamento?
 
 Base: NR-1 1.5.3.3 a e b; Manual p.22–24
 
@@ -837,7 +837,7 @@ A empresa tem regras de conduta sobre assédio sexual e outras violências, proc
 
 Base: NR-1 1.4.1.1
 
-Contexto e impacto: É obrigatório para organizações com CIPA (NR-5), o que tende a incluir as grandes empresas. Vale para empregados e empregadas de todos os níveis hierárquicos e precisa de ampla divulgação. Também é fator psicossocial no inventário.
+Contexto e impacto: É obrigatório para organizações com CIPA, pela NR-5, o que tende a incluir as grandes empresas. Vale para empregados e empregadas de todos os níveis hierárquicos e precisa de ampla divulgação. Também é fator psicossocial no inventário.
 
 Reflita: Quantas denúncias vocês receberam, apuraram e concluíram no último ano, e com que desfecho?
 

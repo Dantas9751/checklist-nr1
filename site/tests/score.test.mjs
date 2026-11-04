@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { perguntasDoPorte, calcularScore, faixaDoScore, pontosFortesEFracos, lacunasPrioritarias } from '../js/score.js';
+import { perguntasDoPorte, calcularScore, faixaDoScore, pontosFortesEFracos, lacunasPrioritarias, avaliarSecoes } from '../js/score.js';
 import dados from '../data/questionario.json' with { type: 'json' };
 
 const responderTudo = (porteId, opcaoId) =>
@@ -182,4 +182,31 @@ test('lacunasPrioritarias segue a ordem do PDF: peso 3 em Não atende primeiro',
   respostas['M-20'] = 'parcial';
   const lacunas = lacunasPrioritarias(dados, 'media', respostas);
   assert.deepEqual(lacunas.map(l => l.pergunta.id), ['M-13', 'M-07', 'M-02']);
+});
+
+test('avaliarSecoes: pilar com item crítico em Não atende precisa de atenção', () => {
+  const respostas = { ...responderTudo('media', 'atende'), 'M-07': 'nao_atende', 'M-08': 'parcial' };
+  const c = avaliarSecoes(dados, 'media', respostas).find(s => s.id === 'C');
+  assert.equal(c.destaque, 'fraco');
+  assert.deepEqual(c.criticosEmFalta, ['M-07']);
+  assert.deepEqual(c.parciais, ['M-08']);
+  assert.equal(c.faixa.id, 'critica');
+  assert.equal(c.abaixoDoPiso, true);
+});
+
+test('avaliarSecoes: "mais forte" exige estar no topo e na melhor faixa', () => {
+  const tudoParcial = avaliarSecoes(dados, 'grande', responderTudo('grande', 'parcial'));
+  assert.ok(tudoParcial.every(s => s.destaque !== 'forte'));
+  const tudoAtende = avaliarSecoes(dados, 'grande', responderTudo('grande', 'atende'));
+  assert.equal(tudoAtende.filter(s => s.destaque === 'forte').length, 3);
+  assert.ok(tudoAtende.every(s => s.destaque !== 'fraco'));
+});
+
+test('avaliarSecoes: pilar D abaixo do limite aciona a trava da seção', () => {
+  const respostas = responderTudo('media', 'atende');
+  for (const id of ['M-11', 'M-12']) respostas[id] = 'nao_atende';
+  respostas['M-10'] = 'parcial';
+  const d = avaliarSecoes(dados, 'media', respostas).find(s => s.id === 'D');
+  assert.equal(d.acionaTravaDaSecao, true);
+  assert.equal(d.destaque, 'fraco');
 });

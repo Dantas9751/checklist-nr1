@@ -26,6 +26,7 @@ async function percorrer(navegador, { porte, estrategia, esperado }, capturar) {
   pagina.on('pageerror', e => erros.push(e.message));
   await pagina.goto(URL_SITE);
   await pagina.getByRole('button', { name: 'Começar' }).click();
+  await pagina.getByRole('button', { name: 'Escolher o porte' }).click();
   await pagina.getByRole('radio', { name: new RegExp(`^${porte}`) }).check();
   await pagina.getByRole('button', { name: 'Continuar' }).click();
 
@@ -40,10 +41,17 @@ async function percorrer(navegador, { porte, estrategia, esperado }, capturar) {
   }
   const semObjetoSolto = async tela => {
     if (await pagina.evaluate(() => document.body.innerText.includes('[object'))) erros.push(`"[object" renderizado em ${tela}`);
+    const duplo = await pagina.evaluate(() => document.querySelector('.etapa:not([hidden])').innerText.match(/.{0,40}\) \(.{0,20}/));
+    if (duplo) erros.push(`parêntese duplo em ${tela}: ${duplo[0]}`);
   };
   await semObjetoSolto('revisão');
   await pagina.getByRole('button', { name: 'Ver relatório' }).click();
   await semObjetoSolto('relatório');
+  await pagina.getByRole('link', { name: 'Contexto legal', exact: true }).click();
+  await semObjetoSolto('contexto legal');
+  if (capturar) await capturar(pagina, 'contexto');
+  await pagina.getByRole('button', { name: 'Voltar' }).click();
+  if (!(await pagina.locator('#titulo-relatorio').isVisible())) erros.push('Voltar do contexto não voltou ao relatório');
   const score = Number((await pagina.locator('.anel__numero').textContent()).match(/^\d+/)[0]);
   const faixa = await pagina.locator('.selo-faixa').textContent();
   if (capturar) await capturar(pagina, 'relatorio');

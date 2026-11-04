@@ -1,27 +1,48 @@
-/* Impressão do relatório: fundo branco, sem controles, quebras de página limpas. */
+/* Relatório impresso / PDF: papel branco, hierarquia clara, um só tom de destaque e status com ícone. */
 
 /* :not(#_) sobe a especificidade acima das regras de tema escuro de base.css. */
 :root:not(#_) {
   color-scheme: light;
   --fundo: #ffffff;
   --superficie: #ffffff;
-  --superficie-2: #f4f5f6;
-  --texto: #000000;
-  --texto-2: #333333;
-  --texto-3: #444444;
-  --linha: #cccccc;
+  --superficie-2: #f3f6f5;
+  --texto: #111417;
+  --texto-2: #3d454c;
+  --texto-3: #59626a;
+  --linha: #d5dbdf;
   --destaque: #0b6e5f;
+  --destaque-suave: #e6f1ee;
 }
 
 @page {
-  margin: 16mm 14mm;
+  size: A4;
+  margin: 18mm 16mm 20mm;
+
+  @top-left {
+    content: "Checklist NR-1 · Relatório de autodiagnóstico";
+    font: 600 8pt/1 -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
+    color: #59626a;
+  }
+
+  @bottom-left {
+    content: "Autodiagnóstico baseado na NR-1. Não substitui parecer técnico ou jurídico.";
+    font: 7.5pt/1 -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
+    color: #59626a;
+  }
+
+  @bottom-right {
+    content: "Página " counter(page) " de " counter(pages);
+    font: 600 8pt/1 -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
+    color: #59626a;
+  }
 }
 
 html,
 body {
   background: #ffffff !important;
-  color: #000000;
-  font-size: 11pt;
+  color: var(--texto);
+  font-size: 10pt;
+  line-height: 1.45;
 }
 
 .barra,
@@ -30,6 +51,8 @@ body {
 .navegacao,
 .botao-link,
 .anuncio,
+.link-pagina,
+.rodape__contexto,
 .etapa:not(#etapa-relatorio) {
   display: none !important;
 }
@@ -38,53 +61,256 @@ main {
   padding: 0;
 }
 
-.etapa {
+/* No papel, grid se fragmenta mal entre páginas e sobrepõe blocos: o fluxo volta a ser em bloco. */
+#etapa-relatorio,
+.bloco,
+.pilares-fracos,
+.pilar-fraco,
+.indicadores,
+.rodape {
+  display: block !important;
   max-width: none;
-  gap: 8mm;
 }
 
-.bloco,
-.recolhivel {
+#etapa-relatorio > * + *,
+.bloco > * + *,
+.pilar-fraco > * + *,
+.indicadores > * + *,
+.rodape > * + * {
+  margin-top: 3mm;
+}
+
+#etapa-relatorio > .bloco {
+  margin-top: 8mm;
+}
+
+.pilar-fraco + .pilar-fraco {
+  margin-top: 3mm;
+}
+
+/* Animações e transições não existem no papel. */
+* {
+  animation: none !important;
+  transition: none !important;
+}
+
+h1 {
+  font-size: 22pt;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 13pt;
+  letter-spacing: -0.01em;
+  padding-bottom: 2mm;
+  border-bottom: 1.5pt solid var(--destaque);
+  break-after: avoid;
+}
+
+h3 {
+  font-size: 11pt;
+  margin-top: 3mm;
+  color: var(--destaque);
+  break-after: avoid;
+}
+
+h4 {
+  font-size: 10.5pt;
+  break-after: avoid;
+}
+
+.nota {
+  font-size: 8.5pt;
+}
+
+/* Cabeçalho: título, porte e data numa faixa. */
+.cabecalho-relatorio {
+  padding: 0 0 4mm;
+  border-bottom: 0.5pt solid var(--linha);
+}
+
+.cabecalho-relatorio .subtitulo {
+  font-size: 10.5pt;
+  color: var(--texto-2);
+}
+
+/* Blocos viram seções abertas, sem cartão. */
+.bloco {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
   box-shadow: none !important;
-  border: 1px solid #cccccc;
+  background: none;
+  gap: 3mm;
+}
+
+/* Resultado: anel à esquerda, leitura à direita, sobre um fundo leve. */
+.resultado {
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  justify-items: start !important;
+  text-align: left !important;
+  align-items: center;
+  gap: 8mm !important;
+  padding: 5mm 6mm !important;
+  border-radius: 3mm;
+  background: var(--superficie-2);
   break-inside: avoid;
 }
 
-.bloco:has(.respostas-lista),
-.bloco:has(.lacunas) {
+.anel {
+  width: 34mm;
+}
+
+.anel__numero {
+  font-size: 26pt;
+}
+
+.anel__numero small {
+  font-size: 8pt;
+}
+
+.resultado__resumo {
+  font-size: 12pt;
+}
+
+.selo-faixa {
+  justify-self: start !important;
+  background: #ffffff;
+  font-size: 10.5pt;
+}
+
+/* Tabela de pilares: sempre tabela no papel. */
+.tabela-pilares,
+.tabela-pilares thead,
+.tabela-pilares tbody {
+  display: table-row-group;
+}
+
+.tabela-pilares {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  font-size: 8.8pt;
+}
+
+.tabela-pilares thead {
+  display: table-header-group;
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+}
+
+.tabela-pilares tr {
+  display: table-row !important;
+  padding: 0;
+  break-inside: avoid;
+}
+
+.tabela-pilares th,
+.tabela-pilares td {
+  display: table-cell !important;
+  padding: 2.5mm 2mm !important;
+  border-bottom: 0.5pt solid var(--linha) !important;
+  vertical-align: top;
+}
+
+.tabela-pilares thead th {
+  background: var(--superficie-2);
+  color: var(--texto);
+  font-size: 8pt;
+  border-bottom: 1pt solid var(--texto-3) !important;
+}
+
+.tabela-pilares td::before {
+  display: none !important;
+}
+
+.tabela-pilares th[scope="row"] {
+  padding-left: 3mm !important;
+}
+
+/* Com table-layout fixo, a largura vem da primeira linha (o cabeçalho). */
+.tabela-pilares thead th:nth-child(1) { width: 22%; }
+.tabela-pilares thead th:nth-child(2) { width: 10%; }
+.tabela-pilares thead th:nth-child(3) { width: 15%; }
+.tabela-pilares thead th:nth-child(4) { width: 53%; }
+
+.selo-pilar {
+  white-space: normal;
+}
+
+.barra-nota {
+  width: 100%;
+  height: 5px;
+}
+
+.pilar-linha__motivo p + p {
+  margin-top: 1.2mm;
+}
+
+/* Lacunas e pilares fracos: destaque discreto com filete à esquerda. */
+.lacunas li {
+  display: block;
+  padding-left: 1mm;
+  break-inside: avoid;
+}
+
+.lacunas li > span {
+  display: block;
+}
+
+.lacuna__meta {
+  color: var(--destaque);
+}
+
+.pilares-fracos {
+  gap: 3mm;
+}
+
+.pilar-fraco {
+  padding: 3mm 4mm;
+  border-radius: 2mm;
+  background: var(--superficie-2);
+  break-inside: avoid;
+}
+
+.indicadores {
+  background: var(--superficie-2);
+  break-inside: avoid;
+}
+
+/* Respostas: sempre abertas, em lista compacta. */
+.resumo-respostas div {
+  background: var(--superficie-2);
+}
+
+.recolhivel {
+  box-shadow: none !important;
+  border: 0;
+  border-radius: 0;
+  background: none !important;
   break-inside: auto;
 }
 
-.lacunas li,
-.respostas-lista li {
-  display: block;
-  break-inside: avoid;
-}
-
-.secao-nota {
-  break-inside: avoid;
-}
-
-.lacunas li > span,
-.respostas-lista li > * {
-  display: block;
-}
-
-.recolhivel {
-  break-inside: avoid;
+.recolhivel > summary {
+  min-height: 0;
+  padding: 3mm 0 1.5mm;
+  font-size: 10pt;
+  color: var(--destaque);
+  break-after: avoid;
 }
 
 .recolhivel > summary::after {
   display: none;
 }
 
-/* Imprime as respostas abertas, mesmo com os <details> fechados na tela. */
-.recolhivel > :not(summary) {
-  display: block !important;
-}
-
+.recolhivel > :not(summary),
 .recolhivel:not([open]) > :not(summary) {
   display: block !important;
+  margin: 0 !important;
   content-visibility: visible;
 }
 
@@ -93,21 +319,46 @@ details::details-content {
   display: block;
 }
 
-.anel__valor,
-.secao-nota__barra {
-  animation: none !important;
+.respostas-lista li {
+  display: grid !important;
+  grid-template-columns: 13mm 1fr 20mm;
+  gap: 0 3mm;
+  padding: 1.5mm 0;
+  border-bottom: 0.5pt solid var(--linha);
+  font-size: 8.8pt;
+  break-inside: avoid;
+}
+
+.respostas-lista li strong {
+  grid-column: auto;
+  text-align: right;
+  font-size: 8.8pt;
+}
+
+.rodape {
+  font-size: 8pt;
+  padding-top: 3mm;
+  border-top: 0.5pt solid var(--linha);
+}
+
+/* Cores de status e barras saem no PDF. */
+.anel,
+.barra-nota,
+.barra-nota__valor,
+.icone-status,
+.resultado,
+.pilar-fraco,
+.pilar-linha th,
+.tabela-pilares thead th,
+.resumo-respostas div,
+.indicadores {
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
 
-.secao-nota__trilho,
-.icone-status {
-  print-color-adjust: exact;
-  -webkit-print-color-adjust: exact;
-}
-
-h2,
-h3,
-h4 {
-  break-after: avoid;
+/* Cada parte do relatório começa numa página: resultado e pilares, plano de ação, respostas. */
+.bloco[aria-labelledby="titulo-proximos"],
+.bloco[aria-labelledby="titulo-respostas"] {
+  break-before: page;
+  margin-top: 0 !important;
 }

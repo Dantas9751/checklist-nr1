@@ -2,7 +2,7 @@
 
 ## O que foi entregue
 
-- `site/`: site estático que roda com `python3 -m http.server`. O fluxo é boas-vindas → escolha de porte → perguntas (uma por tela) → revisão → relatório. Funciona com teclado, nos temas claro e escuro, a partir de 360px, e respeita movimento reduzido.
+- `site/`: site estático que roda com `python3 -m http.server`. O fluxo é início (índice e passo a passo com capturas) → como marcar e pontuação → escolha de porte → perguntas (uma por tela, contexto antes do enunciado, explicação de cada marcação num popup) → revisão → relatório (score com cor da faixa e tabela de pilares com nota, avaliação e motivo). O contexto legal e as fontes ficam numa página própria, aberta pelo cabeçalho, pelo índice ou pelo rodapé do relatório. Funciona com teclado, nos temas claro e escuro, a partir de 360px, e respeita movimento reduzido.
 - `docs/extracao/original.md` e `mapa.md`: texto do PDF página a página e mapa estrutural com as contagens.
 - `docs/extracao/humanizado.md`: a versão humanizada completa, para comparar com o PDF.
 - `docs/extracao/diff-tom.md`: o que mudou e o que ficou, e a tabela de fidelidade pergunta a pergunta (texto, contexto e "Reflita").
@@ -59,9 +59,9 @@ Testado: melhor resposta em tudo dá 100 e Em conformidade; pior dá 0 e Crític
 
 ## Verificação
 
-- 37 testes unitários passando (`npm test`): score, travas, faixas, estado, troca de porte, persistência, resumo copiado.
+- 47 testes unitários passando (`npm test`): score, travas, faixas, avaliação dos pilares e motivos, siglas, estado, troca de porte, persistência, resumo copiado.
 - Ponta a ponta com Playwright nos três portes, sem erros no console.
-- axe-core (WCAG 2.1 A/AA e boas práticas) em todas as telas, nos dois temas: nenhuma violação.
+- axe-core (WCAG 2.1 A/AA e boas práticas) em todas as telas, nos dois temas, inclusive com o popup aberto: nenhuma violação.
 - Contraste calculado dos tokens: texto no mínimo 5,16:1 (claro) e 6,3:1 (escuro); controles acima de 3:1.
 - Percurso completo só com teclado (Tab, setas, Enter) do início ao relatório.
 - Impressão conferida em PDF: fundo branco, sem botões, respostas abertas, sem itens cortados entre páginas.
