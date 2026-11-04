@@ -4,18 +4,13 @@ import {
 } from './estado.js';
 import {
   renderBoasVindas, renderComoMarcar, renderContexto, renderPorte, detalhePorte, renderPergunta, renderRevisao, porteDe,
-  ID_FIM_DA_LEITURA,
+  ID_FIM_DA_LEITURA, TEMAS, renderMenuTema, renderMenuPrincipal, renderMenuFerramentas,
 } from './render.js';
 import { renderRelatorio, textoResumo } from './relatorio.js';
 import { perguntasDoPorte, calcularScore } from './score.js';
 
 const URL_DADOS = 'data/questionario.json';
 const CHAVE_TEMA = 'checklist-nr1:tema';
-const TEMAS = [
-  { id: 'auto', nome: 'automático' },
-  { id: 'light', nome: 'claro' },
-  { id: 'dark', nome: 'escuro' },
-];
 const ORDEM_ETAPAS = ['boas-vindas', 'como-marcar', 'porte', 'perguntas', 'revisao', 'relatorio', 'contexto'];
 const MARGEM_POPOVER = 16;
 const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -135,15 +130,32 @@ function aplicarTema(id) {
   const tema = TEMAS.find(t => t.id === id) ?? TEMAS[0];
   if (tema.id === 'auto') delete document.documentElement.dataset.theme;
   else document.documentElement.dataset.theme = tema.id;
-  const botao = $('[data-acao="tema"]');
+  const botao = $('#botao-tema');
   botao.setAttribute('aria-label', `Tema: ${tema.nome}`);
   botao.title = `Tema: ${tema.nome}`;
+  const opcao = document.querySelector(`input[name="tema"][value="${tema.id}"]`);
+  if (opcao) opcao.checked = true;
   try {
     localStorage.setItem(CHAVE_TEMA, tema.id);
   } catch {
     // Preferência só vale nesta visita.
   }
   return tema;
+}
+
+// Confirmação ---------------------------------------------------------------
+
+// Caixa de confirmação do próprio site: devolve true só quando a pessoa confirma.
+function confirmar({ titulo, texto, rotuloConfirmar }) {
+  const dialogo = $('#dialogo-confirmacao');
+  $('#dialogo-titulo').textContent = titulo;
+  $('#dialogo-texto').textContent = texto;
+  $('#dialogo-confirmar').textContent = rotuloConfirmar;
+  dialogo.returnValue = '';
+  dialogo.showModal();
+  return new Promise(resolver => {
+    dialogo.addEventListener('close', () => resolver(dialogo.returnValue === 'confirmar'), { once: true });
+  });
 }
 
 // Ações ---------------------------------------------------------------------
@@ -175,26 +187,34 @@ const ACOES = {
   revisar: () => atualizar(irPara(estado, 'revisao')),
   imprimir: () => window.print(),
   copiar: () => copiarResumo(),
-  refazer: () => {
-    if (!window.confirm('Apagar todas as respostas e começar de novo?')) return;
+  refazer: async () => {
+    const confirmado = await confirmar({
+      titulo: 'Refazer o checklist?',
+      texto: 'Todas as respostas deste navegador serão apagadas, e você volta para o início. Se quiser guardar o resultado, baixe o relatório antes.',
+      rotuloConfirmar: 'Apagar e refazer',
+    });
+    if (!confirmado) return;
     limpar();
+    leituraConcluida = false;
     atualizar(criarEstado());
   },
-  tema: () => {
-    const atual = TEMAS.findIndex(t => t.id === lerTema());
-    anunciar(`Tema ${aplicarTema(TEMAS[(atual + 1) % TEMAS.length].id).nome}.`);
-  },
+  'em-breve': () => anunciar('Esta ferramenta estará disponível em breve.'),
 };
 
 function aoClicar(evento) {
   const botao = evento.target.closest('[data-acao]');
   if (!botao) return;
   if (botao.tagName === 'A') evento.preventDefault();
+  botao.closest('.menu-flutuante')?.hidePopover();
   ACOES[botao.dataset.acao]?.(botao);
 }
 
 function aoMudar(evento) {
   const campo = evento.target;
+  if (campo.name === 'tema') {
+    anunciar(`Tema ${aplicarTema(campo.value).nome}.`);
+    return;
+  }
   if (campo.name === 'porte') {
     $('#detalhe-porte').replaceChildren(detalhePorte(dados, estado, campo.value));
     campo.form.querySelector('[type="submit"]').disabled = false;
@@ -210,6 +230,7 @@ function aoMudar(evento) {
 
 function aoEnviar(evento) {
   const form = evento.target;
+  if (form.getAttribute('method') === 'dialog') return;
   evento.preventDefault();
   if (form.dataset.form === 'porte') {
     const escolhido = form.querySelector('input[name="porte"]:checked');
@@ -225,23 +246,27 @@ function aoTeclar(evento) {
   campo.form.requestSubmit();
 }
 
-// Explicação das opções: o popover nativo abre colado ao botão que o chamou, em coordenadas da página,
-// para rolar junto com o conteúdo.
+// Popovers abrem colados ao botão que os chamou. A explicação das opções usa coordenadas da página,
+// para rolar junto com o conteúdo; os menus do cabeçalho ficam fixos na tela, como o cabeçalho.
 function posicionarPopover(evento) {
   const popover = evento.target;
-  if (evento.newState !== 'open' || !popover.classList?.contains('explicacao')) return;
-  const gatilho = document.querySelector(`[popovertarget="${popover.id}"]`).getBoundingClientRect();
+  const ehMenu = popover.classList?.contains('menu-flutuante');
+  if (evento.newState !== 'open' || !(ehMenu || popover.classList?.contains('explicacao'))) return;
+  const gatilhos = [...document.querySelectorAll(`[popovertarget="${popover.id}"]`)];
+  const gatilho = (gatilhos.find(g => g.offsetParent !== null) ?? gatilhos[0]).getBoundingClientRect();
+  const rolagem = ehMenu ? { x: 0, y: 0 } : { x: window.scrollX, y: window.scrollY };
   const largura = popover.offsetWidth;
   const esquerda = Math.min(Math.max(MARGEM_POPOVER, gatilho.right - largura), window.innerWidth - largura - MARGEM_POPOVER);
   const abaixo = gatilho.bottom + 8;
   const cabe = abaixo + popover.offsetHeight < window.innerHeight - MARGEM_POPOVER;
-  popover.style.left = `${esquerda + window.scrollX}px`;
-  popover.style.top = `${(cabe ? abaixo : gatilho.top - popover.offsetHeight - 8) + window.scrollY}px`;
+  popover.style.left = `${esquerda + rolagem.x}px`;
+  popover.style.top = `${(cabe || ehMenu ? abaixo : gatilho.top - popover.offsetHeight - 8) + rolagem.y}px`;
 }
 
 // Início --------------------------------------------------------------------
 
 async function iniciar() {
+  $('#menu-tema').replaceChildren(renderMenuTema(lerTema()));
   aplicarTema(lerTema());
   try {
     const resposta = await fetch(URL_DADOS);
@@ -256,6 +281,8 @@ async function iniciar() {
     );
     return;
   }
+  $('#menu-ferramentas').replaceChildren(...renderMenuFerramentas(dados));
+  $('#menu-principal').replaceChildren(...renderMenuPrincipal(dados));
   const salvo = carregar();
   estado = salvo.porteId && !porteDe(dados, salvo.porteId) ? criarEstado() : salvo;
   document.addEventListener('click', aoClicar);

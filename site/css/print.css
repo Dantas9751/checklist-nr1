@@ -362,3 +362,8 @@ details::details-content {
   break-before: page;
   margin-top: 0 !important;
 }
+
+.menu-flutuante,
+.dialogo {
+  display: none !important;
+}

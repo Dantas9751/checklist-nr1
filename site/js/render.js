@@ -97,6 +97,56 @@ function arvoreDePassos(workflow) {
   return principais.map(p => ({ passo: p, subpassos: workflow.filter(s => s.numero.startsWith(`${p.numero}.`)) }));
 }
 
+// Ferramentas adicionais: sem endereço ainda, aparecem como "Em breve" e não navegam.
+function linkFerramenta(ferramenta) {
+  const pronta = Boolean(ferramenta.url);
+  return h('a', {
+    class: `ferramenta${pronta ? '' : ' ferramenta--em-breve'}`,
+    href: pronta ? ferramenta.url : '#',
+    target: pronta ? '_blank' : null,
+    rel: pronta ? 'noopener' : null,
+    'aria-disabled': pronta ? null : 'true',
+    'data-acao': pronta ? null : 'em-breve',
+  },
+  h('span', { class: 'ferramenta__titulo' }, ferramenta.titulo),
+  h('span', { class: 'ferramenta__descricao' }, ferramenta.descricao),
+  !pronta && h('span', { class: 'ferramenta__selo' }, 'Em breve'));
+}
+
+export function renderFerramentas(dados) {
+  return h('ul', { class: 'lista-ferramentas' }, dados.meta.ferramentas.itens.map(f => h('li', {}, linkFerramenta(f))));
+}
+
+export function renderMenuPrincipal(dados) {
+  return [
+    h('a', { class: 'menu-flutuante__item', href: '#contexto-legal', 'data-acao': 'contexto' }, 'Contexto legal e fontes'),
+    h('p', { class: 'menu-flutuante__titulo' }, dados.meta.ferramentas.titulo),
+    renderFerramentas(dados),
+  ];
+}
+
+export function renderMenuFerramentas(dados) {
+  return [h('p', { class: 'menu-flutuante__titulo' }, dados.meta.ferramentas.titulo), renderFerramentas(dados)];
+}
+
+export const TEMAS = [
+  { id: 'auto', nome: 'Automático', descricao: 'Segue o sistema', cores: ['#f1f3f4', '#000000'] },
+  { id: 'light', nome: 'Claro', cores: ['#ffffff', '#0b6e5f'] },
+  { id: 'dark', nome: 'Escuro', cores: ['#1c1c1e', '#45c4a9'] },
+  { id: 'midnight', nome: 'Midnight', cores: ['#121a2e', '#8aa9ff'] },
+  { id: 'sunlight', nome: 'Sunlight', cores: ['#fff4dc', '#8a4b00'] },
+  { id: 'ciee', nome: 'CIEE', cores: ['#ffffff', '#0b4ea2'] },
+];
+
+export function renderMenuTema(temaAtual) {
+  return h('fieldset', { class: 'menu-tema' },
+    h('legend', { class: 'menu-flutuante__titulo' }, 'Tema'),
+    TEMAS.map(t => h('label', { class: 'menu-tema__opcao' },
+      h('input', { type: 'radio', name: 'tema', value: t.id, checked: t.id === temaAtual }),
+      h('span', { class: 'menu-tema__amostra', 'aria-hidden': 'true', style: `--amostra-fundo: ${t.cores[0]}; --amostra-destaque: ${t.cores[1]}` }),
+      h('span', { class: 'menu-tema__nome' }, t.nome, t.descricao ? h('small', {}, t.descricao) : null))));
+}
+
 function indice(meta) {
   return h('nav', { class: 'indice', 'aria-label': 'Nesta página' },
     h('p', { class: 'indice__titulo' }, 'Nesta página'),
@@ -105,7 +155,12 @@ function indice(meta) {
       h('li', {}, h('a', { href: '#passo-a-passo' }, 'Passo a passo'),
         h('ul', { class: 'indice__sub' }, meta.workflow.map(p => h('li', {}, h('a', { href: `#${idDoPasso(p)}` }, `${p.numero} ${p.titulo}`))))),
       h('li', {}, h('a', { href: '#comecar' }, 'Antes de começar')),
-      h('li', {}, linkContexto('Contexto legal'))));
+      h('li', {}, linkContexto('Contexto legal')),
+      h('li', { class: 'indice__ferramentas' },
+        h('span', { class: 'indice__grupo' }, meta.ferramentas.titulo),
+        h('ul', { class: 'indice__lista-ferramentas' }, meta.ferramentas.itens.map(f => h('li', {},
+          h('a', { href: f.url || '#', 'aria-disabled': f.url ? null : 'true', 'data-acao': f.url ? null : 'em-breve' },
+            f.titulo, f.url ? null : h('span', { class: 'indice__em-breve' }, '· em breve'))))))));
 }
 
 export function renderBoasVindas(dados, estado, { liberado = false } = {}) {

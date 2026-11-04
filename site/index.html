@@ -19,15 +19,36 @@
     <div class="barra__linha">
       <button type="button" class="barra__marca" data-acao="inicio">Checklist NR-1</button>
       <p class="barra__contexto" id="barra-contexto"></p>
-      <a class="barra__link" href="#contexto-legal" data-acao="contexto">Contexto legal</a>
-      <button type="button" class="botao-icone" data-acao="tema" aria-label="Tema: automático" title="Tema: automático">
+      <nav class="barra__nav" aria-label="Principal">
+        <a class="barra__link" href="#contexto-legal" data-acao="contexto">Contexto legal</a>
+        <button type="button" class="barra__link barra__link--menu" popovertarget="menu-ferramentas">
+          Ferramentas
+          <svg class="barra__seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg>
+        </button>
+      </nav>
+      <button type="button" class="barra__link barra__link--menu barra__menu-celular" popovertarget="menu-principal">Menu</button>
+      <button type="button" class="botao-icone" id="botao-tema" popovertarget="menu-tema" aria-label="Tema: automático" title="Tema: automático">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
       </button>
     </div>
     <div class="progresso" role="progressbar" aria-label="Progresso do checklist" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden>
       <div class="progresso__barra"></div>
     </div>
+    <div class="menu-flutuante" id="menu-ferramentas" popover></div>
+    <div class="menu-flutuante" id="menu-principal" popover></div>
+    <div class="menu-flutuante" id="menu-tema" popover></div>
   </header>
+
+  <dialog class="dialogo" id="dialogo-confirmacao" aria-labelledby="dialogo-titulo" aria-describedby="dialogo-texto">
+    <form method="dialog" class="dialogo__corpo">
+      <h2 id="dialogo-titulo"></h2>
+      <p id="dialogo-texto"></p>
+      <div class="dialogo__acoes">
+        <button type="submit" class="botao botao--secundario" value="cancelar" autofocus>Cancelar</button>
+        <button type="submit" class="botao botao--perigo" value="confirmar" id="dialogo-confirmar"></button>
+      </div>
+    </form>
+  </dialog>
 
   <main id="conteudo" tabindex="-1">
     <section class="etapa" id="etapa-boas-vindas" data-etapa="boas-vindas" aria-labelledby="titulo-boas-vindas" hidden></section>

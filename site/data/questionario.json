@@ -171,7 +171,24 @@
         "RH": "recursos humanos"
       }
     },
-    "contexto_intro": "O que mudou, o que continua valendo e o que está em jogo para a empresa. Base: NR-1 atualizada, Guia de riscos psicossociais e Manual do GRO e do PGR, da Secretaria de Inspeção do Trabalho, com checagem complementar em fontes públicas."
+    "contexto_intro": "O que mudou, o que continua valendo e o que está em jogo para a empresa. Base: NR-1 atualizada, Guia de riscos psicossociais e Manual do GRO e do PGR, da Secretaria de Inspeção do Trabalho, com checagem complementar em fontes públicas.",
+    "ferramentas": {
+      "titulo": "Ferramentas adicionais",
+      "itens": [
+        {
+          "id": "formulario",
+          "titulo": "Formulário complementar",
+          "descricao": "Perguntas extras no Microsoft Forms",
+          "url": ""
+        },
+        {
+          "id": "cartilha",
+          "titulo": "Cartilha de exemplo",
+          "descricao": "Cartilha de amostra em PDF",
+          "url": ""
+        }
+      ]
+    }
   },
   "opcoes": [
     {

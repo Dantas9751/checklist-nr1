@@ -40,6 +40,14 @@ NODE_PATH=$(npm root -g) node tools/capturas.mjs
 python3 tools/png_para_webp.py site/img
 ```
 
+## Ferramentas adicionais
+
+O formulário complementar (Microsoft Forms) e a cartilha em PDF aparecem no índice e no menu "Ferramentas" do cabeçalho, marcados como "Em breve". Quando tiver os links, preencha o campo `url` de cada item em `meta.ferramentas.itens` (no `humanizado.json`) e rode `npm run dados`. Com `url` preenchido, o item vira link normal, que abre em nova aba.
+
+## Temas
+
+O botão de tema no cabeçalho oferece Automático (segue o sistema), Claro, Escuro, Midnight, Sunlight e CIEE. As cores de cada tema são tokens em `css/base.css`, um bloco `:root[data-theme="..."]` por tema. A lista do menu fica em `TEMAS`, em `js/render.js`.
+
 ## Siglas
 
 As siglas aparecem por extenso na primeira vez em cada tela ("Programa de Gerenciamento de Riscos (PGR)"). O glossário fica em `meta.siglas` do `humanizado.json`. Sigla nova no texto precisa entrar ali. Há um teste que falha se a expansão gerar parêntese dentro de parêntese nas perguntas.

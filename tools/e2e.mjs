@@ -52,7 +52,7 @@ async function percorrer(navegador, { porte, estrategia, esperado }, capturar) {
   await semObjetoSolto('revisão');
   await pagina.getByRole('button', { name: 'Ver relatório' }).click();
   await semObjetoSolto('relatório');
-  await pagina.getByRole('link', { name: 'Contexto legal', exact: true }).click();
+  await pagina.locator('[data-acao="contexto"]:visible').first().click();
   await semObjetoSolto('contexto legal');
   if (capturar) await capturar(pagina, 'contexto');
   await pagina.getByRole('button', { name: 'Voltar' }).click();

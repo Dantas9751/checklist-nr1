@@ -15,6 +15,8 @@
   --sobre-destaque: #ffffff;
   --destaque-suave: #e2f0ec;
   --vidro: rgb(241 243 244 / 0.72);
+  --captura-clara: block;
+  --captura-escura: none;
 
   /* Status (paleta de status fixa; sempre acompanhada de ícone e rótulo). */
   --status-bom: #0ca30c;
@@ -50,8 +52,9 @@
   --gutter: 16px;
 }
 
+/* Sem escolha explícita, segue o sistema. Com escolha, data-theme vence nos dois sentidos. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root:not([data-theme]) {
     color-scheme: dark;
     --fundo: #000000;
     --superficie: #1c1c1e;
@@ -67,6 +70,8 @@
     --vidro: rgb(0 0 0 / 0.66);
     --sombra-cartao: 0 0 0 1px rgb(255 255 255 / 0.04);
     --sombra-elevada: 0 0 0 1px rgb(255 255 255 / 0.06), 0 18px 40px rgb(0 0 0 / 0.5);
+    --captura-clara: none;
+    --captura-escura: block;
   }
 }
 
@@ -86,6 +91,76 @@
   --vidro: rgb(0 0 0 / 0.66);
   --sombra-cartao: 0 0 0 1px rgb(255 255 255 / 0.04);
   --sombra-elevada: 0 0 0 1px rgb(255 255 255 / 0.06), 0 18px 40px rgb(0 0 0 / 0.5);
+  --captura-clara: none;
+  --captura-escura: block;
+}
+
+/* Midnight: azul-noite profundo, destaque azul-lavanda. */
+:root[data-theme="midnight"] {
+  color-scheme: dark;
+  --fundo: #0a0f1e;
+  --superficie: #121a2e;
+  --superficie-2: #18213a;
+  --texto: #e9edf8;
+  --texto-2: #b3bcd4;
+  --texto-3: #9aa4c0;
+  --linha: #2a3452;
+  --destaque: #8aa9ff;
+  --destaque-forte: #b0c6ff;
+  --sobre-destaque: #0a0f1e;
+  --destaque-suave: #1c2a52;
+  --vidro: rgb(10 15 30 / 0.72);
+  --sombra-cartao: 0 0 0 1px rgb(138 169 255 / 0.06);
+  --sombra-elevada: 0 0 0 1px rgb(138 169 255 / 0.1), 0 18px 40px rgb(0 0 0 / 0.55);
+  --captura-clara: none;
+  --captura-escura: block;
+}
+
+/* Sunlight: claro e quente, para ambientes muito iluminados; destaque âmbar escuro. */
+:root[data-theme="sunlight"] {
+  color-scheme: light;
+  --fundo: #fffaf0;
+  --superficie: #ffffff;
+  --superficie-2: #fff4dc;
+  --texto: #1d1708;
+  --texto-2: #4f4430;
+  --texto-3: #625640;
+  --linha: #ead9b0;
+  --destaque: #8a4b00;
+  --destaque-forte: #6b3a00;
+  --sobre-destaque: #ffffff;
+  --destaque-suave: #ffefc7;
+  --vidro: rgb(255 250 240 / 0.78);
+  --sombra-cartao: 0 1px 2px rgb(80 50 0 / 0.05), 0 8px 24px rgb(80 50 0 / 0.07);
+  --sombra-elevada: 0 2px 6px rgb(80 50 0 / 0.07), 0 18px 40px rgb(80 50 0 / 0.12);
+  --captura-clara: block;
+  --captura-escura: none;
+}
+
+/* CIEE: cabeçalho roxo institucional, destaque azul e laranja do ponto do "i" nos detalhes. */
+:root[data-theme="ciee"] {
+  color-scheme: light;
+  --fundo: #f4f2f8;
+  --superficie: #ffffff;
+  --superficie-2: #f7f5fb;
+  --texto: #161227;
+  --texto-2: #463f5c;
+  --texto-3: #5a5370;
+  --linha: #dcd6e8;
+  --destaque: #0b4a9b;
+  --destaque-forte: #083a7a;
+  --sobre-destaque: #ffffff;
+  --destaque-suave: #e3ebf7;
+  --destaque-letra: #c85500;
+  --vidro: rgb(244 242 248 / 0.8);
+  --barra-fundo: #47255f;
+  --barra-texto: #ffffff;
+  --barra-texto-2: #e2d8ee;
+  --barra-linha: rgb(255 255 255 / 0.2);
+  --barra-hover: #ffd3a8;
+  --progresso-cor: #f07a1a;
+  --captura-clara: block;
+  --captura-escura: none;
 }
 
 *,

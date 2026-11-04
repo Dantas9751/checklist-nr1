@@ -10,7 +10,8 @@ const URL_SITE = process.argv[2] ?? 'http://localhost:8080/';
 const PASTA = 'site/img';
 const MARGEM = 16;
 const TEMAS = [{ id: 'claro', esquema: 'light' }, { id: 'escuro', esquema: 'dark' }];
-const RESPOSTAS = ['Atende', 'Atende', 'Parcial', 'Atende', 'Não atende', 'Atende', 'Parcial'];
+// Ciclo escolhido para o score da captura dar 70 (faixa Atenção, sem travas) no porte Média.
+const RESPOSTAS = ['Atende', 'Atende', 'Parcial', 'Parcial', 'Parcial', 'Atende', 'Parcial'];
 
 async function recortar(pagina, nome, tema, seletores) {
   const clip = await pagina.evaluate(({ seletores, margem }) => {
