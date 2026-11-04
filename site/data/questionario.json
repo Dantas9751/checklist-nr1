@@ -502,6 +502,11 @@
           "reflita": "Se um fiscal pedisse hoje a prova de cada critério, qual deles você não conseguiria mostrar?",
           "tema": "enquadramento e critérios de dispensa do PGR",
           "impacto": "Se um critério de dispensa falha, o PGR completo passa a ser obrigatório.",
+          "marcacoes": {
+            "atende": "Vocês confirmaram o enquadramento (MEI, ME ou EPP) e o grau de risco pela NR-4, e têm como provar cada critério da dispensa, ou já sabem que precisam de PGR.",
+            "parcial": "Parte disso foi verificada, por exemplo o enquadramento, mas falta conferir o grau de risco ou algum critério da dispensa.",
+            "nao_atende": "Ninguém verificou ainda o enquadramento nem os critérios da dispensa do PGR."
+          },
           "base": "NR-1 1.8.1–1.8.4 e 1.8.7",
           "tipo": "unica",
           "portes": [
@@ -519,6 +524,12 @@
           "reflita": "Seus trabalhadores sabem o que foi declarado em nome da empresa?",
           "tema": "declaração digital da dispensa",
           "impacto": "Sem a declaração, a dispensa não existe na prática e o PGR volta a ser exigido.",
+          "marcacoes": {
+            "atende": "A declaração digital foi feita no sistema da Inspeção do Trabalho e os trabalhadores sabem o que foi declarado.",
+            "parcial": "A declaração foi feita, mas não foi divulgada aos trabalhadores, ou foi feita sem conferir todos os dados.",
+            "nao_atende": "A empresa se considera dispensada, mas a declaração digital não foi feita.",
+            "na": "A empresa tem PGR e por isso não usa a dispensa."
+          },
           "base": "NR-1 1.8.4, 1.8.4.1, 1.8.8",
           "tipo": "unica",
           "portes": [
@@ -536,6 +547,11 @@
           "reflita": "Se essa pessoa saísse amanhã, alguém saberia continuar?",
           "tema": "responsável pela gestão de riscos",
           "impacto": "Sem um dono definido, a gestão de riscos não sai do papel.",
+          "marcacoes": {
+            "atende": "Há uma pessoa com nome e papel definidos para conduzir a gestão de riscos, e ela sabe a quem pedir apoio técnico.",
+            "parcial": "Alguém cuida do assunto, mas sem papel formal, sem tempo definido ou sem apoio técnico quando precisa.",
+            "nao_atende": "Ninguém tem a gestão de riscos como responsabilidade."
+          },
           "base": "NR-1 1.5.3.1; Guia, FAQ 2",
           "tipo": "unica",
           "portes": [
@@ -553,6 +569,11 @@
           "reflita": "Existe algum setor, turno ou unidade que ninguém incluiu no PGR?",
           "tema": "PGR em todos os estabelecimentos e atividades",
           "impacto": "Na média empresa não existe dispensa de PGR por porte, e nenhuma área pode ficar de fora.",
+          "marcacoes": {
+            "atende": "Todos os estabelecimentos têm PGR implementado, sem nenhuma área, turno ou atividade de fora.",
+            "parcial": "Há PGR, mas algum estabelecimento, setor, turno ou atividade ficou de fora.",
+            "nao_atende": "Algum estabelecimento não tem PGR."
+          },
           "base": "NR-1 1.5.3.1 e 1.5.3.1.1; Manual p.13–14",
           "tipo": "unica",
           "portes": [
@@ -570,6 +591,11 @@
           "reflita": "Quem decide se uma medida de prevenção custa o que precisa custar?",
           "tema": "responsáveis formais com autoridade e recursos",
           "impacto": "Quem recebe a tarefa sem tempo, orçamento ou autonomia entrega um PGR de gaveta.",
+          "marcacoes": {
+            "atende": "O GRO e o PGR têm responsável formal, com tempo, orçamento e autoridade, e SESMT e CIPA ou designado participam.",
+            "parcial": "Há responsável, mas sem autoridade ou recursos, ou SESMT e CIPA não participam.",
+            "nao_atende": "Não há responsável formal pelo GRO e pelo PGR."
+          },
           "base": "NR-1 1.5.3.1; Manual p.17–21",
           "tipo": "unica",
           "portes": [
@@ -587,6 +613,11 @@
           "reflita": "Se você cruzar o PGR e o PCMSO hoje, os dois contam a mesma história?",
           "tema": "integração do PGR com PCMSO e demais programas",
           "impacto": "Programas soltos geram contradições entre documentos, e o fiscal percebe.",
+          "marcacoes": {
+            "atende": "O PGR conversa com o PCMSO, as avaliações de agentes, a ergonomia e os demais programas, sem contradição entre eles.",
+            "parcial": "Há integração com alguns programas, mas não com todos, ou os documentos se contradizem.",
+            "nao_atende": "Os programas de SST são feitos de forma separada, sem relação com o PGR."
+          },
           "base": "NR-1 1.5.3.1.3; Manual p.16",
           "tipo": "unica",
           "portes": [
@@ -604,6 +635,11 @@
           "reflita": "Qual é a unidade mais fraca em GRO, e quem responde por ela?",
           "tema": "PGR em todos os estabelecimentos, com visão consolidada",
           "impacto": "A falha de uma unidade é falha da organização aos olhos da fiscalização.",
+          "marcacoes": {
+            "atende": "Todos os estabelecimentos têm PGR implementado e existe uma visão consolidada de todas as unidades.",
+            "parcial": "Todos têm PGR, mas sem consolidação, ou algum estabelecimento tem atividades de fora.",
+            "nao_atende": "Algum estabelecimento não tem PGR."
+          },
           "base": "NR-1 1.5.3.1, 1.5.3.1.1; Manual p.13–14",
           "tipo": "unica",
           "portes": [
@@ -621,6 +657,11 @@
           "reflita": "Quando foi a última vez que um indicador de SST mudou uma decisão da diretoria?",
           "tema": "patrocínio formal da alta direção",
           "impacto": "Sem o patrocínio da alta direção, o GRO vira uma tarefa de SST contra as decisões do negócio.",
+          "marcacoes": {
+            "atende": "A alta direção tem política formal, define responsabilidades por nível, dá orçamento e acompanha os resultados.",
+            "parcial": "Há patrocínio, mas informal, ou sem orçamento, ou a direção não acompanha os resultados.",
+            "nao_atende": "A alta direção não patrocina o GRO."
+          },
           "base": "NR-1 1.5.3.1 e 1.5.3.4; Manual p.17–21",
           "tipo": "unica",
           "portes": [
@@ -638,6 +679,11 @@
           "reflita": "Se aparecer um caso de adoecimento mental, qual área lidera e quem apoia?",
           "tema": "áreas integradas com papéis definidos",
           "impacto": "Em empresa grande, a fragmentação entre áreas é o principal risco de lacuna e de contradição.",
+          "marcacoes": {
+            "atende": "SESMT, RH, jurídico ou compliance, gestores e CIPA atuam juntos, com papel definido em cada etapa.",
+            "parcial": "As áreas atuam, mas sem papéis definidos ou de forma separada.",
+            "nao_atende": "O GRO fica só com uma área, sem integração."
+          },
           "base": "Guia p.8; Manual p.17–19",
           "tipo": "unica",
           "portes": [
@@ -655,6 +701,12 @@
           "reflita": "Se o fiscal escolher um item da NR-1 ao acaso, vocês acham a evidência dele no sistema em minutos?",
           "tema": "sistema de gestão que demonstra a NR-1",
           "impacto": "A certificação não isenta do cumprimento integral da NR-1.",
+          "marcacoes": {
+            "atende": "O sistema de gestão mostra onde cada exigência da NR-1 está cumprida.",
+            "parcial": "O sistema cobre parte das exigências, ou a evidência é difícil de achar.",
+            "nao_atende": "O sistema de gestão não demonstra o cumprimento da NR-1.",
+            "na": "A empresa não usa sistema de gestão para atender ao GRO."
+          },
           "base": "NR-1 1.5.3.1.2; Manual p.15–16",
           "tipo": "unica",
           "portes": [
@@ -672,6 +724,11 @@
           "reflita": "Qual indicador mostraria, antes de um acidente ou afastamento, que o GRO está falhando?",
           "tema": "indicadores e auditorias do GRO",
           "impacto": "Sem indicadores, a falha do GRO só aparece depois do acidente ou do afastamento.",
+          "marcacoes": {
+            "atende": "Há indicadores e auditorias internas cobrindo todos os processos do GRO, e os resultados geram melhoria.",
+            "parcial": "Há indicadores ou auditorias, mas só para parte dos processos, ou sem gerar melhoria.",
+            "nao_atende": "O desempenho em SST não é medido."
+          },
           "base": "NR-1 1.5.3.4; Manual p.21",
           "tipo": "unica",
           "portes": [
@@ -697,6 +754,11 @@
           "reflita": "Quais atividades da sua empresa ninguém olhou ainda com esse olhar?",
           "tema": "levantamento preliminar de perigos",
           "impacto": "É a primeira etapa: sem ela, nada mais é avaliado e a dispensa não tem base.",
+          "marcacoes": {
+            "atende": "O levantamento de perigos foi feito para todas as atividades e locais, está registrado e é refeito quando algo muda.",
+            "parcial": "Foi feito só para algumas atividades ou locais, ou está desatualizado, ou não foi registrado.",
+            "nao_atende": "O levantamento preliminar de perigos não foi feito."
+          },
           "base": "NR-1 1.5.4.2 e 1.5.4.2.1",
           "tipo": "unica",
           "portes": [
@@ -714,6 +776,11 @@
           "reflita": "Que perigo óbvio vocês conhecem há tempo e ainda não está no plano de ação?",
           "tema": "levantamento preliminar de perigos",
           "impacto": "É a porta de entrada de todo o GRO.",
+          "marcacoes": {
+            "atende": "O levantamento preliminar cobre as atividades atuais, as instalações novas e cada mudança relevante.",
+            "parcial": "Foi feito para as atividades atuais, mas não é refeito em instalações novas ou mudanças.",
+            "nao_atende": "O levantamento preliminar de perigos não foi feito."
+          },
           "base": "NR-1 1.5.4.2",
           "tipo": "unica",
           "portes": [
@@ -731,6 +798,11 @@
           "reflita": "Que tipo de risco vocês estão tratando menos do que deveriam?",
           "tema": "descrição completa dos perigos e expostos",
           "impacto": "Perigo não identificado não é gerenciado nem prevenido.",
+          "marcacoes": {
+            "atende": "A identificação descreve cada perigo, as lesões possíveis, as fontes e os grupos expostos, para todos os tipos de risco.",
+            "parcial": "A identificação existe, mas falta algum desses elementos ou algum tipo de risco, como o psicossocial.",
+            "nao_atende": "Os perigos não foram identificados."
+          },
           "base": "NR-1 1.5.4.3 e 1.5.3.1.4",
           "tipo": "unica",
           "portes": [
@@ -748,6 +820,11 @@
           "reflita": "A última mudança importante passou por análise de riscos antes de acontecer?",
           "tema": "análise de riscos antes de cada mudança",
           "impacto": "Reorganizar sem avaliar é o caminho mais comum para criar um risco novo.",
+          "marcacoes": {
+            "atende": "Toda mudança relevante passa por análise de riscos antes de entrar em vigor.",
+            "parcial": "Algumas mudanças são analisadas, outras não, ou a análise vem depois da mudança.",
+            "nao_atende": "As mudanças entram em vigor sem análise de riscos."
+          },
           "base": "NR-1 1.5.4.2.1 c e 1.5.4.4.6 b",
           "tipo": "unica",
           "portes": [
@@ -765,6 +842,11 @@
           "reflita": "A próxima expansão ou mudança já tem levantamento de perigos no cronograma?",
           "tema": "levantamento preliminar em todas as unidades",
           "impacto": "Em empresa grande, obras, expansões e mudanças são frequentes, e esse passo costuma ser esquecido.",
+          "marcacoes": {
+            "atende": "O levantamento preliminar é feito em todos os estabelecimentos, antes de instalações novas e em cada mudança.",
+            "parcial": "É feito em alguns estabelecimentos, ou não é refeito em expansões e mudanças.",
+            "nao_atende": "O levantamento preliminar não é feito."
+          },
           "base": "NR-1 1.5.4.2",
           "tipo": "unica",
           "portes": [
@@ -782,6 +864,11 @@
           "reflita": "Que perigo não vem de dentro da empresa, mas pode atingir seus trabalhadores?",
           "tema": "identificação de todos os tipos de perigo",
           "impacto": "Perigo não identificado, inclusive o externo, não entra no gerenciamento.",
+          "marcacoes": {
+            "atende": "A identificação cobre todos os tipos de agente e perigo, com fontes, lesões, grupos expostos e perigos externos.",
+            "parcial": "Cobre parte dos tipos de perigo, ou falta algum desses elementos.",
+            "nao_atende": "Os perigos não foram identificados."
+          },
           "base": "NR-1 1.5.4.3 e 1.5.3.1.4",
           "tipo": "unica",
           "portes": [
@@ -799,6 +886,11 @@
           "reflita": "A última reestruturação passou por avaliação de riscos psicossociais antes de ser anunciada?",
           "tema": "gestão formal de mudanças",
           "impacto": "Mudanças organizacionais mal geridas aparecem no Guia como fatores psicossociais.",
+          "marcacoes": {
+            "atende": "Existe processo formal que obriga a reavaliar riscos antes de cada mudança.",
+            "parcial": "As mudanças às vezes passam por avaliação, mas sem processo formal.",
+            "nao_atende": "As mudanças são implantadas sem reavaliar riscos."
+          },
           "base": "NR-1 1.5.4.2.1 c e 1.5.4.4.6 b",
           "tipo": "unica",
           "portes": [
@@ -824,6 +916,11 @@
           "reflita": "Quais dois riscos você resolveria primeiro, e por quê?",
           "tema": "critério escrito de priorização",
           "impacto": "Sem critério, ou tudo vira urgente, ou nada vira.",
+          "marcacoes": {
+            "atende": "Existe um critério escrito, simples, de gravidade e probabilidade, e ele é usado para decidir o que vem primeiro.",
+            "parcial": "Vocês priorizam por experiência, mas o critério não está escrito, ou está escrito e não é usado.",
+            "nao_atende": "Não há critério: as prioridades são decididas caso a caso."
+          },
           "base": "NR-1 1.5.4.4.2 e 1.5.4.4.3; Guia p.12",
           "tipo": "unica",
           "portes": [
@@ -841,6 +938,11 @@
           "reflita": "Duas pessoas diferentes classificariam o mesmo risco do mesmo jeito usando esse documento?",
           "tema": "documento de critérios de avaliação",
           "impacto": "Sem critério escrito, a avaliação fica questionável, e esse é um dos 3 documentos mínimos do PGR.",
+          "marcacoes": {
+            "atende": "Existe documento com os critérios de severidade, probabilidade, níveis, classificação e decisão, e ele é usado.",
+            "parcial": "Os critérios existem em parte, ou estão escritos mas não são seguidos.",
+            "nao_atende": "Não há documento de critérios de avaliação."
+          },
           "base": "NR-1 1.5.4.4.2.2; Guia p.9",
           "tipo": "unica",
           "portes": [
@@ -858,6 +960,11 @@
           "reflita": "A lista de prioridades reflete o risco real ou o que é mais barato resolver?",
           "tema": "nível e classificação de cada risco",
           "impacto": "Sem nível definido, a prioridade não reflete o risco real nem quantos trabalhadores ele atinge.",
+          "marcacoes": {
+            "atende": "Cada risco tem nível definido e uma classificação que orienta a prioridade, considerando quantas pessoas ele atinge.",
+            "parcial": "Os riscos têm nível, mas a classificação não orienta a prioridade ou ignora o número de expostos.",
+            "nao_atende": "Os riscos não têm nível nem classificação."
+          },
           "base": "NR-1 1.5.4.4.2–1.5.4.4.5 e 1.5.5.2.1.1",
           "tipo": "unica",
           "portes": [
@@ -875,6 +982,11 @@
           "reflita": "Qual é a data da última revisão, e qual evento deveria ter feito vocês a anteciparem?",
           "tema": "revisão da avaliação no prazo e nos gatilhos",
           "impacto": "Documento desatualizado vale pouco numa fiscalização.",
+          "marcacoes": {
+            "atende": "A avaliação é revista a cada 2 anos e em cada gatilho previsto, com registro.",
+            "parcial": "É revista, mas fora do prazo ou sem olhar os gatilhos.",
+            "nao_atende": "A avaliação nunca foi revista."
+          },
           "base": "NR-1 1.5.4.4.6",
           "tipo": "unica",
           "portes": [
@@ -892,6 +1004,11 @@
           "reflita": "O mesmo risco recebe o mesmo nível em duas unidades diferentes?",
           "tema": "critérios de avaliação iguais entre unidades",
           "impacto": "Critérios diferentes por unidade geram classificações que não se comparam e enfraquecem a priorização.",
+          "marcacoes": {
+            "atende": "Os critérios estão documentados, com ferramentas adequadas a cada risco, e são aplicados igual em todas as unidades.",
+            "parcial": "Os critérios existem, mas cada unidade aplica de um jeito, ou falta ferramenta para algum tipo de risco.",
+            "nao_atende": "Os critérios não estão documentados."
+          },
           "base": "NR-1 1.5.4.4.2.1 e 1.5.4.4.2.2",
           "tipo": "unica",
           "portes": [
@@ -909,6 +1026,11 @@
           "reflita": "Qual risco de baixa gravidade atinge mais gente e, por isso, merece ação antes?",
           "tema": "priorização pelo número de expostos",
           "impacto": "Em empresa grande, pequenas exposições se multiplicam por milhares de pessoas.",
+          "marcacoes": {
+            "atende": "A classificação e a priorização consideram o número de trabalhadores que podem ser atingidos.",
+            "parcial": "O número de expostos é considerado só em alguns casos.",
+            "nao_atende": "O número de expostos não entra na priorização."
+          },
           "base": "NR-1 1.5.4.4.3 e 1.5.5.2.1.1",
           "tipo": "unica",
           "portes": [
@@ -926,6 +1048,11 @@
           "reflita": "Algum estabelecimento está com a avaliação vencida e ninguém percebeu?",
           "tema": "revisão da avaliação no prazo e nos gatilhos",
           "impacto": "Avaliação vencida em algum estabelecimento vale pouco numa fiscalização.",
+          "marcacoes": {
+            "atende": "A avaliação de todos os estabelecimentos está dentro do prazo e é revista nos gatilhos.",
+            "parcial": "Algum estabelecimento está fora do prazo, ou os gatilhos não são observados.",
+            "nao_atende": "A avaliação não é revista."
+          },
           "base": "NR-1 1.5.4.4.6 e 1.5.4.4.5.1",
           "tipo": "unica",
           "portes": [
@@ -951,6 +1078,11 @@
           "reflita": "Onde está registrado que vocês olharam sobrecarga, assédio e falta de apoio? E quando foi isso?",
           "tema": "AEP com fatores psicossociais",
           "impacto": "A AEP é obrigatória para todas as empresas, mesmo as dispensadas de PGR.",
+          "marcacoes": {
+            "atende": "A AEP foi feita, está registrada e inclui sobrecarga, assédio, falta de apoio e os demais fatores psicossociais.",
+            "parcial": "A AEP existe, mas não cobre os fatores psicossociais, ou não cobre todas as atividades, ou está desatualizada.",
+            "nao_atende": "A AEP não foi feita."
+          },
           "base": "NR-1 1.5.3.1.4 e 1.5.3.2.1; NR-17 17.3.1",
           "tipo": "unica",
           "portes": [
@@ -968,6 +1100,11 @@
           "reflita": "Sua equipe diria a verdade sem medo de represália?",
           "tema": "conversa com os trabalhadores sobre o trabalho real",
           "impacto": "Sem a voz do trabalhador, não há avaliação psicossocial válida.",
+          "marcacoes": {
+            "atende": "Houve conversa ou observação com os trabalhadores sobre o trabalho real, com sigilo garantido, e isso foi registrado.",
+            "parcial": "Houve alguma conversa, mas sem sigilo, sem registro ou só com parte da equipe.",
+            "nao_atende": "Os trabalhadores não foram ouvidos sobre o trabalho real."
+          },
           "base": "Guia psicossociais p.10–11; Manual p.114–116",
           "tipo": "unica",
           "portes": [
@@ -985,6 +1122,11 @@
           "reflita": "O que os últimos 12 meses de faltas e saídas contam sobre como o trabalho está organizado?",
           "tema": "acompanhamento de sinais de alerta",
           "impacto": "Faltas, atestados e saídas mostram onde a organização do trabalho está gerando risco.",
+          "marcacoes": {
+            "atende": "Faltas, atestados, rotatividade, conflitos e reclamações são acompanhados de forma regular e olhados como sinal sobre a organização do trabalho.",
+            "parcial": "Alguns desses dados são vistos, mas sem regularidade ou sem relacionar com a organização do trabalho.",
+            "nao_atende": "Esses sinais não são acompanhados."
+          },
           "base": "Manual p.120 (indicadores)",
           "tipo": "unica",
           "portes": [
@@ -1002,6 +1144,11 @@
           "reflita": "Quais fatores da organização do trabalho poderiam adoecer alguém, mesmo que ninguém tenha reclamado?",
           "tema": "fatores psicossociais avaliados e no inventário",
           "impacto": "Desde 26/05/2026 a norma cita esses fatores expressamente no GRO.",
+          "marcacoes": {
+            "atende": "Os fatores psicossociais foram identificados e avaliados na AEP ou na AET e estão no inventário de riscos.",
+            "parcial": "Foram vistos em parte, ou avaliados mas não incluídos no inventário.",
+            "nao_atende": "Os fatores psicossociais não foram avaliados."
+          },
           "base": "NR-1 1.5.3.1.4, 1.5.3.2.1 e 1.5.4.4.5.3; NR-17",
           "tipo": "unica",
           "portes": [
@@ -1019,6 +1166,11 @@
           "reflita": "Se o resultado da pesquisa fosse ruim, vocês estariam preparados para agir sobre ele?",
           "tema": "método psicossocial adequado e com anonimato",
           "impacto": "Para o MTE, questionário isolado não comprova gestão.",
+          "marcacoes": {
+            "atende": "O método foi escolhido com critério, garante anonimato e foi aplicado por profissional que domina a ferramenta.",
+            "parcial": "Usaram algum método, mas sem anonimato garantido, sem análise técnica ou aplicado sem preparo.",
+            "nao_atende": "Não há estratégia definida para avaliar os riscos psicossociais."
+          },
           "base": "Guia p.9–11; Manual p.112–116; NR-1 1.5.4.4.2.1",
           "tipo": "unica",
           "portes": [
@@ -1036,6 +1188,11 @@
           "reflita": "Qual setor tem o pior sinal, e o que ele diz sobre a gestão do trabalho?",
           "tema": "indicadores por setor com as lideranças",
           "impacto": "Sem as lideranças envolvidas, o plano não muda a organização do trabalho.",
+          "marcacoes": {
+            "atende": "Os indicadores são analisados por setor e as lideranças participam do diagnóstico.",
+            "parcial": "Os indicadores são vistos no total da empresa, ou as lideranças não participam.",
+            "nao_atende": "Esses indicadores não são analisados."
+          },
           "base": "Manual p.120; Guia p.8",
           "tipo": "unica",
           "portes": [
@@ -1053,6 +1210,11 @@
           "reflita": "Quais áreas ainda estão fora do diagnóstico psicossocial, e até quando vão ficar?",
           "tema": "fatores psicossociais avaliados em todas as unidades",
           "impacto": "O diagnóstico psicossocial precisa alcançar todas as atividades da empresa.",
+          "marcacoes": {
+            "atende": "Os fatores psicossociais foram avaliados em todas as atividades de todos os estabelecimentos e estão no inventário.",
+            "parcial": "A avaliação cobre só algumas áreas ou unidades, ou não foi incluída no inventário.",
+            "nao_atende": "Os fatores psicossociais não foram avaliados."
+          },
           "base": "NR-1 1.5.3.1.4, 1.5.3.2.1, 1.5.4.4.5.3; NR-17 17.3",
           "tipo": "unica",
           "portes": [
@@ -1070,6 +1232,11 @@
           "reflita": "O que vocês vão fazer, e em quanto tempo, com os 3 piores resultados da pesquisa?",
           "tema": "pesquisa psicossocial válida e analisada",
           "impacto": "Questionário isolado não comprova gestão, e aplicar sem preparo é só coletar dados sem validade.",
+          "marcacoes": {
+            "atende": "A pesquisa tem base científica, anonimato, aplicação por profissional competente, análise técnica e entra no inventário.",
+            "parcial": "Há pesquisa, mas falta algum desses pontos, como anonimato ou análise técnica.",
+            "nao_atende": "Não há ferramenta ou pesquisa psicossocial."
+          },
           "base": "Guia p.10–11; Manual p.113–116",
           "tipo": "unica",
           "portes": [
@@ -1087,6 +1254,11 @@
           "reflita": "Em que setor os indicadores já estão gritando, e o que vocês fizeram?",
           "tema": "cruzamento de indicadores por setor e unidade",
           "impacto": "Os indicadores mostram onde agir e se as medidas funcionam.",
+          "marcacoes": {
+            "atende": "Os indicadores são cruzados por setor e estabelecimento e mostram onde agir.",
+            "parcial": "Os indicadores são vistos, mas sem cruzar por setor e estabelecimento.",
+            "nao_atende": "Esses dados não são analisados."
+          },
           "base": "Manual p.120; Guia p.9",
           "tipo": "unica",
           "portes": [
@@ -1104,6 +1276,11 @@
           "reflita": "As metas e os prazos foram desenhados pensando na carga real de quem executa?",
           "tema": "lideranças capacitadas em organização do trabalho",
           "impacto": "A origem dos riscos psicossociais está na forma como o trabalho é concebido e gerido.",
+          "marcacoes": {
+            "atende": "Gestores e líderes são capacitados em organização do trabalho e as metas e prazos são revistos quando geram risco.",
+            "parcial": "Há capacitação, mas sem revisão das metas e prazos, ou só para parte das lideranças.",
+            "nao_atende": "As lideranças não recebem essa capacitação."
+          },
           "base": "NR-17 17.4.1; Manual p.118",
           "tipo": "unica",
           "portes": [
@@ -1121,6 +1298,11 @@
           "reflita": "Existe algum posto ou setor onde a AEP já não responde e a AET ainda não foi feita?",
           "tema": "AET quando a AEP não basta",
           "impacto": "Onde a AEP não responde, só a AET aprofunda a situação.",
+          "marcacoes": {
+            "atende": "A AET é aplicada sempre que a AEP não basta, com relatório próprio.",
+            "parcial": "A AET foi feita em alguns casos, mas há situações em que deveria e não foi.",
+            "nao_atende": "A AET nunca é aplicada."
+          },
           "base": "NR-17 17.3.2; Manual p.111",
           "tipo": "unica",
           "portes": [
@@ -1146,6 +1328,11 @@
           "reflita": "Qual medida combinada na última conversa já tem nome e data?",
           "tema": "medidas registradas com responsável e prazo",
           "impacto": "Medida sem dono e sem data é intenção, não prevenção.",
+          "marcacoes": {
+            "atende": "Cada risco relevante tem medida escrita, com responsável e prazo.",
+            "parcial": "Há medidas combinadas, mas algumas sem responsável, sem prazo ou sem registro.",
+            "nao_atende": "As medidas não estão definidas nem registradas."
+          },
           "base": "NR-1 1.5.5.2 e 1.5.5.2.2",
           "tipo": "unica",
           "portes": [
@@ -1163,6 +1350,11 @@
           "reflita": "O que mudou na empresa desde a última avaliação e ainda não foi reavaliado?",
           "tema": "reavaliação periódica e nos gatilhos",
           "impacto": "Medida que não funciona precisa ser corrigida, e só a reavaliação mostra isso.",
+          "marcacoes": {
+            "atende": "A avaliação é revista pelo menos a cada 2 anos e também depois de mudanças, acidentes ou reclamações, com registro.",
+            "parcial": "Revisam de vez em quando, mas sem respeitar o prazo de 2 anos ou sem revisar depois das mudanças.",
+            "nao_atende": "Riscos e medidas nunca foram reavaliados."
+          },
           "base": "NR-1 1.5.4.4.6 e 1.5.5.3",
           "tipo": "unica",
           "portes": [
@@ -1180,6 +1372,11 @@
           "reflita": "Quantas ações do plano de 12 meses atrás foram concluídas, e por que as outras não?",
           "tema": "plano de ação com cronograma e responsáveis",
           "impacto": "Sem cronograma e sem dono, o plano não vira prevenção e a empresa não prova nada.",
+          "marcacoes": {
+            "atende": "O plano de ação tem medida para cada risco classificado, com cronograma, responsável, acompanhamento e medição de resultado.",
+            "parcial": "O plano existe, mas falta cronograma, responsável ou medição em parte das medidas.",
+            "nao_atende": "Não há plano de ação."
+          },
           "base": "NR-1 1.5.5.2, 1.5.5.2.1 e 1.5.5.2.2",
           "tipo": "unica",
           "portes": [
@@ -1197,6 +1394,11 @@
           "reflita": "As medidas de vocês mudam o trabalho ou pedem que a pessoa aguente melhor?",
           "tema": "hierarquia das medidas de prevenção",
           "impacto": "A hierarquia é obrigatória, e para riscos psicossociais o que conta é mudar a organização do trabalho.",
+          "marcacoes": {
+            "atende": "As medidas seguem a ordem: eliminar, proteção coletiva, organização do trabalho e, por último, EPI.",
+            "parcial": "Algumas medidas seguem a ordem, mas o EPI ou ações individuais aparecem como primeira opção em outros casos.",
+            "nao_atende": "As medidas não seguem essa ordem de prioridade."
+          },
           "base": "NR-1 1.4.1 g e 1.5.5.1.2",
           "tipo": "unica",
           "portes": [
@@ -1214,6 +1416,11 @@
           "reflita": "Como vocês saberiam que uma medida deixou de funcionar?",
           "tema": "acompanhamento e correção das medidas",
           "impacto": "Sem acompanhamento, ninguém percebe quando uma medida deixa de funcionar.",
+          "marcacoes": {
+            "atende": "A execução das medidas é acompanhada de forma planejada e o que não funciona é corrigido.",
+            "parcial": "O acompanhamento acontece às vezes, ou medidas ineficazes continuam sem correção.",
+            "nao_atende": "O desempenho das medidas não é acompanhado."
+          },
           "base": "NR-1 1.5.5.3",
           "tipo": "unica",
           "portes": [
@@ -1231,6 +1438,11 @@
           "reflita": "Qual percentual das ações do plano está atrasado, e quem responde por isso?",
           "tema": "plano de ação por unidade, consolidado",
           "impacto": "Sem cronograma, responsáveis e consolidado, não há base para orçamento nem prova de gestão.",
+          "marcacoes": {
+            "atende": "Cada estabelecimento tem plano de ação completo, com cronograma, responsável e medição, consolidado para a direção.",
+            "parcial": "Há planos, mas incompletos em alguma unidade ou sem consolidação.",
+            "nao_atende": "Não há plano de ação por estabelecimento."
+          },
           "base": "NR-1 1.5.5.2",
           "tipo": "unica",
           "portes": [
@@ -1248,6 +1460,11 @@
           "reflita": "Quantas medidas do plano mudam, de fato, a forma como o trabalho é feito?",
           "tema": "hierarquia das medidas, com foco na organização do trabalho",
           "impacto": "Ações pontuais, como palestras e campanhas, sozinhas não bastam.",
+          "marcacoes": {
+            "atende": "As medidas seguem a hierarquia e, para riscos psicossociais, mudam a organização do trabalho.",
+            "parcial": "Seguem a hierarquia em parte, ou para riscos psicossociais ficam em palestras e ações individuais.",
+            "nao_atende": "As medidas não seguem a hierarquia."
+          },
           "base": "NR-1 1.4.1 g e 1.5.5.1.2; Guia p.14–15",
           "tipo": "unica",
           "portes": [
@@ -1265,6 +1482,11 @@
           "reflita": "Quais medidas do ano passado reduziram o risco de forma comprovada?",
           "tema": "verificação da eficácia e do risco residual",
           "impacto": "Sem verificar a eficácia, não há como provar que o risco diminuiu.",
+          "marcacoes": {
+            "atende": "A eficácia é verificada com indicadores e participação dos trabalhadores, o risco residual é reavaliado e o que falhou é corrigido.",
+            "parcial": "A eficácia é verificada só às vezes, ou o risco residual não é reavaliado.",
+            "nao_atende": "A eficácia das medidas não é verificada."
+          },
           "base": "NR-1 1.5.5.3 e 1.5.4.4.6 a",
           "tipo": "unica",
           "portes": [
@@ -1290,6 +1512,11 @@
           "reflita": "A última pessoa contratada sabe, sem precisar perguntar, como agir diante de um risco grave?",
           "tema": "informação a quem entra ou muda de função",
           "impacto": "Quem não conhece os riscos e o procedimento de emergência não sabe como agir num risco grave.",
+          "marcacoes": {
+            "atende": "Toda pessoa que entra ou muda de função recebe a informação sobre riscos, prevenção, emergência e direito de recusa, com registro.",
+            "parcial": "A informação é passada só para alguns, de forma informal, ou sem cobrir todos esses pontos.",
+            "nao_atende": "Quem entra ou muda de função não recebe essa informação."
+          },
           "base": "NR-1 1.4.4 e 1.5.3.3 c",
           "tipo": "unica",
           "portes": [
@@ -1307,6 +1534,11 @@
           "reflita": "Quando foi a última vez que uma sugestão de segurança virou ação?",
           "tema": "canal para os trabalhadores opinarem",
           "impacto": "Quem faz o trabalho vê perigos que a gestão não vê.",
+          "marcacoes": {
+            "atende": "Existe um jeito conhecido de os trabalhadores opinarem sobre riscos, e as sugestões são analisadas.",
+            "parcial": "Existe um canal, mas pouca gente conhece ou as sugestões não têm retorno.",
+            "nao_atende": "Não há nenhum jeito definido de os trabalhadores opinarem."
+          },
           "base": "NR-1 1.5.3.3 a e b",
           "tipo": "unica",
           "portes": [
@@ -1324,6 +1556,11 @@
           "reflita": "Se alguém sofresse assédio hoje, saberia a quem recorrer sem medo?",
           "tema": "regra e canal contra assédio e violência",
           "impacto": "Assédio é fator de risco psicossocial, e quem denuncia precisa de proteção.",
+          "marcacoes": {
+            "atende": "Há regra de conduta contra assédio e violência, divulgada a todos, com canal que protege quem denuncia.",
+            "parcial": "A regra existe, mas não foi divulgada, ou o canal não garante sigilo.",
+            "nao_atende": "Não há regra nem canal de denúncia."
+          },
           "base": "NR-1 1.4.1.1",
           "tipo": "unica",
           "portes": [
@@ -1341,6 +1578,11 @@
           "reflita": "Em qual dessas quatro etapas os trabalhadores nunca foram ouvidos?",
           "tema": "participação dos trabalhadores nas quatro etapas",
           "impacto": "A norma exige consultar os trabalhadores sobre como eles percebem os riscos.",
+          "marcacoes": {
+            "atende": "Os trabalhadores participam das quatro etapas: identificação, AEP ou AET, mudanças e acompanhamento.",
+            "parcial": "Participam de algumas etapas, mas não de todas.",
+            "nao_atende": "Os trabalhadores não participam da gestão de riscos."
+          },
           "base": "NR-1 1.5.3.3 a e b; Manual p.22–24",
           "tipo": "unica",
           "portes": [
@@ -1358,6 +1600,11 @@
           "reflita": "Um operador novo consegue dizer quais são os 3 principais riscos do posto dele?",
           "tema": "comunicação dos riscos e das medidas",
           "impacto": "Comunicar não é afixar um cartaz: a informação precisa chegar a quem está exposto.",
+          "marcacoes": {
+            "atende": "Riscos e medidas chegam a todos, e quem é admitido ou muda de função recebe as informações previstas.",
+            "parcial": "A comunicação existe, mas não chega a todos, ou é só um aviso afixado.",
+            "nao_atende": "Riscos e medidas não são comunicados."
+          },
           "base": "NR-1 1.5.3.3 c, 1.4.4 e 1.5.5.1.3",
           "tipo": "unica",
           "portes": [
@@ -1375,6 +1622,12 @@
           "reflita": "O canal de denúncia já foi usado? Se nunca foi, é porque não há casos ou porque ninguém confia nele?",
           "tema": "regras e canal contra assédio e violência",
           "impacto": "É exigência expressa para quem tem CIPA e também fator psicossocial do inventário.",
+          "marcacoes": {
+            "atende": "Há regras de conduta, procedimento de denúncia com sigilo e capacitação a cada 12 meses.",
+            "parcial": "Parte disso existe, por exemplo as regras, mas falta o canal com sigilo ou a capacitação anual.",
+            "nao_atende": "A empresa tem CIPA e não tem essas regras, canal ou capacitação.",
+            "na": "A empresa não é obrigada a ter CIPA."
+          },
           "base": "NR-1 1.4.1.1",
           "tipo": "unica",
           "portes": [
@@ -1392,6 +1645,11 @@
           "reflita": "Que grupo de trabalhadores nunca foi consultado (turno noturno, unidade remota, terceirizados)?",
           "tema": "participação em todos os turnos e unidades",
           "impacto": "Turnos, unidades e terceirizados ficam sem voz se houver só um canal central.",
+          "marcacoes": {
+            "atende": "Trabalhadores de todos os turnos e unidades participam das quatro etapas, pela CIPA e outros canais.",
+            "parcial": "Há participação, mas algum turno, unidade ou etapa fica de fora.",
+            "nao_atende": "Os trabalhadores não participam."
+          },
           "base": "NR-1 1.5.3.3 a e b; Manual p.22–24",
           "tipo": "unica",
           "portes": [
@@ -1409,6 +1667,11 @@
           "reflita": "Como vocês medem se a comunicação de riscos chegou ao trabalhador da ponta?",
           "tema": "comunicação eficaz dos riscos e das medidas",
           "impacto": "A informação precisa chegar ao trabalhador da ponta.",
+          "marcacoes": {
+            "atende": "Riscos e medidas chegam a todos por meios eficazes, e admissão e mudança de função incluem as informações do item 1.4.4.",
+            "parcial": "A comunicação existe, mas não chega a todos ou não cobre o item 1.4.4.",
+            "nao_atende": "Riscos e medidas não são comunicados."
+          },
           "base": "NR-1 1.5.3.3 c, 1.4.4 e 1.5.5.1.3",
           "tipo": "unica",
           "portes": [
@@ -1426,6 +1689,11 @@
           "reflita": "Quantas denúncias vocês receberam, apuraram e concluíram no último ano, e com que desfecho?",
           "tema": "regras, canal e capacitação contra assédio",
           "impacto": "É obrigatório para quem tem CIPA e também fator psicossocial no inventário.",
+          "marcacoes": {
+            "atende": "Há regras, procedimento de denúncia com apuração, sanção e anonimato, e capacitação de todos os níveis a cada 12 meses.",
+            "parcial": "Parte disso existe, mas falta apuração, sanção, anonimato ou a capacitação anual.",
+            "nao_atende": "Não há regras nem procedimento contra assédio e violência."
+          },
           "base": "NR-1 1.4.1.1",
           "tipo": "unica",
           "portes": [
@@ -1443,6 +1711,11 @@
           "reflita": "Alguém já interrompeu uma atividade por risco? Se não, a cultura da empresa permite?",
           "tema": "direito de interromper diante de risco grave",
           "impacto": "O trabalhador precisa poder parar diante de risco grave sem sofrer retaliação.",
+          "marcacoes": {
+            "atende": "Existe procedimento claro para interromper a atividade em risco grave, com aviso ao superior e proteção contra retaliação.",
+            "parcial": "O direito é conhecido, mas sem procedimento claro ou sem garantia de proteção.",
+            "nao_atende": "Não há procedimento para interromper a atividade."
+          },
           "base": "NR-1 1.4.3 a 1.4.3.3 e 1.4.4",
           "tipo": "unica",
           "portes": [
@@ -1468,6 +1741,11 @@
           "reflita": "Você tem hoje o ASO válido de todos?",
           "tema": "exames médicos e ASO em dia",
           "impacto": "A dispensa do PCMSO não libera dos exames médicos nem do ASO.",
+          "marcacoes": {
+            "atende": "Todos os empregados têm exames médicos e ASO em dia.",
+            "parcial": "Parte dos empregados está com exames ou ASO vencidos ou faltando.",
+            "nao_atende": "Os exames médicos e o ASO não são feitos."
+          },
           "base": "NR-1 1.5.5.4, 1.8.6 e 1.8.7.1",
           "tipo": "unica",
           "portes": [
@@ -1485,6 +1763,11 @@
           "reflita": "O que o último incidente ensinou, e o que mudou depois dele?",
           "tema": "registro e análise de acidentes e quase-acidentes",
           "impacto": "Sem análise das causas, as medidas não melhoram depois de um incidente.",
+          "marcacoes": {
+            "atende": "Acidentes, doenças e quase-acidentes são registrados e as causas são analisadas para melhorar as medidas.",
+            "parcial": "Os casos são registrados, mas as causas não são analisadas, ou os quase-acidentes ficam de fora.",
+            "nao_atende": "Esses eventos não são registrados."
+          },
           "base": "NR-1 1.5.5.5",
           "tipo": "unica",
           "portes": [
@@ -1502,6 +1785,11 @@
           "reflita": "Se houver um incêndio ou um mal súbito agora, quem faz o quê?",
           "tema": "procedimento de emergência conhecido por todos",
           "impacto": "Numa emergência, cada pessoa precisa saber quem faz o quê.",
+          "marcacoes": {
+            "atende": "Existe procedimento de emergência escrito, com responsáveis, e todos sabem o que fazer.",
+            "parcial": "O procedimento existe, mas nem todos conhecem, ou faltam responsáveis ou recursos.",
+            "nao_atende": "Não há procedimento de emergência."
+          },
           "base": "NR-1 1.5.6",
           "tipo": "unica",
           "portes": [
@@ -1519,6 +1807,11 @@
           "reflita": "O médico do trabalho recebeu o inventário atualizado?",
           "tema": "PCMSO baseado no inventário",
           "impacto": "O inventário é o ponto de partida para o médico do trabalho definir os exames.",
+          "marcacoes": {
+            "atende": "O PCMSO foi elaborado a partir do inventário atualizado e o controle de saúde é planejado.",
+            "parcial": "O PCMSO existe, mas não usa o inventário atualizado.",
+            "nao_atende": "O PCMSO não existe."
+          },
           "base": "NR-1 1.5.5.4; Manual p.16",
           "tipo": "unica",
           "portes": [
@@ -1536,6 +1829,11 @@
           "reflita": "A última análise de acidente mudou alguma medida de prevenção?",
           "tema": "análise de acidentes que melhora as medidas",
           "impacto": "Sem essa análise, as medidas não aprendem com o que já deu errado.",
+          "marcacoes": {
+            "atende": "Acidentes, doenças e eventos perigosos graves são analisados, documentados e mudam as medidas.",
+            "parcial": "São analisados, mas sem documento, ou a análise não muda nenhuma medida.",
+            "nao_atende": "Esses eventos não são analisados."
+          },
           "base": "NR-1 1.5.5.5",
           "tipo": "unica",
           "portes": [
@@ -1553,6 +1851,11 @@
           "reflita": "Na última simulação, o que falhou e o que vocês corrigiram?",
           "tema": "resposta a emergências com simulados",
           "impacto": "Sem simulados com evidência, não há como saber se o procedimento funciona.",
+          "marcacoes": {
+            "atende": "Há procedimento de emergência proporcional aos riscos, com recursos, responsáveis e simulados comprovados.",
+            "parcial": "O procedimento existe, mas sem simulados, sem evidência ou sem recursos suficientes.",
+            "nao_atende": "Não há procedimento de resposta a emergências."
+          },
           "base": "NR-1 1.5.6",
           "tipo": "unica",
           "portes": [
@@ -1570,6 +1873,11 @@
           "reflita": "O inventário psicossocial chega ao médico do trabalho e orienta os exames?",
           "tema": "PCMSO baseado no inventário, inclusive psicossocial",
           "impacto": "As ações de saúde ocupacional precisam estar integradas ao GRO.",
+          "marcacoes": {
+            "atende": "O PCMSO parte do inventário, inclusive psicossocial, e o controle de saúde é planejado e integrado à prevenção.",
+            "parcial": "O PCMSO usa o inventário, mas não os riscos psicossociais, ou não é integrado às medidas.",
+            "nao_atende": "O PCMSO não é baseado no inventário."
+          },
           "base": "NR-1 1.5.5.4; Manual p.16",
           "tipo": "unica",
           "portes": [
@@ -1587,6 +1895,11 @@
           "reflita": "Vocês aprendem mais com os eventos perigosos que não viraram acidente?",
           "tema": "análise de acidentes e quase-acidentes em todas as unidades",
           "impacto": "Sem essa análise, as medidas não aprendem com o que já deu errado.",
+          "marcacoes": {
+            "atende": "A análise de acidentes, doenças e eventos perigosos graves é documentada e muda as medidas em todas as unidades.",
+            "parcial": "A análise existe, mas não é documentada ou não chega a todas as unidades.",
+            "nao_atende": "Esses eventos não são analisados."
+          },
           "base": "NR-1 1.5.5.5",
           "tipo": "unica",
           "portes": [
@@ -1604,6 +1917,11 @@
           "reflita": "Nas últimas simulações, quais lições viraram ação?",
           "tema": "emergências por estabelecimento, com simulados",
           "impacto": "Cada estabelecimento tem riscos próprios, e o procedimento precisa ser testado.",
+          "marcacoes": {
+            "atende": "Cada estabelecimento tem procedimento de emergência adequado aos seus riscos, com simulados e evidência.",
+            "parcial": "Os procedimentos existem, mas sem simulados ou não adaptados a cada estabelecimento.",
+            "nao_atende": "Não há procedimento de emergência nos estabelecimentos."
+          },
           "base": "NR-1 1.5.6.1–1.5.6.3.1",
           "tipo": "unica",
           "portes": [
@@ -1621,6 +1939,12 @@
           "reflita": "Que cenário extremo da sua atividade pode extrapolar os muros da empresa?",
           "tema": "plano para emergências de grande magnitude",
           "impacto": "Quando a atividade pode atingir população ou meio ambiente, a norma exige medidas previstas.",
+          "marcacoes": {
+            "atende": "Há medidas planejadas para emergências de grande magnitude, integradas com atores externos.",
+            "parcial": "Há algum plano, mas sem integração com atores externos ou sem cobrir todos os cenários.",
+            "nao_atende": "A atividade pode gerar emergência de grande magnitude e não há medidas planejadas.",
+            "na": "A atividade não tem risco de emergência que atinja a população ou o meio ambiente."
+          },
           "base": "NR-1 1.5.6.2 b e Anexo I (N/A se não aplicável)",
           "tipo": "unica",
           "portes": [
@@ -1646,6 +1970,11 @@
           "reflita": "Quem trabalha hoje sem o treinamento que a função exige?",
           "tema": "treinamentos exigidos com certificado",
           "impacto": "Trabalhar sem o treinamento que a função exige expõe a pessoa e a empresa.",
+          "marcacoes": {
+            "atende": "Todos os treinamentos exigidos pelas NR foram feitos e os certificados estão arquivados.",
+            "parcial": "Parte dos treinamentos está em dia, ou foram feitos sem certificado arquivado.",
+            "nao_atende": "Os treinamentos exigidos não foram feitos."
+          },
           "base": "NR-1 1.7.1, 1.7.1.1 e 1.7.3",
           "tipo": "unica",
           "portes": [
@@ -1663,6 +1992,12 @@
           "reflita": "Quem trabalha aí sem ser funcionário da empresa? E quem cuida da segurança dessa pessoa?",
           "tema": "riscos dos prestadores no gerenciamento",
           "impacto": "Receber o documento e arquivar não basta: existe o dever de vigilância.",
+          "marcacoes": {
+            "atende": "Os riscos dos prestadores que trabalham aí entram no seu gerenciamento, e vocês acompanham se as medidas são cumpridas.",
+            "parcial": "Vocês recebem os documentos dos prestadores, mas não acompanham a execução, ou só alguns prestadores estão incluídos.",
+            "nao_atende": "Prestadores trabalham nas suas dependências e os riscos deles não entram no seu gerenciamento.",
+            "na": "Nenhum prestador trabalha nas dependências da empresa."
+          },
           "base": "NR-1 1.5.8 e 1.8.1.1",
           "tipo": "unica",
           "portes": [
@@ -1680,6 +2015,11 @@
           "reflita": "Se a Inspeção pedisse os documentos agora, em quanto tempo você os entregaria completos?",
           "tema": "inventário e plano completos e disponíveis",
           "impacto": "São os documentos que a Inspeção pede, e precisam estar sempre disponíveis.",
+          "marcacoes": {
+            "atende": "Inventário e plano têm o conteúdo mínimo, estão datados, assinados, atualizados e disponíveis.",
+            "parcial": "Os documentos existem, mas falta conteúdo, data, assinatura ou atualização.",
+            "nao_atende": "O inventário ou o plano de ação não existem."
+          },
           "base": "NR-1 1.5.7.1–1.5.7.3 e 1.5.7.2.1",
           "tipo": "unica",
           "portes": [
@@ -1697,6 +2037,11 @@
           "reflita": "Que função hoje opera sem o treinamento atualizado?",
           "tema": "treinamentos em dia com certificado",
           "impacto": "Função operando sem treinamento atualizado expõe a pessoa e a empresa.",
+          "marcacoes": {
+            "atende": "Os treinamentos inicial, periódico e eventual estão em dia, com certificado e registro.",
+            "parcial": "Parte dos treinamentos está vencida, sem certificado ou sem registro.",
+            "nao_atende": "Os treinamentos não são feitos."
+          },
           "base": "NR-1 1.7",
           "tipo": "unica",
           "portes": [
@@ -1714,6 +2059,12 @@
           "reflita": "Quem trabalha aí sob contrato está protegido por qual documento?",
           "tema": "prevenção para prestadores nas dependências",
           "impacto": "A contratante responde pela segurança de quem trabalha nas suas dependências.",
+          "marcacoes": {
+            "atende": "O PGR inclui as medidas para os prestadores, ou vocês usam os programas deles, e acompanham a execução.",
+            "parcial": "Vocês recebem os programas dos prestadores, mas não acompanham, ou só alguns estão incluídos.",
+            "nao_atende": "Prestadores trabalham nas suas dependências e não estão no PGR.",
+            "na": "Nenhum prestador trabalha nas dependências da empresa."
+          },
           "base": "NR-1 1.5.8; Lei 6.019/74 art. 5º-A §3º",
           "tipo": "unica",
           "portes": [
@@ -1731,6 +2082,11 @@
           "reflita": "Se um ex-empregado pedisse a prova das condições de 2015, vocês teriam?",
           "tema": "inventário e plano completos, com histórico de 20 anos",
           "impacto": "Sem histórico, a empresa não consegue provar as condições de trabalho do passado.",
+          "marcacoes": {
+            "atende": "Inventário e plano de cada estabelecimento estão completos, datados, assinados, atualizados e com histórico de 20 anos.",
+            "parcial": "Os documentos existem, mas falta conteúdo, assinatura, atualização ou histórico.",
+            "nao_atende": "O inventário ou o plano de ação não existem em algum estabelecimento."
+          },
           "base": "NR-1 1.5.7.1–1.5.7.3.3.1",
           "tipo": "unica",
           "portes": [
@@ -1748,6 +2104,11 @@
           "reflita": "Se vocês auditassem 20 certificados ao acaso, quantos teriam todos os elementos exigidos?",
           "tema": "capacitações controladas, inclusive EAD",
           "impacto": "Treinamento a distância só vale se cumprir o Anexo II.",
+          "marcacoes": {
+            "atende": "As capacitações são controladas por sistema, com certificados, e o EAD cumpre o Anexo II.",
+            "parcial": "O controle existe, mas incompleto, ou o EAD não cumpre todos os requisitos do Anexo II.",
+            "nao_atende": "As capacitações não são controladas."
+          },
           "base": "NR-1 1.7 e Anexo II",
           "tipo": "unica",
           "portes": [
@@ -1765,6 +2126,12 @@
           "reflita": "Qual contratada hoje cria um risco novo para seus empregados, e vice-versa?",
           "tema": "gestão de riscos das contratadas e de interação",
           "impacto": "A contratante tem responsabilidade legal que não pode ser afastada.",
+          "marcacoes": {
+            "atende": "As contratadas estão no PGR, há troca de informações de risco nos dois sentidos e vocês coordenam os riscos de interação.",
+            "parcial": "Recebem os programas das contratadas, mas sem troca de informações ou sem coordenar os riscos de interação.",
+            "nao_atende": "Contratadas trabalham nas suas dependências e não estão no gerenciamento de riscos.",
+            "na": "Nenhuma empresa contratada trabalha nas suas dependências."
+          },
           "base": "NR-1 1.5.8; Manual p.103–106",
           "tipo": "unica",
           "portes": [
@@ -1782,6 +2149,12 @@
           "reflita": "Os documentos digitais de vocês resistiriam a uma contestação sobre autoria e data?",
           "tema": "documentos digitais rastreáveis",
           "impacto": "Documento sem autenticidade e rastreabilidade não resiste a uma contestação.",
+          "marcacoes": {
+            "atende": "Os documentos digitais preservam autenticidade, integridade e rastreabilidade, e a Inspeção tem acesso amplo.",
+            "parcial": "Parte dos documentos tem essas garantias, ou o acesso da Inspeção é limitado.",
+            "nao_atende": "Os documentos digitais não têm essas garantias.",
+            "na": "A empresa não usa documentos de SST digitais ou digitalizados."
+          },
           "base": "NR-1 1.6.2–1.6.5",
           "tipo": "unica",
           "portes": [
@@ -1799,6 +2172,12 @@
           "reflita": "Quem coordena a segurança do espaço que vocês compartilham?",
           "tema": "prevenção integrada em local compartilhado",
           "impacto": "Organizações no mesmo local têm responsabilidade compartilhada.",
+          "marcacoes": {
+            "atende": "As organizações que dividem o local têm ações de prevenção integradas, como um procedimento comum de emergência.",
+            "parcial": "Há alguma coordenação, mas informal ou só para parte dos riscos.",
+            "nao_atende": "As organizações que dividem o local não coordenam a prevenção.",
+            "na": "A empresa não divide o local de trabalho com outras organizações."
+          },
           "base": "NR-1 1.5.3.5; Manual p.21–22",
           "tipo": "unica",
           "portes": [

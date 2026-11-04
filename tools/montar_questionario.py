@@ -47,7 +47,7 @@ def montar_porte(p):
 def montar_pergunta(o):
     h = hum['perguntas'][o['id']]
     porte = next(k for k, v in PREFIXO.items() if v == o['id'][0])
-    return dict(id=o['id'], texto=h['texto'], ajuda=h['contexto'], reflita=h['reflita'], tema=h['tema'], impacto=h['impacto'], base=o['base'],
+    return dict(id=o['id'], texto=h['texto'], ajuda=h['contexto'], reflita=h['reflita'], tema=h['tema'], impacto=h['impacto'], marcacoes=h['marcacoes'], base=o['base'],
                 tipo='unica', portes=[porte], peso=o['peso'], classe=o['classe'].capitalize(),
                 pontua=True, origem_peso='pdf')
 

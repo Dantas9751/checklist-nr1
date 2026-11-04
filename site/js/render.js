@@ -143,7 +143,7 @@ function tabelaFaixas(dados) {
   const faixas = dados.portes[0].score.faixas;
   return h('div', { class: 'tabela-rolagem' },
     h('table', { class: 'tabela' },
-      h('caption', {}, 'Faixas do score por porte (0 a 100)'),
+      h('caption', { class: 'visualmente-oculto' }, 'Faixas do score por porte, de 0 a 100'),
       h('thead', {}, h('tr', {}, h('th', { scope: 'col' }, 'Faixa'), dados.portes.map(p => h('th', { scope: 'col' }, p.nome)))),
       h('tbody', {}, faixas.map((faixa, i) => h('tr', {},
         h('th', { scope: 'row' }, faixa.titulo),
@@ -158,15 +158,20 @@ export function renderComoMarcar(dados) {
   const x = expansorDaTela(dados);
   return [
     h('h1', { id: 'titulo-como-marcar', tabindex: '-1' }, 'Como marcar e como o score funciona'),
-    h('p', {}, meta.como_marcar),
-    h('h2', {}, 'As quatro marcações'),
-    h('dl', { class: 'definicoes' }, opcoes.flatMap(o => [h('dt', {}, o.texto), h('dd', {}, o.descricao)])),
-    h('h2', {}, 'O peso de cada pergunta'),
-    h('dl', { class: 'definicoes' }, meta.pesos.flatMap(p => [h('dt', {}, `Peso ${p.peso} · ${p.nome}`), h('dd', {}, x(p.texto))])),
-    h('h2', {}, 'Como cada porte calcula o score'),
-    h('ul', { class: 'lista-scores' }, dados.portes.map(p => h('li', {}, h('strong', {}, `${p.nome} · ${p.score.nome}. `), x(p.score.texto)))),
-    tabelaFaixas(dados),
-    h('p', { class: 'nota' }, meta.prazos_nota.replace('Os prazos', 'Os pesos, as faixas e os prazos')),
+    h('p', { class: 'subtitulo' }, meta.como_marcar),
+    h('section', { class: 'resumo-regras', 'aria-labelledby': 'titulo-marcacoes' },
+      h('h2', { id: 'titulo-marcacoes' }, 'As quatro marcações'),
+      h('ul', { class: 'grade-marcacoes' }, opcoes.map(o =>
+        h('li', {}, h('strong', {}, o.texto), h('span', {}, o.descricao))))),
+    h('section', { class: 'resumo-regras', 'aria-labelledby': 'titulo-pesos' },
+      h('h2', { id: 'titulo-pesos' }, 'O peso de cada pergunta'),
+      h('ul', { class: 'lista-pesos' }, meta.pesos.map(p =>
+        h('li', {}, h('span', { class: `peso peso--${p.peso}` }, `Peso ${p.peso} · ${p.nome}`), h('span', {}, x(p.texto)))))),
+    h('section', { class: 'resumo-regras', 'aria-labelledby': 'titulo-faixas' },
+      h('h2', { id: 'titulo-faixas' }, 'Faixas do score'),
+      h('p', {}, 'A pequena empresa soma os pontos de todas as perguntas. A média e a grande dão um peso a cada pilar e aplicam pisos e travas. O detalhe do seu porte aparece quando você o escolher.'),
+      tabelaFaixas(dados),
+      h('p', { class: 'nota' }, 'Pesos, faixas, travas e prazos são desenho deste material, não exigências legais.')),
     h('div', { class: 'navegacao' },
       botao('Voltar', 'inicio'),
       botao('Escolher o porte', 'porte', { primario: true })),
@@ -252,7 +257,17 @@ function botaoInfo(idPopover, rotulo) {
   return h('button', { type: 'button', class: 'opcao__info', popovertarget: idPopover, 'aria-label': `O que significa ${rotulo}?` }, svg);
 }
 
-function renderUnica(dados, pergunta, resposta) {
+function explicacaoDaOpcao(pergunta, opcao, x) {
+  const especifica = pergunta.marcacoes?.[opcao.id];
+  if (!especifica) return [h('strong', {}, opcao.texto), ' ', opcao.descricao];
+  return [
+    h('span', { class: 'explicacao__titulo' }, `Marcar ${opcao.texto} nesta pergunta quer dizer:`),
+    h('span', { class: 'explicacao__texto' }, x(especifica)),
+    h('span', { class: 'explicacao__criterio' }, `Critério geral: ${opcao.descricao}`),
+  ];
+}
+
+function renderUnica(dados, pergunta, resposta, x) {
   const opcoes = pergunta.opcoes ?? dados.opcoes;
   return h('div', { class: 'opcoes' }, opcoes.map(o => {
     const idPopover = `${pergunta.id}-${o.id}-explica`;
@@ -262,8 +277,7 @@ function renderUnica(dados, pergunta, resposta) {
         h('span', { class: 'opcao__marca', 'aria-hidden': 'true' }),
         h('span', { class: 'opcao__texto' }, o.texto)),
       botaoInfo(idPopover, o.texto),
-      h('div', { class: 'explicacao', id: idPopover, popover: 'auto' },
-        h('strong', {}, o.texto), ' ', o.descricao));
+      h('div', { class: 'explicacao', id: idPopover, popover: 'auto' }, explicacaoDaOpcao(pergunta, o, x)));
   }));
 }
 
@@ -298,7 +312,7 @@ export function renderPergunta(dados, estado) {
         h('span', { class: 'pergunta__meta' }, `${pergunta.id} · Pergunta ${estado.posicao + 1} de ${perguntas.length}`),
         h('h1', { class: 'pergunta__texto' }, enunciado)),
       h('p', { class: `peso peso--${pergunta.peso}` }, `Peso ${pergunta.peso} · ${pergunta.classe}`),
-      renderizar(dados, pergunta, resposta)),
+      renderizar(dados, pergunta, resposta, x)),
     h('p', { class: 'reflita' }, h('strong', {}, 'Reflita. '), reflita),
     h('div', { class: 'navegacao' },
       botao('Voltar', 'voltar'),

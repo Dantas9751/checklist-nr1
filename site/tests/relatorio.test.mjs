@@ -62,8 +62,9 @@ test('motivo do pilar diz o que falta, por que pesa e o efeito na nota', async (
   assert.match(a, /Por que conta\./);
 });
 
-test('todas as perguntas têm tema e impacto para o relatório', () => {
+test('todas as perguntas têm tema, impacto e explicação de cada marcação', () => {
   for (const secao of dados.secoes) for (const q of secao.perguntas) {
     assert.ok(q.tema && q.impacto, q.id);
+    for (const id of ['atende', 'parcial', 'nao_atende']) assert.ok(q.marcacoes?.[id], `${q.id} sem explicação de ${id}`);
   }
 });

@@ -727,11 +727,9 @@
   gap: var(--espaco-2);
 }
 
+/* A opção inteira é área de toque e de destaque; o botão de explicação fica sobreposto à direita. */
 .opcao {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
   border-radius: var(--raio-m);
   background: var(--superficie);
   box-shadow: inset 0 0 0 1px var(--linha);
@@ -749,7 +747,8 @@
   column-gap: var(--espaco-3);
   align-items: center;
   min-height: 56px;
-  padding: var(--espaco-3) var(--espaco-2) var(--espaco-3) var(--espaco-4);
+  padding: var(--espaco-3) calc(44px + var(--espaco-3)) var(--espaco-3) var(--espaco-4);
+  border-radius: inherit;
   cursor: pointer;
   transition: transform var(--duracao-rapida) ease-out;
 }
@@ -767,16 +766,20 @@
 }
 
 .opcao__info {
+  position: absolute;
+  top: 50%;
+  right: var(--espaco-2);
+  z-index: 1;
   display: grid;
   place-items: center;
   width: 44px;
   height: 44px;
-  margin-right: var(--espaco-2);
   border: 0;
   border-radius: var(--raio-pilula);
   background: none;
   color: var(--texto-2);
   cursor: pointer;
+  transform: translateY(-50%);
 }
 
 .opcao__info:hover {
@@ -806,6 +809,33 @@
   font-size: 0.9375rem;
   line-height: 1.45;
   box-shadow: var(--sombra-elevada), 0 0 0 1px var(--linha);
+}
+
+.explicacao {
+  display: grid;
+  gap: var(--espaco-1);
+}
+
+.explicacao:not(:popover-open) {
+  display: none;
+}
+
+.explicacao__titulo {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--texto-2);
+}
+
+.explicacao__texto {
+  font-weight: 500;
+}
+
+.explicacao__criterio {
+  margin-top: var(--espaco-1);
+  padding-top: var(--espaco-2);
+  border-top: 1px solid var(--linha);
+  font-size: 0.8125rem;
+  color: var(--texto-2);
 }
 
 .explicacao:popover-open {
@@ -1472,4 +1502,50 @@ body:has(#etapa-relatorio:not([hidden])) {
 
 .barra__link[aria-current="page"] {
   color: var(--destaque);
+}
+
+/* Segunda página: regras em blocos curtos. */
+.resumo-regras {
+  display: grid;
+  gap: var(--espaco-3);
+}
+
+.grade-marcacoes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--espaco-2);
+}
+
+.grade-marcacoes li {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  padding: var(--espaco-3) var(--espaco-4);
+  border-radius: var(--raio-m);
+  background: var(--superficie);
+  box-shadow: inset 0 0 0 1px var(--linha);
+  font-size: 0.9375rem;
+}
+
+.grade-marcacoes span,
+.lista-pesos li > span:last-child {
+  color: var(--texto-2);
+}
+
+.lista-pesos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--espaco-3);
+  font-size: 0.9375rem;
+}
+
+.lista-pesos li {
+  display: grid;
+  gap: var(--espaco-1);
+  justify-items: start;
 }

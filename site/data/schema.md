@@ -42,6 +42,7 @@ O arquivo é a fonte da verdade do site. Ele é gerado por `tools/montar_questio
       "id": "P-01", "texto": "", "ajuda": "",   // ajuda = card "Contexto e impacto"
       "reflita": "", "base": "",                // base = citação literal da norma
       "tema": "", "impacto": "",                // resumo curto e consequência, para o relatório
+      "marcacoes": { "atende": "", "parcial": "", "nao_atende": "", "na": "" },  // o que cada marcação afirma nesta pergunta (popup); "na" só onde a pergunta prevê
       "tipo": "unica",
       "portes": ["pequena"],                    // sem "portes" = vale para todos
       "peso": 3, "classe": "Crítico (trava)",
