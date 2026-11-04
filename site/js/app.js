@@ -4,6 +4,7 @@ import {
 } from './estado.js';
 import {
   renderBoasVindas, renderComoMarcar, renderContexto, renderPorte, detalhePorte, renderPergunta, renderRevisao, porteDe,
+  ID_FIM_DA_LEITURA,
 } from './render.js';
 import { renderRelatorio, textoResumo } from './relatorio.js';
 import { perguntasDoPorte, calcularScore } from './score.js';
@@ -21,6 +22,8 @@ const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 let dados;
 let estado;
+let leituraConcluida = false;
+let observadorDaLeitura = null;
 
 const $ = seletor => document.querySelector(seletor);
 const regiaoDa = etapa => document.getElementById(`etapa-${etapa}`);
@@ -41,7 +44,7 @@ function atualizar(novoEstado, { focar = true } = {}) {
 // Renderização --------------------------------------------------------------
 
 const CONTEUDO_DA_ETAPA = {
-  'boas-vindas': () => renderBoasVindas(dados, estado),
+  'boas-vindas': () => renderBoasVindas(dados, estado, { liberado: leituraConcluida }),
   'como-marcar': () => renderComoMarcar(dados),
   contexto: () => renderContexto(dados),
   porte: () => renderPorte(dados, estado),
@@ -71,9 +74,34 @@ function render(anterior, focar) {
   regiao.getAnimations().forEach(a => a.cancel());
   regiao.replaceChildren(...[CONTEUDO_DA_ETAPA[estado.etapa]()].flat(Infinity));
   atualizarBarra();
+  $('.barra__link').toggleAttribute('aria-current', estado.etapa === 'contexto');
+  if (estado.etapa === 'contexto') $('.barra__link').setAttribute('aria-current', 'page');
   animarEntrada(regiao, direcaoDaTransicao(anterior));
   if (focar) regiao.querySelector('[tabindex="-1"]')?.focus({ preventScroll: true });
   if (focar) window.scrollTo({ top: 0, behavior: movimentoReduzido.matches ? 'auto' : 'smooth' });
+  if (estado.etapa === 'boas-vindas') vigiarLeitura();
+}
+
+// O botão Começar do topo só libera quando o fim da página inicial aparece na tela.
+function liberarComeco() {
+  leituraConcluida = true;
+  observadorDaLeitura?.disconnect();
+  for (const botao of document.querySelectorAll('[data-exige-leitura]')) {
+    botao.disabled = false;
+    botao.removeAttribute('aria-describedby');
+  }
+  const aviso = document.getElementById('aviso-leitura');
+  if (aviso) aviso.textContent = 'Pronto, você já pode começar.';
+}
+
+function vigiarLeitura() {
+  observadorDaLeitura?.disconnect();
+  const fim = document.getElementById(ID_FIM_DA_LEITURA);
+  if (leituraConcluida || !fim) return;
+  observadorDaLeitura = new IntersectionObserver(entradas => {
+    if (entradas.some(e => e.isIntersecting)) liberarComeco();
+  });
+  observadorDaLeitura.observe(fim);
 }
 
 function atualizarBarra() {

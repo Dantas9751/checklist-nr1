@@ -2,7 +2,7 @@
 
 ## O que foi entregue
 
-- `site/`: site estático que roda com `python3 -m http.server`. O fluxo é início (índice e passo a passo com capturas) → como marcar e pontuação → escolha de porte → perguntas (uma por tela, contexto antes do enunciado, explicação de cada marcação num popup) → revisão → relatório (score com cor da faixa e tabela de pilares com nota, avaliação e motivo). O contexto legal e as fontes ficam numa página própria, aberta pelo cabeçalho, pelo índice ou pelo rodapé do relatório. Funciona com teclado, nos temas claro e escuro, a partir de 360px, e respeita movimento reduzido.
+- `site/`: site estático que roda com `python3 -m http.server`. O fluxo é início (botão Começar no topo, liberado depois que a pessoa rola até o fim; índice lateral no desktop e em linha no celular; passo a passo com capturas de cada componente) → como marcar e pontuação → escolha de porte → perguntas (uma por tela, contexto antes do enunciado, explicação de cada marcação num popup) → revisão → relatório (score com cor da faixa e tabela de pilares com nota, avaliação e motivo). O contexto legal e as fontes ficam numa página própria, aberta pelo cabeçalho, pelo índice ou pelo rodapé do relatório. Funciona com teclado, nos temas claro e escuro, a partir de 360px, e respeita movimento reduzido.
 - `docs/extracao/original.md` e `mapa.md`: texto do PDF página a página e mapa estrutural com as contagens.
 - `docs/extracao/humanizado.md`: a versão humanizada completa, para comparar com o PDF.
 - `docs/extracao/diff-tom.md`: o que mudou e o que ficou, e a tabela de fidelidade pergunta a pergunta (texto, contexto e "Reflita").

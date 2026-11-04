@@ -25,7 +25,12 @@ async function percorrer(navegador, { porte, estrategia, esperado }, capturar) {
   pagina.on('console', m => m.type() === 'error' && erros.push(m.text()));
   pagina.on('pageerror', e => erros.push(e.message));
   await pagina.goto(URL_SITE);
-  await pagina.getByRole('button', { name: 'Começar' }).click();
+  const comecarDoTopo = pagina.getByRole('button', { name: 'Começar' }).first();
+  if (!(await comecarDoTopo.isDisabled())) erros.push('Começar do topo deveria vir bloqueado antes da leitura');
+  await pagina.locator('#fim-da-leitura').scrollIntoViewIfNeeded();
+  await pagina.waitForTimeout(200);
+  if (await comecarDoTopo.isDisabled()) erros.push('Começar do topo não liberou depois da leitura');
+  await comecarDoTopo.click();
   await pagina.getByRole('button', { name: 'Escolher o porte' }).click();
   await pagina.getByRole('radio', { name: new RegExp(`^${porte}`) }).check();
   await pagina.getByRole('button', { name: 'Continuar' }).click();
@@ -82,7 +87,9 @@ for (const largura of [390, 1280]) {
     await boasVindas.goto(URL_SITE);
     await boasVindas.evaluate(() => localStorage.clear());
     await boasVindas.reload();
-    await boasVindas.getByRole('button', { name: 'Começar' }).waitFor();
+    await boasVindas.getByRole('button', { name: 'Começar' }).first().waitFor();
+    for (let y = 0; y < 8000; y += 600) { await boasVindas.mouse.wheel(0, 600); await boasVindas.waitForTimeout(60); }
+    await boasVindas.waitForTimeout(400);
     await boasVindas.screenshot({ path: `${PASTA}/boas-vindas-${largura}-${tema}.png`, fullPage: true });
     const larguraPagina = await boasVindas.evaluate(() => document.documentElement.scrollWidth);
     if (larguraPagina > largura) console.log(`ROLAGEM HORIZONTAL em ${largura}px: ${larguraPagina}px`);

@@ -38,13 +38,35 @@ const linkContexto = rotulo => h('a', { href: '#contexto-legal', class: 'link-pa
 
 // Boas-vindas ---------------------------------------------------------------
 
-function acoesDeAbertura(dados, estado) {
+export const ID_FIM_DA_LEITURA = 'fim-da-leitura';
+
+function botaoComecar(liberado) {
+  return h('button', {
+    type: 'button',
+    class: 'botao botao--primario',
+    'data-acao': 'comecar',
+    'data-exige-leitura': '',
+    disabled: !liberado,
+    'aria-describedby': liberado ? null : 'aviso-leitura',
+  }, 'Começar');
+}
+
+// Quem já começou continua de onde parou; quem chega pela primeira vez lê a página antes de começar.
+function acoesDeAbertura(dados, estado, liberado, noFim) {
   const respondidas = Object.keys(estado.respostas).length;
-  if (!estado.porteId || respondidas === 0) return [botao('Começar', 'comecar', { primario: true })];
+  if (estado.porteId && respondidas > 0) {
+    return [
+      botao('Continuar de onde parei', 'continuar', { primario: true }),
+      botao('Trocar o porte', 'porte'),
+      h('p', { class: 'nota acoes__nota' }, `Você já respondeu ${plural(respondidas, 'pergunta', 'perguntas')} do porte ${porteDe(dados, estado.porteId).nome}.`),
+    ];
+  }
+  if (noFim) return [botaoComecar(true)];
   return [
-    botao('Continuar de onde parei', 'continuar', { primario: true }),
-    botao('Trocar o porte', 'porte'),
-    h('p', { class: 'nota' }, `Você já respondeu ${plural(respondidas, 'pergunta', 'perguntas')} do porte ${porteDe(dados, estado.porteId).nome}.`),
+    botaoComecar(liberado),
+    h('p', { class: 'nota acoes__nota', id: 'aviso-leitura', 'aria-live': 'polite' }, liberado ?
+      'Pronto, você já pode começar.' :
+      'Leia a página até o fim para liberar o botão. São poucos minutos e explicam como o score funciona.'),
   ];
 }
 
@@ -54,15 +76,15 @@ function captura(passo) {
       class: `captura__img captura__img--${tema.id}`,
       src: `img/passo-${passo.imagem}-${tema.id}.webp`,
       alt: passo.alt,
-      width: '1440',
-      height: '900',
       loading: 'lazy',
       decoding: 'async',
     })));
 }
 
+const idDoPasso = passo => `passo-${passo.numero.replace('.', '-')}`;
+
 function itemPasso(passo, x, subpassos = []) {
-  return h('li', { class: 'passo', id: `passo-${passo.numero.replace('.', '-')}` },
+  return h('li', { class: 'passo', id: idDoPasso(passo) },
     h('h3', { class: 'passo__titulo' }, h('span', { class: 'passo__numero' }, passo.numero), passo.titulo),
     h('p', {}, x(passo.texto)),
     captura(passo),
@@ -75,38 +97,44 @@ function arvoreDePassos(workflow) {
   return principais.map(p => ({ passo: p, subpassos: workflow.filter(s => s.numero.startsWith(`${p.numero}.`)) }));
 }
 
-export function renderBoasVindas(dados, estado) {
+function indice(meta) {
+  return h('nav', { class: 'indice', 'aria-label': 'Nesta página' },
+    h('p', { class: 'indice__titulo' }, 'Nesta página'),
+    h('ul', {},
+      h('li', {}, h('a', { href: '#sobre' }, 'O que é')),
+      h('li', {}, h('a', { href: '#passo-a-passo' }, 'Passo a passo'),
+        h('ul', { class: 'indice__sub' }, meta.workflow.map(p => h('li', {}, h('a', { href: `#${idDoPasso(p)}` }, `${p.numero} ${p.titulo}`))))),
+      h('li', {}, h('a', { href: '#comecar' }, 'Antes de começar')),
+      h('li', {}, linkContexto('Contexto legal'))));
+}
+
+export function renderBoasVindas(dados, estado, { liberado = false } = {}) {
   const { meta } = dados;
   const x = expansorDaTela(dados);
   const arvore = arvoreDePassos(meta.workflow);
   const minimo = minutosEstimados(dados, dados.portes[0].id);
   const maximo = minutosEstimados(dados, dados.portes.at(-1).id);
-  return [
-    h('div', { class: 'abertura' },
-      h('p', { class: 'chamada' }, meta.chamada),
-      h('h1', { id: 'titulo-boas-vindas', tabindex: '-1' }, meta.titulo),
-      h('p', { class: 'subtitulo' }, x(meta.subtitulo))),
-    h('nav', { class: 'indice', 'aria-labelledby': 'titulo-indice' },
-      h('h2', { id: 'titulo-indice' }, 'Nesta página'),
-      h('ol', {},
-        h('li', {}, h('a', { href: '#sobre' }, 'O que é este checklist')),
-        h('li', {}, h('a', { href: '#passo-a-passo' }, 'Passo a passo'),
-          h('ol', {}, meta.workflow.map(p => h('li', {}, h('a', { href: `#passo-${p.numero.replace('.', '-')}` }, `${p.numero} ${p.titulo}`))))),
-        h('li', {}, h('a', { href: '#comecar' }, 'Antes de começar'))),
-      h('p', { class: 'indice__extra' }, 'Para ler à parte: ', linkContexto('Contexto legal e fontes'), '.')),
-    h('section', { class: 'secao-inicial', id: 'sobre', 'aria-labelledby': 'titulo-sobre' },
-      h('h2', { id: 'titulo-sobre' }, 'O que é este checklist'),
-      meta.introducao.map(t => h('p', {}, x(t))),
-      h('p', {}, x(meta.glossario))),
-    h('section', { class: 'secao-inicial', id: 'passo-a-passo', 'aria-labelledby': 'titulo-passos' },
-      h('h2', { id: 'titulo-passos' }, 'Passo a passo'),
-      h('ol', { class: 'passos' }, arvore.map(({ passo, subpassos }) => itemPasso(passo, x, subpassos)))),
-    h('section', { class: 'secao-inicial', id: 'comecar', 'aria-labelledby': 'titulo-comecar' },
-      h('h2', { id: 'titulo-comecar' }, 'Antes de começar'),
-      h('p', {}, `Leva de ${minimo} a ${maximo} minutos, conforme o porte. As respostas ficam só neste navegador.`),
-      h('p', { class: 'aviso' }, x(meta.aviso)),
-      h('div', { class: 'acoes' }, acoesDeAbertura(dados, estado))),
-  ];
+  return h('div', { class: 'inicio' },
+    indice(meta),
+    h('div', { class: 'inicio__conteudo' },
+      h('div', { class: 'abertura' },
+        h('p', { class: 'chamada' }, meta.chamada),
+        h('h1', { id: 'titulo-boas-vindas', tabindex: '-1' }, meta.titulo),
+        h('p', { class: 'subtitulo' }, x(meta.subtitulo)),
+        h('p', { class: 'nota' }, `Leva de ${minimo} a ${maximo} minutos, conforme o porte. As respostas ficam só neste navegador.`),
+        h('div', { class: 'acoes' }, acoesDeAbertura(dados, estado, liberado, false))),
+      h('section', { class: 'secao-inicial', id: 'sobre', 'aria-labelledby': 'titulo-sobre' },
+        h('h2', { id: 'titulo-sobre' }, 'O que é este checklist'),
+        meta.introducao.map(t => h('p', {}, x(t))),
+        h('p', {}, x(meta.glossario))),
+      h('section', { class: 'secao-inicial', id: 'passo-a-passo', 'aria-labelledby': 'titulo-passos' },
+        h('h2', { id: 'titulo-passos' }, 'Passo a passo'),
+        h('ol', { class: 'passos' }, arvore.map(({ passo, subpassos }) => itemPasso(passo, x, subpassos)))),
+      h('section', { class: 'secao-inicial', id: 'comecar', 'aria-labelledby': 'titulo-comecar' },
+        h('h2', { id: 'titulo-comecar' }, 'Antes de começar'),
+        h('p', { class: 'aviso' }, x(meta.aviso)),
+        h('div', { class: 'acoes' }, acoesDeAbertura(dados, estado, true, true)),
+        h('span', { id: ID_FIM_DA_LEITURA, 'aria-hidden': 'true' }))));
 }
 
 // Como marcar e pontuação ---------------------------------------------------
@@ -291,7 +319,7 @@ export function renderRevisao(dados, estado) {
   return [
     h('h1', { id: 'titulo-revisao', tabindex: '-1' }, 'Revise suas respostas'),
     h('p', {}, `${perguntas.length - puladas} de ${perguntas.length} perguntas respondidas.`,
-      puladas > 0 ? ` ${puladas} ficaram sem resposta e não entram no score. Você pode voltar e responder agora.` : ''),
+      puladas > 0 ? ` ${plural(puladas, 'ficou sem resposta e não entra', 'ficaram sem resposta e não entram')} no score. Você pode voltar e responder agora.` : ''),
     porSecao.map(({ secao, itens }) =>
       h('div', { class: 'revisao-secao' },
         h('h2', {}, `${secao.id} · ${secao.titulo}`),
