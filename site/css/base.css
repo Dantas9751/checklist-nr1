@@ -3,28 +3,32 @@
 :root {
   color-scheme: light;
 
-  /* Check-One: índigo do convite como destaque, cabeçalho azul-marinho e laranja nos detalhes. */
-  --fundo: #f4f5fb;
+  /* Check-One: azuis da apresentação do projeto, fundo de papel e laranja nos detalhes. */
+  --fundo: #efefed;
   --superficie: #ffffff;
-  --superficie-2: #f1f2fa;
-  --texto: #12123a;
-  --texto-2: #45476b;
-  --texto-3: #5a5c80;
-  --linha: #dcdef0;
-  --destaque: #2a1fa6;
-  --destaque-forte: #1d1480;
+  --superficie-2: #f3f5f8;
+  --texto: #13223a;
+  --texto-2: #43506a;
+  --texto-3: #55617a;
+  --linha: #d9dde4;
+  --destaque: #2a5ea6;
+  --destaque-forte: #1f4a86;
   --sobre-destaque: #ffffff;
-  --destaque-suave: #e9e8fb;
-  --destaque-letra: #2a1fa6;
+  --destaque-suave: #e1ecf9;
+  --destaque-letra: #2a5ea6;
   --realce: #ad4a05;
-  --vidro: rgb(244 245 251 / 0.8);
-  --barra-fundo: #0b1b73;
+  --vidro: rgb(239 239 237 / 0.8);
+  --barra-fundo: #1e3c69;
   --barra-texto: #ffffff;
-  --barra-texto-2: #c9cff5;
+  --barra-texto-2: #c8d7ee;
   --barra-linha: rgb(255 255 255 / 0.2);
   --barra-hover: #ffb27a;
   --progresso-cor: #f07a1a;
-  --aura: #dfe1f1;
+  --aura: #e2e9f2;
+  --titulo: #25487d;
+  --faixa: #a3c8f0;
+  --estouro: #d5e5f7;
+  --grao: 1;
   --captura-clara: block;
   --captura-escura: none;
 
@@ -34,7 +38,7 @@
   --status-serio: #ec835a;
   --status-critico: #d03b3b;
 
-  --fonte-titulo: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --fonte-titulo: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
   --fonte: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter, system-ui, "Segoe UI", Roboto, sans-serif;
 
   --espaco-1: 0.25rem;
@@ -68,29 +72,33 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     color-scheme: dark;
-    --fundo: #070b2e;
-    --superficie: #10164a;
-    --superficie-2: #151c58;
-    --texto: #eef0ff;
-    --texto-2: #b8bee8;
-    --texto-3: #9ea5d6;
-    --linha: #262e6e;
-    --destaque: #9b94ff;
-    --destaque-forte: #bcb7ff;
-    --sobre-destaque: #0b0f3a;
-    --destaque-suave: #1f2470;
-    --destaque-letra: #9b94ff;
+    --fundo: #0a1424;
+    --superficie: #111f36;
+    --superficie-2: #162741;
+    --texto: #edf2fb;
+    --texto-2: #b7c3d8;
+    --texto-3: #9dabc3;
+    --linha: #243756;
+    --destaque: #8ab8ee;
+    --destaque-forte: #b3d0f5;
+    --sobre-destaque: #0a1424;
+    --destaque-suave: #19304f;
+    --destaque-letra: #8ab8ee;
     --realce: #ff9a4d;
-    --vidro: rgb(7 11 46 / 0.75);
-    --barra-fundo: #050826;
+    --vidro: rgb(10 20 36 / 0.75);
+    --barra-fundo: #060e1b;
     --barra-texto: #ffffff;
-    --barra-texto-2: #b8bee8;
+    --barra-texto-2: #b7c3d8;
     --barra-linha: rgb(255 255 255 / 0.16);
     --barra-hover: #ffb27a;
     --progresso-cor: #f07a1a;
-    --aura: #141a52;
-    --sombra-cartao: 0 0 0 1px rgb(155 148 255 / 0.08);
-    --sombra-elevada: 0 0 0 1px rgb(155 148 255 / 0.12), 0 18px 40px rgb(0 0 0 / 0.5);
+    --aura: #12223b;
+    --titulo: #e8f0fc;
+    --faixa: #24497a;
+    --estouro: #13264a;
+    --grao: 0.5;
+    --sombra-cartao: 0 0 0 1px rgb(138 184 238 / 0.08);
+    --sombra-elevada: 0 0 0 1px rgb(138 184 238 / 0.12), 0 18px 40px rgb(0 0 0 / 0.5);
     --captura-clara: none;
     --captura-escura: block;
   }
@@ -98,35 +106,43 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --fundo: #070b2e;
-  --superficie: #10164a;
-  --superficie-2: #151c58;
-  --texto: #eef0ff;
-  --texto-2: #b8bee8;
-  --texto-3: #9ea5d6;
-  --linha: #262e6e;
-  --destaque: #9b94ff;
-  --destaque-forte: #bcb7ff;
-  --sobre-destaque: #0b0f3a;
-  --destaque-suave: #1f2470;
-  --destaque-letra: #9b94ff;
+  --fundo: #0a1424;
+  --superficie: #111f36;
+  --superficie-2: #162741;
+  --texto: #edf2fb;
+  --texto-2: #b7c3d8;
+  --texto-3: #9dabc3;
+  --linha: #243756;
+  --destaque: #8ab8ee;
+  --destaque-forte: #b3d0f5;
+  --sobre-destaque: #0a1424;
+  --destaque-suave: #19304f;
+  --destaque-letra: #8ab8ee;
   --realce: #ff9a4d;
-  --vidro: rgb(7 11 46 / 0.75);
-  --barra-fundo: #050826;
+  --vidro: rgb(10 20 36 / 0.75);
+  --barra-fundo: #060e1b;
   --barra-texto: #ffffff;
-  --barra-texto-2: #b8bee8;
+  --barra-texto-2: #b7c3d8;
   --barra-linha: rgb(255 255 255 / 0.16);
   --barra-hover: #ffb27a;
   --progresso-cor: #f07a1a;
-  --aura: #141a52;
-  --sombra-cartao: 0 0 0 1px rgb(155 148 255 / 0.08);
-  --sombra-elevada: 0 0 0 1px rgb(155 148 255 / 0.12), 0 18px 40px rgb(0 0 0 / 0.5);
+  --aura: #12223b;
+  --titulo: #e8f0fc;
+  --faixa: #24497a;
+  --estouro: #13264a;
+  --grao: 0.5;
+  --sombra-cartao: 0 0 0 1px rgb(138 184 238 / 0.08);
+  --sombra-elevada: 0 0 0 1px rgb(138 184 238 / 0.12), 0 18px 40px rgb(0 0 0 / 0.5);
   --captura-clara: none;
   --captura-escura: block;
 }
 
 /* Midnight: azul-noite profundo, destaque azul-lavanda. */
 :root[data-theme="midnight"] {
+  --grao: 0;
+  --titulo: var(--texto);
+  --faixa: var(--destaque-suave);
+  --estouro: var(--destaque-suave);
   --aura: #18213a;
   --barra-fundo: var(--vidro);
   --barra-texto: var(--texto);
@@ -157,6 +173,10 @@
 
 /* Sunlight: claro e quente, para ambientes muito iluminados; destaque âmbar escuro. */
 :root[data-theme="sunlight"] {
+  --grao: 0;
+  --titulo: var(--texto);
+  --faixa: var(--destaque-suave);
+  --estouro: var(--destaque-suave);
   --aura: #ffefc7;
   --barra-fundo: var(--vidro);
   --barra-texto: var(--texto);
@@ -187,6 +207,10 @@
 
 /* CIEE: cabeçalho roxo institucional, destaque azul e laranja do ponto do "i" nos detalhes. */
 :root[data-theme="ciee"] {
+  --grao: 0;
+  --titulo: var(--texto);
+  --faixa: var(--destaque-suave);
+  --estouro: var(--destaque-suave);
   --aura: #e8e2f3;
   --realce: #a34500;
   color-scheme: light;
@@ -224,6 +248,17 @@ html {
   text-size-adjust: 100%;
 }
 
+/* Textura de papel bem leve (só nos temas Check-One). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grao, 0);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.45 0 0 0 0 0.45 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
 body {
   margin: 0;
   background: var(--fundo);
@@ -247,16 +282,30 @@ h4 {
   text-wrap: balance;
 }
 
+h3,
+h4 {
+  font-family: var(--fonte);
+}
+
 h1 {
-  font-size: clamp(2rem, 1.35rem + 3vw, 3.25rem);
-  line-height: 1.08;
-  letter-spacing: -0.028em;
+  font-size: clamp(2.375rem, 1.6rem + 3.4vw, 3.875rem);
+  line-height: 1.02;
+  letter-spacing: 0;
 }
 
 h2 {
-  font-size: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);
-  line-height: 1.2;
-  letter-spacing: -0.018em;
+  font-size: clamp(1.75rem, 1.45rem + 1.2vw, 2.25rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+/* Títulos de página com a faixa azul atrás, como na apresentação do projeto. */
+h1:not(.pergunta__texto) {
+  width: fit-content;
+  max-width: 100%;
+  padding-right: 0.45em;
+  color: var(--titulo, var(--texto));
+  background: linear-gradient(var(--faixa), var(--faixa)) 0 calc(100% - 0.08em) / 100% 0.4em no-repeat;
 }
 
 h3 {

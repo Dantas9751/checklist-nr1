@@ -47,7 +47,7 @@ python3 tools/png_para_webp.py site/img
 
 ## Temas
 
-A identidade visual Check-One segue o convite do projeto: índigo como destaque, cabeçalho azul-marinho, laranja nos detalhes, Montserrat nos títulos e as estrelas de quatro pontas e o globo em linhas na abertura. O botão de tema no cabeçalho oferece Automático (segue o sistema), Check-One claro, Check-One escuro, Midnight, Sunlight e CIEE. As cores de cada tema são tokens em `css/base.css`, um bloco `:root[data-theme="..."]` por tema. A lista do menu fica em `TEMAS`, em `js/render.js`.
+A identidade visual Check-One segue o convite e a apresentação do projeto: azuis da apresentação, fundo com textura leve de papel, laranja nos detalhes, Barlow Condensed nos títulos (com a faixa azul atrás dos títulos de página) e, na abertura, o globo em linhas, o "estouro" e as estrelas de quatro pontas. O botão de tema no cabeçalho oferece Automático (segue o sistema), Check-One claro, Check-One escuro, Midnight, Sunlight e CIEE. As cores de cada tema são tokens em `css/base.css`, um bloco `:root[data-theme="..."]` por tema. A lista do menu fica em `TEMAS`, em `js/render.js`.
 
 ## Siglas
 

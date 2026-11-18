@@ -185,7 +185,14 @@ function decoracaoDaAbertura() {
     const largura = Math.sqrt(1 - (dy / 80) ** 2) * 80;
     return `<line x1="${300 - largura}" y1="${90 + dy}" x2="${300 + largura}" y2="${90 + dy}"/>`;
   }).join('');
-  svg.innerHTML = `<g class="abertura__globo"><circle cx="300" cy="90" r="80"/>${meridianos}${paralelos}</g>
+  const pontas = 18;
+  const estouro = Array.from({ length: pontas * 2 }, (_, i) => {
+    const raio = i % 2 ? 84 : 104;
+    const angulo = (Math.PI * i) / pontas;
+    return `${(300 + raio * Math.sin(angulo)).toFixed(1)},${(90 - raio * Math.cos(angulo)).toFixed(1)}`;
+  }).join(' ');
+  svg.innerHTML = `<polygon class="abertura__estouro" points="${estouro}" transform="translate(-28 22)"/>
+    <g class="abertura__globo"><circle cx="300" cy="90" r="80"/>${meridianos}${paralelos}</g>
     <g class="abertura__estrelas">
       <path d="${ESTRELA}" transform="translate(186 20) scale(1)"/>
       <path d="${ESTRELA}" transform="translate(372 150) scale(0.6)"/>
