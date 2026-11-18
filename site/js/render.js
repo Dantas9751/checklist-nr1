@@ -251,6 +251,7 @@ export function renderComoMarcar(dados) {
       h('h2', { id: 'titulo-marcacoes' }, 'As quatro marcações'),
       h('ul', { class: 'grade-marcacoes' }, opcoes.map(o =>
         h('li', {}, h('strong', {}, o.texto), h('span', {}, o.descricao))))),
+    h('div', { class: 'duas-colunas' },
     h('section', { class: 'resumo-regras', 'aria-labelledby': 'titulo-pesos' },
       h('h2', { id: 'titulo-pesos' }, 'O peso de cada pergunta'),
       h('ul', { class: 'lista-pesos' }, meta.pesos.map(p =>
@@ -259,7 +260,7 @@ export function renderComoMarcar(dados) {
       h('h2', { id: 'titulo-faixas' }, 'Faixas do score'),
       h('p', {}, 'A pequena empresa soma os pontos de todas as perguntas. A média e a grande dão um peso a cada pilar e aplicam pisos e travas. O detalhe do seu porte aparece quando você o escolher.'),
       tabelaFaixas(dados),
-      h('p', { class: 'nota' }, 'Pesos, faixas, travas e prazos são desenho deste material, não exigências legais.')),
+      h('p', { class: 'nota' }, 'Pesos, faixas, travas e prazos são desenho deste material, não exigências legais.'))),
     h('div', { class: 'navegacao' },
       botao('Voltar', 'inicio'),
       botao('Escolher o porte', 'porte', { primario: true })),
@@ -275,12 +276,14 @@ export function renderContexto(dados) {
   return [
     h('h1', { id: 'titulo-contexto', tabindex: '-1' }, 'Contexto legal e fontes'),
     h('p', { class: 'subtitulo' }, x(meta.contexto_intro)),
-    meta.contexto_legal.map(bloco => h('section', { class: 'bloco' }, h('h2', {}, bloco.titulo), lista(bloco.itens.map(x), 'lista-fontes'))),
+    h('div', { class: 'blocos-em-colunas' },
+      meta.contexto_legal.map(bloco => h('section', { class: 'bloco' }, h('h2', {}, bloco.titulo), lista(bloco.itens.map(x), 'lista-fontes')))),
     h('section', { class: 'bloco' },
       h('h2', {}, 'Fontes'),
-      blocoFontes('Documentos de base', meta.fontes.base),
-      blocoFontes('Pesquisa complementar', meta.fontes.complementar),
-      blocoFontes('O que verificar antes de decidir', meta.fontes.verificar)),
+      h('div', { class: 'blocos-em-colunas' },
+        h('div', {}, blocoFontes('Documentos de base', meta.fontes.base)),
+        h('div', {}, blocoFontes('Pesquisa complementar', meta.fontes.complementar)),
+        h('div', {}, blocoFontes('O que verificar antes de decidir', meta.fontes.verificar)))),
     h('p', { class: 'aviso' }, x(meta.aviso)),
     h('div', { class: 'navegacao' }, botao('Voltar', 'sair-contexto')),
   ];
@@ -387,6 +390,7 @@ export function renderPergunta(dados, estado) {
   const reflita = x(pergunta.reflita);
 
   return h('form', { class: 'pergunta', 'data-form': 'pergunta', 'data-pergunta': pergunta.id },
+    h('div', { class: 'pergunta__lado' },
     h('div', { class: 'pilar' },
       h('span', { class: 'pilar__letra', 'aria-hidden': 'true' }, secao.id),
       h('p', { class: 'pilar__nome', tabindex: '-1' }, h('span', {}, `Pilar ${secaoIndice + 1} de ${dados.secoes.length}`), ` ${secao.titulo}`)),
@@ -394,7 +398,8 @@ export function renderPergunta(dados, estado) {
     h('div', { class: 'contexto' },
       h('h2', {}, 'Contexto e impacto'),
       h('p', {}, contexto),
-      h('p', { class: 'base' }, `Base: ${pergunta.base}`)),
+      h('p', { class: 'base' }, `Base: ${pergunta.base}`))),
+    h('div', { class: 'pergunta__principal' },
     h('fieldset', {},
       h('legend', {},
         h('span', { class: 'pergunta__meta' }, `${pergunta.id} · Pergunta ${estado.posicao + 1} de ${perguntas.length}`),
@@ -404,7 +409,7 @@ export function renderPergunta(dados, estado) {
     h('p', { class: 'reflita' }, h('strong', {}, 'Reflita. '), reflita),
     h('div', { class: 'navegacao' },
       botao('Voltar', 'voltar'),
-      h('button', { type: 'submit', class: 'botao botao--primario', 'data-botao': 'avancar' }, resposta ? 'Próxima' : 'Pular')),
+      h('button', { type: 'submit', class: 'botao botao--primario', 'data-botao': 'avancar' }, resposta ? 'Próxima' : 'Pular'))),
   );
 }
 

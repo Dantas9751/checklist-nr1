@@ -13,7 +13,7 @@
 }
 
 .barra__linha {
-  max-width: calc(var(--largura-coluna, var(--largura-texto)) + 2 * var(--gutter));
+  max-width: calc(var(--largura-pagina) + 2 * var(--gutter));
   margin: 0 auto;
   padding: var(--espaco-2) var(--gutter);
   display: flex;
@@ -57,6 +57,7 @@
 
 .barra__contexto {
   flex: 1;
+  max-width: none;
   text-align: right;
   font-size: 0.875rem;
   color: var(--texto-2);
@@ -189,8 +190,8 @@
 .alerta {
   padding: var(--espaco-3) var(--espaco-4);
   border-radius: var(--raio-p);
-  background: color-mix(in srgb, var(--status-atencao) 18%, var(--superficie));
-  box-shadow: inset 3px 0 0 var(--status-atencao);
+  background: color-mix(in srgb, var(--status-atencao) 14%, var(--superficie));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--status-atencao) 55%, var(--linha));
 }
 
 .subtitulo {
@@ -363,9 +364,6 @@
 }
 
 @media (min-width: 1100px) {
-  #etapa-boas-vindas {
-    max-width: calc(var(--largura-texto) + 14rem);
-  }
 
   .inicio {
     grid-template-columns: 11rem minmax(0, 1fr);
@@ -927,8 +925,11 @@
 }
 
 .reflita {
-  padding-left: var(--espaco-4);
-  box-shadow: inset 3px 0 0 var(--destaque);
+  color: var(--texto-2);
+}
+
+.reflita strong {
+  color: var(--texto);
 }
 
 .contexto .base {
@@ -1258,14 +1259,6 @@
   line-height: 1.45;
 }
 
-.pilar-linha--fraco th[scope="row"] {
-  box-shadow: inset 3px 0 0 var(--status-critico);
-}
-
-.pilar-linha--forte th[scope="row"] {
-  box-shadow: inset 3px 0 0 var(--status-bom);
-}
-
 /* Em telas estreitas, cada pilar vira um cartão com rótulos. */
 @media (max-width: 720px) {
   .tabela-pilares thead {
@@ -1282,14 +1275,6 @@
     gap: var(--espaco-2) var(--espaco-4);
     padding: var(--espaco-4) 0 var(--espaco-4) var(--espaco-4);
     border-bottom: 1px solid var(--linha);
-  }
-
-  .tabela-pilares .pilar-linha--fraco {
-    box-shadow: inset 3px 0 0 var(--status-critico);
-  }
-
-  .tabela-pilares .pilar-linha--forte {
-    box-shadow: inset 3px 0 0 var(--status-bom);
   }
 
   .tabela-pilares .pilar-linha--fraco th[scope="row"],
@@ -1351,7 +1336,6 @@
   padding: var(--espaco-4) var(--espaco-5);
   border-radius: var(--raio-m);
   background: var(--superficie-2);
-  box-shadow: inset 3px 0 0 var(--status-critico);
 }
 
 .pilar-fraco h4 {
@@ -1464,10 +1448,6 @@
   color: var(--texto-2);
 }
 
-/* O relatório usa uma coluna mais larga no desktop, para a tabela de pilares respirar. */
-#etapa-relatorio {
-  max-width: 60rem;
-}
 
 @media (min-width: 721px) {
   .tabela-pilares th[scope="row"] {
@@ -1480,17 +1460,6 @@
 
   .tabela-pilares td[data-rotulo="Avaliação"] {
     width: 12rem;
-  }
-}
-
-/* O cabeçalho acompanha a largura da coluna da tela atual. */
-body:has(#etapa-relatorio:not([hidden])) {
-  --largura-coluna: 60rem;
-}
-
-@media (min-width: 1100px) {
-  body:has(#etapa-boas-vindas:not([hidden])) {
-    --largura-coluna: calc(var(--largura-texto) + 14rem);
   }
 }
 
@@ -1964,8 +1933,28 @@ body:has(#etapa-relatorio:not([hidden])) {
   gap: var(--espaco-2);
   padding: var(--espaco-4) var(--espaco-5);
   border-radius: var(--raio-m);
-  background: color-mix(in srgb, var(--status-atencao) 14%, var(--superficie));
-  box-shadow: inset 4px 0 0 var(--status-atencao);
+  background: color-mix(in srgb, var(--status-atencao) 12%, var(--superficie));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--status-atencao) 55%, var(--linha));
+}
+
+.aviso-individual h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.aviso-individual h2::before {
+  content: "!";
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--status-atencao);
+  color: #1d1300;
+  font-size: 0.875rem;
+  font-weight: 900;
 }
 
 .aviso-individual h2 {
@@ -2127,7 +2116,102 @@ body:has(#etapa-relatorio:not([hidden])) {
 }
 
 .copsoq-ofensivos__relatado {
-  box-shadow: inset 3px 0 0 var(--status-critico);
+  box-shadow: inset 0 0 0 1px var(--status-critico);
 }
 
 .resumo-faixa--risco dd { color: var(--texto); }
+
+/* Layout aberto no desktop: a página usa a largura do cabeçalho; o texto corrido mantém linhas curtas. */
+.inicio__conteudo,
+.copsoq-pagina,
+#etapa-porte > p,
+#etapa-revisao > p {
+  max-width: 48rem;
+}
+
+.copsoq-intro__texto {
+  display: grid;
+  gap: var(--espaco-4);
+  align-content: start;
+}
+
+.copsoq-intro__texto h1 {
+  margin-top: calc(-1 * var(--espaco-2));
+}
+
+.copsoq-pagina {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.bloco,
+.recolhivel {
+  box-shadow: inset 0 0 0 1px var(--linha);
+}
+
+.bloco {
+  border-radius: 20px;
+}
+
+.duas-colunas,
+.copsoq-intro {
+  display: grid;
+  gap: var(--espaco-6);
+}
+
+.blocos-em-colunas {
+  display: grid;
+  gap: var(--espaco-4);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .duas-colunas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--espaco-7);
+    align-items: start;
+  }
+
+  .copsoq-intro {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: var(--espaco-7);
+    align-items: start;
+  }
+
+  .copsoq-intro .aviso-individual {
+    margin-top: var(--espaco-6);
+  }
+
+  .blocos-em-colunas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Pergunta: contexto fixo à esquerda, pergunta e opções à direita. */
+.pergunta__lado,
+.pergunta__principal {
+  display: grid;
+  gap: var(--espaco-5);
+  align-content: start;
+  min-width: 0;
+}
+
+@media (min-width: 1000px) {
+  .pergunta {
+    grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
+    gap: var(--espaco-8);
+    align-items: start;
+  }
+
+  .pergunta__lado {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .inicio {
+    grid-template-columns: 12rem minmax(0, 1fr);
+    gap: var(--espaco-8);
+  }
+}

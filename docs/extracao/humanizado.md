@@ -1,6 +1,6 @@
 # Checklist NR-1 por porte da empresa · versão humanizada
 
-_NR-1 · GRO / PGR · Riscos psicossociais_
+_NR-1, gerenciamento de riscos e riscos psicossociais_
 
 Este checklist segue o que o capítulo 1.5 da NR-1 pede: identificar perigos, avaliar, controlar, acompanhar, envolver os trabalhadores e documentar. As perguntas estão agrupadas em 8 pilares, de A a H.
 
