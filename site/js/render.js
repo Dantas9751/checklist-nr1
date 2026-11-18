@@ -97,25 +97,14 @@ function arvoreDePassos(workflow) {
   return principais.map(p => ({ passo: p, subpassos: workflow.filter(s => s.numero.startsWith(`${p.numero}.`)) }));
 }
 
-// Ferramentas adicionais: sem endereço ainda, aparecem como "Em breve" e não navegam.
+// Ferramentas adicionais: com "acao" abrem dentro do site; com "url", em nova aba.
 function linkFerramenta(ferramenta) {
-  if (ferramenta.acao) {
-    return h('a', { class: 'ferramenta', href: `#${ferramenta.acao}`, 'data-acao': ferramenta.acao },
-      h('span', { class: 'ferramenta__titulo' }, ferramenta.titulo),
-      h('span', { class: 'ferramenta__descricao' }, ferramenta.descricao));
-  }
-  const pronta = Boolean(ferramenta.url);
-  return h('a', {
-    class: `ferramenta${pronta ? '' : ' ferramenta--em-breve'}`,
-    href: pronta ? ferramenta.url : '#',
-    target: pronta ? '_blank' : null,
-    rel: pronta ? 'noopener' : null,
-    'aria-disabled': pronta ? null : 'true',
-    'data-acao': pronta ? null : 'em-breve',
-  },
-  h('span', { class: 'ferramenta__titulo' }, ferramenta.titulo),
-  h('span', { class: 'ferramenta__descricao' }, ferramenta.descricao),
-  !pronta && h('span', { class: 'ferramenta__selo' }, 'Em breve'));
+  const atributos = ferramenta.acao
+    ? { href: `#${ferramenta.acao}`, 'data-acao': ferramenta.acao }
+    : { href: ferramenta.url, target: '_blank', rel: 'noopener' };
+  return h('a', { class: 'ferramenta', ...atributos },
+    h('span', { class: 'ferramenta__titulo' }, ferramenta.titulo),
+    h('span', { class: 'ferramenta__descricao' }, ferramenta.descricao));
 }
 
 export function renderFerramentas(dados) {
@@ -168,8 +157,7 @@ function indice(meta) {
 
 function linkDoIndice(f) {
   if (f.acao) return h('a', { href: `#${f.acao}`, 'data-acao': f.acao }, f.titulo);
-  if (f.url) return h('a', { href: f.url, target: '_blank', rel: 'noopener' }, f.titulo);
-  return h('a', { href: '#', 'aria-disabled': 'true', 'data-acao': 'em-breve' }, f.titulo, h('span', { class: 'indice__em-breve' }, 'em breve'));
+  return h('a', { href: f.url, target: '_blank', rel: 'noopener' }, f.titulo);
 }
 
 // Estrelas de quatro pontas e globo em linhas, como no convite do Check-One. Só decoração.

@@ -181,12 +181,6 @@
           "descricao": "COPSOQ II-Br: 40 perguntas sobre riscos psicossociais",
           "url": "",
           "acao": "copsoq"
-        },
-        {
-          "id": "cartilha",
-          "titulo": "Cartilha de exemplo",
-          "descricao": "Cartilha de amostra em PDF",
-          "url": ""
         }
       ]
     },

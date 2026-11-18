@@ -253,7 +253,6 @@ const ACOES = {
     leituraConcluida = false;
     atualizar(criarEstado());
   },
-  'em-breve': () => anunciar('Esta ferramenta estará disponível em breve.'),
   copsoq: () => abrirCopsoq(),
   'sair-copsoq': () => atualizar(irPara(estado, estado.retorno && estado.retorno !== 'copsoq' ? estado.retorno : 'boas-vindas')),
   'copsoq-comecar': () => atualizarCopsoq({ fase: 'perguntas' }),

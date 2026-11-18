@@ -43,7 +43,7 @@ python3 tools/png_para_webp.py site/img
 ## Ferramentas adicionais
 
 - **Formulário complementar**: o COPSOQ II-Br versão curta, dentro do próprio site (veja `docs/copsoq/README.md`). Para regenerar os dados: `python3 tools/montar_copsoq.py`.
-- **Cartilha de exemplo**: ainda "Em breve". Quando tiver o link, preencha o campo `url` do item em `meta.ferramentas.itens` (no `humanizado.json`) e rode `npm run dados`. Com `url`, o item vira link que abre em nova aba.
+- **Outras ferramentas**: para incluir um link externo (uma cartilha em PDF, por exemplo), adicione um item com `titulo`, `descricao` e `url` em `meta.ferramentas.itens` (no `humanizado.json`) e rode `npm run dados`. O link abre em nova aba.
 
 ## Temas
 
