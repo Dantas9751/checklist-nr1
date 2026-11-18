@@ -10,7 +10,7 @@
   --texto-2: #3d454c;
   --texto-3: #59626a;
   --linha: #d5dbdf;
-  --destaque: #0b6e5f;
+  --destaque: #2a1fa6;
   --destaque-suave: #e6f1ee;
 }
 
@@ -53,7 +53,7 @@ body {
 .anuncio,
 .link-pagina,
 .rodape__contexto,
-.etapa:not(#etapa-relatorio) {
+.etapa:not(#etapa-relatorio):not(#etapa-copsoq) {
   display: none !important;
 }
 

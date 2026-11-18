@@ -7,15 +7,19 @@ import {
   ID_FIM_DA_LEITURA, TEMAS, renderMenuTema, renderMenuPrincipal, renderMenuFerramentas,
 } from './render.js';
 import { renderRelatorio, textoResumo } from './relatorio.js';
+import { renderCopsoq, estadoInicialCopsoq, paginaCompleta } from './render-copsoq.js';
+import { paginas as paginasCopsoq, NAO as NAO_OFENSIVO } from './copsoq.js';
 import { perguntasDoPorte, calcularScore } from './score.js';
 
 const URL_DADOS = 'data/questionario.json';
+const URL_COPSOQ = 'data/copsoq.json';
 const CHAVE_TEMA = 'checklist-nr1:tema';
-const ORDEM_ETAPAS = ['boas-vindas', 'como-marcar', 'porte', 'perguntas', 'revisao', 'relatorio', 'contexto'];
+const ORDEM_ETAPAS = ['boas-vindas', 'como-marcar', 'porte', 'perguntas', 'revisao', 'relatorio', 'contexto', 'copsoq'];
 const MARGEM_POPOVER = 16;
 const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 let dados;
+let dadosCopsoq = null;
 let estado;
 let leituraConcluida = false;
 let observadorDaLeitura = null;
@@ -42,6 +46,7 @@ const CONTEUDO_DA_ETAPA = {
   'boas-vindas': () => renderBoasVindas(dados, estado, { liberado: leituraConcluida }),
   'como-marcar': () => renderComoMarcar(dados),
   contexto: () => renderContexto(dados),
+  copsoq: () => renderCopsoq(dadosCopsoq, copsoqAtual()),
   porte: () => renderPorte(dados, estado),
   perguntas: () => renderPergunta(dados, estado),
   revisao: () => renderRevisao(dados, estado),
@@ -51,6 +56,10 @@ const CONTEUDO_DA_ETAPA = {
 function direcaoDaTransicao(anterior) {
   if (!anterior) return 0;
   const diferencaEtapa = ORDEM_ETAPAS.indexOf(estado.etapa) - ORDEM_ETAPAS.indexOf(anterior.etapa);
+  if (!diferencaEtapa && estado.etapa === 'copsoq') {
+    const ordem = c => ['intro', 'perguntas', 'resultado'].indexOf(c?.fase) * 100 + (c?.pagina ?? 0);
+    return Math.sign(ordem(estado.copsoq) - ordem(anterior.copsoq));
+  }
   return Math.sign(diferencaEtapa || estado.posicao - anterior.posicao);
 }
 
@@ -143,6 +152,52 @@ function aplicarTema(id) {
   return tema;
 }
 
+// Formulário complementar (COPSOQ) -----------------------------------------
+
+const copsoqAtual = () => estado.copsoq ?? estadoInicialCopsoq();
+
+function atualizarCopsoq(mudancas, opcoes) {
+  atualizar({ ...estado, copsoq: { ...copsoqAtual(), ...mudancas } }, opcoes);
+}
+
+function abrirCopsoq() {
+  if (estado.etapa === 'copsoq') return;
+  atualizar({ ...irPara(estado, 'copsoq'), retorno: estado.etapa, copsoq: copsoqAtual() });
+}
+
+// Atualiza o aviso e o botão da página sem redesenhar (para não perder o foco do campo).
+function atualizarPaginaCopsoq(form) {
+  const faltam = paginasCopsoq(dadosCopsoq)[copsoqAtual().pagina].filter(item => !copsoqAtual().respostas[item.id]).length;
+  form.querySelector('[data-botao="copsoq-avancar"]').disabled = faltam > 0;
+  $('#copsoq-faltam').textContent = faltam > 0 ? `Responda ${faltam === 1 ? '1 pergunta' : `${faltam} perguntas`} para continuar.` : '';
+}
+
+function responderCopsoq(campo) {
+  const id = campo.name.split(':')[1];
+  const c = copsoqAtual();
+  const ehOfensivo = dadosCopsoq.ofensivos.some(o => o.id === id);
+  const quem = ehOfensivo && campo.value === NAO_OFENSIVO ? { ...c.quem, [id]: [] } : c.quem;
+  estado = { ...estado, copsoq: { ...c, respostas: { ...c.respostas, [id]: campo.value }, quem } };
+  salvar(estado);
+  if (!ehOfensivo) {
+    atualizarPaginaCopsoq(campo.form);
+    return;
+  }
+  // A pergunta sobre "quem" aparece ou some: redesenha e devolve o foco à opção marcada.
+  render(estado, false);
+  document.querySelector(`input[name="${campo.name}"][value="${campo.value}"]`)?.focus();
+}
+
+function marcarQuem(campo) {
+  const id = campo.name.split(':')[1];
+  const c = copsoqAtual();
+  const atuais = new Set(c.quem[id] ?? []);
+  if (campo.checked) atuais.add(campo.value);
+  else atuais.delete(campo.value);
+  estado = { ...estado, copsoq: { ...c, quem: { ...c.quem, [id]: [...atuais] } } };
+  salvar(estado);
+}
+
 // Confirmação ---------------------------------------------------------------
 
 // Caixa de confirmação do próprio site: devolve true só quando a pessoa confirma.
@@ -199,6 +254,22 @@ const ACOES = {
     atualizar(criarEstado());
   },
   'em-breve': () => anunciar('Esta ferramenta estará disponível em breve.'),
+  copsoq: () => abrirCopsoq(),
+  'sair-copsoq': () => atualizar(irPara(estado, estado.retorno && estado.retorno !== 'copsoq' ? estado.retorno : 'boas-vindas')),
+  'copsoq-comecar': () => atualizarCopsoq({ fase: 'perguntas' }),
+  'copsoq-anterior': () => {
+    const c = copsoqAtual();
+    atualizarCopsoq(c.pagina === 0 ? { fase: 'intro' } : { pagina: c.pagina - 1 });
+  },
+  'copsoq-revisar': () => atualizarCopsoq({ fase: 'perguntas', pagina: 0 }),
+  'copsoq-refazer': async () => {
+    const confirmado = await confirmar({
+      titulo: 'Refazer o formulário?',
+      texto: 'As respostas do formulário complementar serão apagadas deste navegador. O checklist não muda.',
+      rotuloConfirmar: 'Apagar e refazer',
+    });
+    if (confirmado) atualizarCopsoq({ ...estadoInicialCopsoq() });
+  },
 };
 
 function aoClicar(evento) {
@@ -211,6 +282,14 @@ function aoClicar(evento) {
 
 function aoMudar(evento) {
   const campo = evento.target;
+  if (campo.name?.startsWith('copsoq:')) {
+    responderCopsoq(campo);
+    return;
+  }
+  if (campo.name?.startsWith('copsoq-quem:')) {
+    marcarQuem(campo);
+    return;
+  }
   if (campo.name === 'tema') {
     anunciar(`Tema ${aplicarTema(campo.value).nome}.`);
     return;
@@ -237,6 +316,11 @@ function aoEnviar(evento) {
     if (escolhido) atualizar(escolherPorte(estado, dados, escolhido.value));
   }
   if (form.dataset.form === 'pergunta') atualizar(avancar(estado, dados));
+  if (form.dataset.form === 'copsoq' && paginaCompleta(dadosCopsoq, copsoqAtual())) {
+    const c = copsoqAtual();
+    const ultima = c.pagina === paginasCopsoq(dadosCopsoq).length - 1;
+    atualizarCopsoq(ultima ? { fase: 'resultado' } : { pagina: c.pagina + 1 });
+  }
 }
 
 function aoTeclar(evento) {
@@ -272,6 +356,7 @@ async function iniciar() {
     const resposta = await fetch(URL_DADOS);
     if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
     dados = await resposta.json();
+    dadosCopsoq = await (await fetch(URL_COPSOQ)).json();
   } catch (erro) {
     $('#conteudo').replaceChildren(
       Object.assign(document.createElement('p'), {

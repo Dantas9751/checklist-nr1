@@ -99,6 +99,11 @@ function arvoreDePassos(workflow) {
 
 // Ferramentas adicionais: sem endereço ainda, aparecem como "Em breve" e não navegam.
 function linkFerramenta(ferramenta) {
+  if (ferramenta.acao) {
+    return h('a', { class: 'ferramenta', href: `#${ferramenta.acao}`, 'data-acao': ferramenta.acao },
+      h('span', { class: 'ferramenta__titulo' }, ferramenta.titulo),
+      h('span', { class: 'ferramenta__descricao' }, ferramenta.descricao));
+  }
   const pronta = Boolean(ferramenta.url);
   return h('a', {
     class: `ferramenta${pronta ? '' : ' ferramenta--em-breve'}`,
@@ -130,9 +135,9 @@ export function renderMenuFerramentas(dados) {
 }
 
 export const TEMAS = [
-  { id: 'auto', nome: 'Automático', descricao: 'Segue o sistema', cores: ['#f1f3f4', '#000000'] },
-  { id: 'light', nome: 'Claro', cores: ['#ffffff', '#0b6e5f'] },
-  { id: 'dark', nome: 'Escuro', cores: ['#1c1c1e', '#45c4a9'] },
+  { id: 'auto', nome: 'Automático', descricao: 'Check-One, segue o sistema', cores: ['#f4f5fb', '#070b2e'] },
+  { id: 'light', nome: 'Check-One claro', cores: ['#f4f5fb', '#2a1fa6'] },
+  { id: 'dark', nome: 'Check-One escuro', cores: ['#070b2e', '#9b94ff'] },
   { id: 'midnight', nome: 'Midnight', cores: ['#121a2e', '#8aa9ff'] },
   { id: 'sunlight', nome: 'Sunlight', cores: ['#fff4dc', '#8a4b00'] },
   { id: 'ciee', nome: 'CIEE', cores: ['#ffffff', '#0b4ea2'] },
@@ -158,9 +163,35 @@ function indice(meta) {
       h('li', {}, linkContexto('Contexto legal')),
       h('li', { class: 'indice__ferramentas' },
         h('span', { class: 'indice__grupo' }, meta.ferramentas.titulo),
-        h('ul', { class: 'indice__lista-ferramentas' }, meta.ferramentas.itens.map(f => h('li', {},
-          h('a', { href: f.url || '#', 'aria-disabled': f.url ? null : 'true', 'data-acao': f.url ? null : 'em-breve' },
-            f.titulo, f.url ? null : h('span', { class: 'indice__em-breve' }, '· em breve'))))))));
+        h('ul', { class: 'indice__lista-ferramentas' }, meta.ferramentas.itens.map(f => h('li', {}, linkDoIndice(f)))))));
+}
+
+function linkDoIndice(f) {
+  if (f.acao) return h('a', { href: `#${f.acao}`, 'data-acao': f.acao }, f.titulo);
+  if (f.url) return h('a', { href: f.url, target: '_blank', rel: 'noopener' }, f.titulo);
+  return h('a', { href: '#', 'aria-disabled': 'true', 'data-acao': 'em-breve' }, f.titulo, h('span', { class: 'indice__em-breve' }, 'em breve'));
+}
+
+// Estrelas de quatro pontas e globo em linhas, como no convite do Check-One. Só decoração.
+const ESTRELA = 'M12 1c.9 5.6 3.6 8.6 11 11-7.4 2.4-10.1 5.4-11 11-.9-5.6-3.6-8.6-11-11 7.4-2.4 10.1-5.4 11-11z';
+
+function decoracaoDaAbertura() {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'abertura__decoracao');
+  svg.setAttribute('viewBox', '0 0 400 240');
+  svg.setAttribute('aria-hidden', 'true');
+  const meridianos = [0, 22, 44, 62, 76].map(rx => `<ellipse cx="300" cy="90" rx="${rx}" ry="80"/>`).join('');
+  const paralelos = [-60, -30, 0, 30, 60].map(dy => {
+    const largura = Math.sqrt(1 - (dy / 80) ** 2) * 80;
+    return `<line x1="${300 - largura}" y1="${90 + dy}" x2="${300 + largura}" y2="${90 + dy}"/>`;
+  }).join('');
+  svg.innerHTML = `<g class="abertura__globo"><circle cx="300" cy="90" r="80"/>${meridianos}${paralelos}</g>
+    <g class="abertura__estrelas">
+      <path d="${ESTRELA}" transform="translate(186 20) scale(1)"/>
+      <path d="${ESTRELA}" transform="translate(372 150) scale(0.6)"/>
+      <path d="${ESTRELA}" transform="translate(206 196) scale(0.45)"/>
+    </g>`;
+  return svg;
 }
 
 export function renderBoasVindas(dados, estado, { liberado = false } = {}) {
@@ -173,8 +204,10 @@ export function renderBoasVindas(dados, estado, { liberado = false } = {}) {
     indice(meta),
     h('div', { class: 'inicio__conteudo' },
       h('div', { class: 'abertura' },
+        decoracaoDaAbertura(),
         h('p', { class: 'chamada' }, meta.chamada),
-        h('h1', { id: 'titulo-boas-vindas', tabindex: '-1' }, meta.titulo),
+        h('h1', { id: 'titulo-boas-vindas', tabindex: '-1', class: 'marca' }, meta.marca),
+        h('p', { class: 'abertura__titulo' }, meta.titulo),
         h('p', { class: 'subtitulo' }, x(meta.subtitulo)),
         h('p', { class: 'nota' }, `Leva de ${minimo} a ${maximo} minutos, conforme o porte. As respostas ficam só neste navegador.`),
         h('div', { class: 'acoes' }, acoesDeAbertura(dados, estado, liberado, false))),

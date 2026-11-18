@@ -1,0 +1,794 @@
+{
+  "meta": {
+    "titulo": "Questionário Psicossocial de Copenhague",
+    "sigla": "COPSOQ II-Br, versão curta",
+    "subtitulo": "Formulário complementar sobre riscos psicossociais, com 40 perguntas sobre o seu trabalho.",
+    "introducao": [
+      "O COPSOQ avalia fatores psicossociais do trabalho: demandas, organização, relações, liderança, saúde e bem-estar. Ele ajuda a enxergar o que pode proteger ou prejudicar a saúde de quem trabalha.",
+      "Responda pensando no seu trabalho atual. Não há resposta certa ou errada: vale o que você vive no dia a dia."
+    ],
+    "aviso_titulo": "Questionário individual",
+    "aviso": [
+      "Este questionário é estritamente individual e serve como ponto de reflexão pessoal.",
+      "Ele não pode ser usado para diagnósticos, laudos, decisões de gestão de pessoas ou avaliação de grupos, equipes ou empresas. Para isso, a aplicação precisa ser coletiva, anônima e analisada por profissional competente.",
+      "O resultado não substitui avaliação clínica ou diagnóstico feito por profissional de saúde mental. Em caso de sofrimento, procure um psicólogo, psiquiatra ou outro profissional habilitado.",
+      "Suas respostas ficam só neste navegador. Nada é enviado."
+    ],
+    "faixas": {
+      "seguro": "Situação favorável para a saúde nesta dimensão.",
+      "atencao": "Nem adequada nem de risco, mas pede atenção.",
+      "risco": "Situação desfavorável, com risco para a saúde."
+    },
+    "ofensivos_texto": "Comportamentos ofensivos não recebem classificação, porque são situações inaceitáveis no ambiente de trabalho. Se você passou por alguma delas, a organização deve oferecer suporte e acesso a canais seguros de denúncia, além de prevenir, impedir e punir esses comportamentos.",
+    "referencia": [
+      "COPSOQ II-Br (Copenhagen Psychosocial Questionnaire), versão curta, 40 itens. Original dinamarquês: Pejtersen, Kristensen, Borg e Bjorner.",
+      "Validação brasileira: Gonçalves JS, Moriguchi CS, Chaves TC, Sato TO. Rev Saúde Pública. 2021;55:69.",
+      "Pontuação e interpretação: Sato TO et al. Rev Bras Saude Ocup. 2026;51:e21. doi.org/10.1590/2317-6369/30925pt2026v51e21"
+    ],
+    "por_pagina": 5
+  },
+  "escalas": {
+    "frequencia": [
+      {
+        "texto": "Sempre",
+        "valor": 4
+      },
+      {
+        "texto": "Frequentemente",
+        "valor": 3
+      },
+      {
+        "texto": "Às vezes",
+        "valor": 2
+      },
+      {
+        "texto": "Raramente",
+        "valor": 1
+      },
+      {
+        "texto": "Nunca",
+        "valor": 0
+      }
+    ],
+    "frequencia_invertida": [
+      {
+        "texto": "Sempre",
+        "valor": 0
+      },
+      {
+        "texto": "Frequentemente",
+        "valor": 1
+      },
+      {
+        "texto": "Às vezes",
+        "valor": 2
+      },
+      {
+        "texto": "Raramente",
+        "valor": 3
+      },
+      {
+        "texto": "Nunca",
+        "valor": 4
+      }
+    ],
+    "intensidade": [
+      {
+        "texto": "Em grande parte",
+        "valor": 4
+      },
+      {
+        "texto": "Em boa parte",
+        "valor": 3
+      },
+      {
+        "texto": "De certa forma",
+        "valor": 2
+      },
+      {
+        "texto": "Pouco",
+        "valor": 1
+      },
+      {
+        "texto": "Muito pouco",
+        "valor": 0
+      }
+    ],
+    "satisfacao": [
+      {
+        "texto": "Muito satisfeito",
+        "valor": 3
+      },
+      {
+        "texto": "Satisfeito",
+        "valor": 2
+      },
+      {
+        "texto": "Insatisfeito",
+        "valor": 1
+      },
+      {
+        "texto": "Muito insatisfeito",
+        "valor": 0
+      }
+    ],
+    "conflito": [
+      {
+        "texto": "Sim, com certeza",
+        "valor": 3
+      },
+      {
+        "texto": "Sim, até certo ponto",
+        "valor": 2
+      },
+      {
+        "texto": "Sim, mas muito pouco",
+        "valor": 1
+      },
+      {
+        "texto": "Não, realmente não",
+        "valor": 0
+      }
+    ],
+    "saude": [
+      {
+        "texto": "Excelente",
+        "valor": 4
+      },
+      {
+        "texto": "Muito boa",
+        "valor": 3
+      },
+      {
+        "texto": "Boa",
+        "valor": 2
+      },
+      {
+        "texto": "Razoável",
+        "valor": 1
+      },
+      {
+        "texto": "Ruim",
+        "valor": 0
+      }
+    ]
+  },
+  "ofensivo_opcoes": [
+    {
+      "id": "sim_diario",
+      "texto": "Sim, diariamente"
+    },
+    {
+      "id": "sim_semanal",
+      "texto": "Sim, semanalmente"
+    },
+    {
+      "id": "sim_mensal",
+      "texto": "Sim, mensalmente"
+    },
+    {
+      "id": "sim_poucas",
+      "texto": "Sim, poucas vezes"
+    },
+    {
+      "id": "nao",
+      "texto": "Não"
+    }
+  ],
+  "quem": [
+    "Colegas",
+    "Gerente, supervisor",
+    "Subordinados",
+    "Clientes, fregueses, pacientes"
+  ],
+  "dominios": [
+    {
+      "titulo": "Demandas no trabalho",
+      "dimensoes": [
+        {
+          "id": "1",
+          "titulo": "Demandas quantitativas",
+          "itens": [
+            {
+              "id": "1A",
+              "texto": "Você atrasa a entrega do seu trabalho?",
+              "escala": "frequencia"
+            },
+            {
+              "id": "1B",
+              "texto": "O tempo para realizar as suas tarefas no trabalho é suficiente?",
+              "escala": "frequencia_invertida"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              0,
+              3
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              5,
+              8
+            ]
+          }
+        },
+        {
+          "id": "2",
+          "titulo": "Ritmo de trabalho",
+          "itens": [
+            {
+              "id": "2A",
+              "texto": "É necessário manter um ritmo acelerado no trabalho?",
+              "escala": "frequencia"
+            },
+            {
+              "id": "2B",
+              "texto": "Você trabalha em ritmo acelerado ao longo de toda jornada?",
+              "escala": "frequencia"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              0,
+              3
+            ],
+            "atencao": [
+              4,
+              5
+            ],
+            "risco": [
+              6,
+              8
+            ]
+          }
+        },
+        {
+          "id": "3",
+          "titulo": "Demandas emocionais",
+          "itens": [
+            {
+              "id": "3A",
+              "texto": "Seu trabalho coloca você em situações emocionalmente desgastantes?",
+              "escala": "frequencia"
+            },
+            {
+              "id": "3B",
+              "texto": "Você tem que lidar com os problemas pessoais de outras pessoas como parte do seu trabalho?",
+              "escala": "frequencia"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              0,
+              3
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              5,
+              8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "titulo": "Organização e conteúdo do trabalho",
+      "dimensoes": [
+        {
+          "id": "4",
+          "titulo": "Influência no trabalho",
+          "itens": [
+            {
+              "id": "4A",
+              "texto": "Você tem um alto grau de influência nas decisões sobre o seu trabalho?",
+              "escala": "frequencia"
+            },
+            {
+              "id": "4B",
+              "texto": "Você pode interferir na quantidade de trabalho atribuída a você?",
+              "escala": "frequencia"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              5,
+              8
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "5",
+          "titulo": "Possibilidade de desenvolvimento",
+          "itens": [
+            {
+              "id": "5A",
+              "texto": "Você tem a possibilidade de aprender coisas novas através do seu trabalho?",
+              "escala": "intensidade"
+            },
+            {
+              "id": "5B",
+              "texto": "O seu trabalho exige que você tome iniciativas?",
+              "escala": "intensidade"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              5,
+              8
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "6",
+          "titulo": "Significado do trabalho",
+          "itens": [
+            {
+              "id": "6A",
+              "texto": "O seu trabalho é significativo?",
+              "escala": "intensidade"
+            },
+            {
+              "id": "6B",
+              "texto": "Você sente que o trabalho que você faz é importante?",
+              "escala": "intensidade"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              6,
+              8
+            ],
+            "atencao": [
+              5,
+              5
+            ],
+            "risco": [
+              0,
+              4
+            ]
+          }
+        },
+        {
+          "id": "7",
+          "titulo": "Comprometimento com o trabalho",
+          "itens": [
+            {
+              "id": "7A",
+              "texto": "Você sente que o seu local de trabalho é muito importante para você?",
+              "escala": "intensidade"
+            },
+            {
+              "id": "7B",
+              "texto": "Você recomendaria a um amigo que se candidatasse a uma vaga no seu local de trabalho?",
+              "escala": "intensidade"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              5,
+              8
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "titulo": "Relações interpessoais",
+      "dimensoes": [
+        {
+          "id": "8",
+          "titulo": "Previsibilidade",
+          "itens": [
+            {
+              "id": "8A",
+              "texto": "No seu local de trabalho, você é informado antecipadamente sobre decisões importantes, mudanças ou planos para o futuro?",
+              "escala": "intensidade"
+            },
+            {
+              "id": "8B",
+              "texto": "Você recebe toda a informação necessária para fazer bem o seu trabalho?",
+              "escala": "intensidade"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              5,
+              8
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "9",
+          "titulo": "Reconhecimento",
+          "itens": [
+            {
+              "id": "9A",
+              "texto": "O seu trabalho é reconhecido e valorizado pelos seus superiores?",
+              "escala": "intensidade"
+            },
+            {
+              "id": "9B",
+              "texto": "Você é tratado de forma justa no seu local de trabalho?",
+              "escala": "intensidade"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              5,
+              8
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "10",
+          "titulo": "Clareza do papel",
+          "itens": [
+            {
+              "id": "10A",
+              "texto": "O seu trabalho tem objetivos/metas claros(as)?",
+              "escala": "intensidade"
+            },
+            {
+              "id": "10B",
+              "texto": "Você sabe exatamente o que se espera de você no trabalho?",
+              "escala": "intensidade"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              6,
+              8
+            ],
+            "atencao": [
+              4,
+              5
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "11",
+          "titulo": "Qualidade da liderança",
+          "itens": [
+            {
+              "id": "11A",
+              "texto": "Você diria que o seu superior imediato dá alta prioridade para a satisfação com trabalho?",
+              "escala": "intensidade"
+            },
+            {
+              "id": "11B",
+              "texto": "Você diria que o seu superior imediato é bom no planejamento do trabalho?",
+              "escala": "intensidade"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              5,
+              8
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "12",
+          "titulo": "Suporte social",
+          "itens": [
+            {
+              "id": "12A",
+              "texto": "Com que frequência o seu superior imediato está disposto a ouvir os seus problemas no trabalho?",
+              "escala": "frequencia"
+            },
+            {
+              "id": "12B",
+              "texto": "Com que frequência você recebe ajuda e suporte do seu superior imediato?",
+              "escala": "frequencia"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              6,
+              8
+            ],
+            "atencao": [
+              4,
+              5
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "titulo": "Interface trabalho-indivíduo",
+      "dimensoes": [
+        {
+          "id": "13",
+          "titulo": "Satisfação no trabalho",
+          "itens": [
+            {
+              "id": "13",
+              "texto": "Qual o seu nível de satisfação com o seu trabalho como um todo, considerando todos os aspectos?",
+              "escala": "satisfacao"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              2,
+              3
+            ],
+            "risco": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "id": "14",
+          "titulo": "Conflitos trabalho e família",
+          "itens": [
+            {
+              "id": "14A",
+              "texto": "Você sente que o seu trabalho consome tanto sua energia que ele tem um efeito negativo na sua vida particular?",
+              "escala": "conflito"
+            },
+            {
+              "id": "14B",
+              "texto": "Você sente que o seu trabalho ocupa tanto tempo que ele tem um efeito negativo na sua vida particular?",
+              "escala": "conflito"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              0,
+              2
+            ],
+            "atencao": [
+              3,
+              3
+            ],
+            "risco": [
+              4,
+              6
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "titulo": "Valores do local de trabalho",
+      "dimensoes": [
+        {
+          "id": "15",
+          "titulo": "Confiança na gestão",
+          "itens": [
+            {
+              "id": "15A",
+              "texto": "Você pode confiar nas informações que vêm dos seus superiores?",
+              "escala": "intensidade"
+            },
+            {
+              "id": "15B",
+              "texto": "Os seus superiores confiam que os funcionários farão bem seu trabalho?",
+              "escala": "intensidade"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              5,
+              8
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "16",
+          "titulo": "Justiça",
+          "itens": [
+            {
+              "id": "16A",
+              "texto": "Os conflitos são resolvidos de forma justa?",
+              "escala": "intensidade"
+            },
+            {
+              "id": "16B",
+              "texto": "O trabalho é distribuído de forma justa?",
+              "escala": "intensidade"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              5,
+              8
+            ],
+            "atencao": [
+              4,
+              4
+            ],
+            "risco": [
+              0,
+              3
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "titulo": "Saúde e bem-estar",
+      "dimensoes": [
+        {
+          "id": "17",
+          "titulo": "Saúde geral",
+          "itens": [
+            {
+              "id": "17",
+              "texto": "Em geral, você diria que a sua saúde é:",
+              "escala": "saude"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              3,
+              4
+            ],
+            "atencao": [
+              2,
+              2
+            ],
+            "risco": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "id": "18",
+          "titulo": "Sintomas de burnout",
+          "itens": [
+            {
+              "id": "18A",
+              "texto": "Com que frequência você tem se sentido fisicamente esgotado?",
+              "escala": "frequencia"
+            },
+            {
+              "id": "18B",
+              "texto": "Com que frequência você tem se sentido emocionalmente esgotado?",
+              "escala": "frequencia"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              0,
+              2
+            ],
+            "atencao": [
+              3,
+              3
+            ],
+            "risco": [
+              4,
+              8
+            ]
+          }
+        },
+        {
+          "id": "19",
+          "titulo": "Sintomas de estresse",
+          "itens": [
+            {
+              "id": "19A",
+              "texto": "Com que frequência você tem se sentido estressado?",
+              "escala": "frequencia"
+            },
+            {
+              "id": "19B",
+              "texto": "Com que frequência você tem se sentido irritado?",
+              "escala": "frequencia"
+            }
+          ],
+          "faixas": {
+            "seguro": [
+              0,
+              2
+            ],
+            "atencao": [
+              3,
+              3
+            ],
+            "risco": [
+              4,
+              8
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "ofensivos": [
+    {
+      "id": "20",
+      "titulo": "Atenção sexual indesejada",
+      "texto": "Você foi exposto a atenção sexual indesejada no seu local de trabalho durante os últimos 12 meses?"
+    },
+    {
+      "id": "21",
+      "titulo": "Ameaças de violência",
+      "texto": "Você foi exposto a ameaças de violência no seu local de trabalho nos últimos 12 meses?"
+    },
+    {
+      "id": "22",
+      "titulo": "Violência física",
+      "texto": "Você foi exposto a violência física em seu local de trabalho durante os últimos 12 meses?"
+    },
+    {
+      "id": "23",
+      "titulo": "Bullying",
+      "texto": "Você foi exposto a \"bullying\" no seu local de trabalho nos últimos 12 meses?"
+    }
+  ]
+}

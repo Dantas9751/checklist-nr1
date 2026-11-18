@@ -1,4 +1,4 @@
-# Site do Checklist NR-1
+# Site do Check-One (Checklist NR-1)
 
 Site estático (HTML, CSS e JavaScript puro, sem build e sem dependências). Lê tudo de `data/questionario.json`.
 
@@ -42,11 +42,12 @@ python3 tools/png_para_webp.py site/img
 
 ## Ferramentas adicionais
 
-O formulário complementar (Microsoft Forms) e a cartilha em PDF aparecem no índice e no menu "Ferramentas" do cabeçalho, marcados como "Em breve". Quando tiver os links, preencha o campo `url` de cada item em `meta.ferramentas.itens` (no `humanizado.json`) e rode `npm run dados`. Com `url` preenchido, o item vira link normal, que abre em nova aba.
+- **Formulário complementar**: o COPSOQ II-Br versão curta, dentro do próprio site (veja `docs/copsoq/README.md`). Para regenerar os dados: `python3 tools/montar_copsoq.py`.
+- **Cartilha de exemplo**: ainda "Em breve". Quando tiver o link, preencha o campo `url` do item em `meta.ferramentas.itens` (no `humanizado.json`) e rode `npm run dados`. Com `url`, o item vira link que abre em nova aba.
 
 ## Temas
 
-O botão de tema no cabeçalho oferece Automático (segue o sistema), Claro, Escuro, Midnight, Sunlight e CIEE. As cores de cada tema são tokens em `css/base.css`, um bloco `:root[data-theme="..."]` por tema. A lista do menu fica em `TEMAS`, em `js/render.js`.
+A identidade visual Check-One segue o convite do projeto: índigo como destaque, cabeçalho azul-marinho, laranja nos detalhes, Montserrat nos títulos e as estrelas de quatro pontas e o globo em linhas na abertura. O botão de tema no cabeçalho oferece Automático (segue o sistema), Check-One claro, Check-One escuro, Midnight, Sunlight e CIEE. As cores de cada tema são tokens em `css/base.css`, um bloco `:root[data-theme="..."]` por tema. A lista do menu fica em `TEMAS`, em `js/render.js`.
 
 ## Siglas
 
@@ -93,6 +94,8 @@ site/
   js/render.js        telas de início, como marcar, contexto legal, porte, pergunta e revisão
   js/siglas.js        siglas por extenso na primeira ocorrência de cada tela
   js/relatorio.js     relatório final e texto do resumo
+  js/copsoq.js        formulário complementar (COPSOQ II-Br): pontuação, testada
+  js/render-copsoq.js telas do formulário complementar
   js/app.js           liga dados, estado, telas e eventos
   data/               questionario.json e schema.md
   img/                capturas do passo a passo (claro e escuro)

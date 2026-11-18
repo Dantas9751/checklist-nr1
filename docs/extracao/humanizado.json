@@ -178,8 +178,9 @@
         {
           "id": "formulario",
           "titulo": "Formulário complementar",
-          "descricao": "Perguntas extras no Microsoft Forms",
-          "url": ""
+          "descricao": "COPSOQ II-Br: 40 perguntas sobre riscos psicossociais",
+          "url": "",
+          "acao": "copsoq"
         },
         {
           "id": "cartilha",
@@ -188,7 +189,8 @@
           "url": ""
         }
       ]
-    }
+    },
+    "marca": "Check-One"
   },
   "opcoes": [
     {

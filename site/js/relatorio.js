@@ -35,7 +35,7 @@ function contarRespostas(dados, porteId, respostas) {
 export function textoResumo(dados, porteId, resultado, data) {
   const porte = porteDe(dados, porteId);
   const linhas = [
-    `${dados.meta.titulo}`,
+    `${dados.meta.marca} · ${dados.meta.titulo}`,
     `Porte: ${porte.nome}`,
     `Data: ${formatarData(data)}`,
     '',
@@ -267,7 +267,7 @@ export function renderRelatorio(dados, porteId, respostas, resultado) {
   const x = expansorDaTela(dados);
   const cabecalho = h('div', { class: 'cabecalho-relatorio' },
     h('h1', { id: 'titulo-relatorio', tabindex: '-1' }, 'Seu relatório'),
-    h('p', { class: 'subtitulo' }, `Checklist NR-1 · Porte ${porte.nome} · ${formatarData(new Date())}`));
+    h('p', { class: 'subtitulo' }, `${dados.meta.marca} · Checklist NR-1 · Porte ${porte.nome} · ${formatarData(new Date())}`));
 
   if (resultado.geral === null) {
     return [cabecalho,

@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Checklist NR-1</title>
-  <meta name="description" content="Autodiagnóstico de conformidade com a NR-1 (GRO/PGR e riscos psicossociais) por porte da empresa, com score e relatório.">
+  <title>Check-One</title>
+  <meta name="description" content="Check-One: autodiagnóstico de conformidade com a NR-1 (GRO/PGR e riscos psicossociais) por porte da empresa, com score e relatório.">
   <meta name="color-scheme" content="light dark">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b6e5f'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1b73'/%3E%3Cpath d='M16 5c1 6 4 10 11 11-7 1-10 5-11 11-1-6-4-10-11-11 7-1 10-5 11-11z' fill='%23ffffff'/%3E%3Ccircle cx='24' cy='8' r='2.4' fill='%23f07a1a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/componentes.css">
   <link rel="stylesheet" href="css/print.css" media="print">
@@ -17,7 +20,10 @@
 
   <header class="barra">
     <div class="barra__linha">
-      <button type="button" class="barra__marca" data-acao="inicio">Checklist NR-1</button>
+      <button type="button" class="barra__marca" data-acao="inicio" aria-label="Check-One, página inicial">
+        <svg class="barra__estrela" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.8 4.8 3.2 7.6 10 10-6.8 2.4-9.2 5.2-10 10-.8-4.8-3.2-7.6-10-10 6.8-2.4 9.2-5.2 10-10z"/></svg>
+        <span>Check-One</span>
+      </button>
       <p class="barra__contexto" id="barra-contexto"></p>
       <nav class="barra__nav" aria-label="Principal">
         <a class="barra__link" href="#contexto-legal" data-acao="contexto">Contexto legal</a>
@@ -58,6 +64,7 @@
     <section class="etapa" id="etapa-revisao" data-etapa="revisao" aria-labelledby="titulo-revisao" hidden></section>
     <section class="etapa" id="etapa-relatorio" data-etapa="relatorio" aria-labelledby="titulo-relatorio" hidden></section>
     <section class="etapa" id="etapa-contexto" data-etapa="contexto" aria-labelledby="titulo-contexto" hidden></section>
+    <section class="etapa" id="etapa-copsoq" data-etapa="copsoq" aria-labelledby="titulo-copsoq" hidden></section>
     <noscript><p class="aviso-js">Este checklist precisa de JavaScript ativado para funcionar.</p></noscript>
   </main>
 

@@ -202,8 +202,8 @@
 
 .chamada {
   font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--destaque);
+  font-weight: 700;
+  color: var(--realce, var(--destaque));
 }
 
 .texto-corrido {
@@ -265,6 +265,8 @@
 /* Boas-vindas -------------------------------------------------------------- */
 
 .abertura {
+  position: relative;
+  isolation: isolate;
   display: grid;
   gap: var(--espaco-4);
   padding: var(--espaco-6) 0 var(--espaco-5);
@@ -347,6 +349,8 @@
 }
 
 .inicio .abertura {
+  position: relative;
+  isolation: isolate;
   order: 1;
 }
 
@@ -1856,3 +1860,274 @@ body:has(#etapa-relatorio:not([hidden])) {
     animation: none;
   }
 }
+
+/* Check-One: marca, aura e decorações da abertura, inspiradas no convite. */
+.marca {
+  font-size: clamp(2.75rem, 1.6rem + 6vw, 5.25rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--destaque);
+}
+
+.abertura__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.125rem, 0.95rem + 0.9vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--texto);
+}
+
+.abertura::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -4rem -6rem auto -8rem;
+  height: 26rem;
+  background: radial-gradient(ellipse closest-side at 45% 40%, var(--aura), transparent);
+}
+
+.abertura__decoracao {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: min(24rem, 70vw);
+  height: auto;
+  pointer-events: none;
+}
+
+.abertura__globo {
+  fill: none;
+  stroke: var(--destaque);
+  stroke-width: 1.4;
+  opacity: 0.35;
+}
+
+.abertura__estrelas {
+  fill: var(--destaque);
+  opacity: 0.55;
+}
+
+@media (max-width: 560px) {
+  .abertura__decoracao {
+    top: -3.5rem;
+    right: -4rem;
+    width: 15rem;
+    opacity: 0.55;
+  }
+
+  .abertura__estrelas {
+    display: none;
+  }
+}
+
+.barra__marca {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  font-family: var(--fonte-titulo);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.barra__estrela {
+  width: 18px;
+  height: 18px;
+  fill: var(--progresso-cor, var(--destaque));
+}
+
+.botao {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+.indice__em-breve {
+  font-size: 0.8125rem;
+}
+
+.indice__em-breve::before {
+  content: "· ";
+}
+
+.indice__lista-ferramentas .indice__em-breve {
+  margin-left: 0.3em;
+}
+
+/* Formulário complementar (COPSOQ). */
+.aviso-individual {
+  display: grid;
+  gap: var(--espaco-2);
+  padding: var(--espaco-4) var(--espaco-5);
+  border-radius: var(--raio-m);
+  background: color-mix(in srgb, var(--status-atencao) 14%, var(--superficie));
+  box-shadow: inset 4px 0 0 var(--status-atencao);
+}
+
+.aviso-individual h2 {
+  font-size: 1.0625rem;
+}
+
+.aviso-individual ul {
+  margin: 0;
+  padding-left: 1.2em;
+  display: grid;
+  gap: var(--espaco-1);
+}
+
+.copsoq-pagina {
+  display: grid;
+  gap: var(--espaco-5);
+}
+
+.progresso-copsoq {
+  height: 6px;
+  border-radius: var(--raio-pilula);
+  background: var(--linha);
+  overflow: hidden;
+}
+
+.progresso-copsoq span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--progresso-cor, var(--destaque));
+  transition: width var(--duracao) var(--curva);
+}
+
+.copsoq-item {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+  display: grid;
+  gap: var(--espaco-3);
+}
+
+.copsoq-item > legend {
+  display: grid;
+  gap: var(--espaco-1);
+  padding: 0;
+  margin-bottom: var(--espaco-3);
+}
+
+.copsoq-item__texto {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.opcao__rotulo--simples {
+  padding-right: var(--espaco-4);
+}
+
+.copsoq-quem {
+  margin: var(--espaco-2) 0 0;
+  padding: var(--espaco-3) var(--espaco-4);
+  border: 0;
+  border-radius: var(--raio-m);
+  background: var(--superficie-2);
+  display: grid;
+  gap: var(--espaco-1);
+}
+
+.copsoq-quem legend {
+  float: left;
+  width: 100%;
+  margin-bottom: var(--espaco-2);
+  font-weight: 600;
+}
+
+.copsoq-quem__opcao {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.copsoq-quem__opcao input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--destaque);
+}
+
+.legenda-faixas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--espaco-2);
+  font-size: 0.9375rem;
+  color: var(--texto-2);
+}
+
+.legenda-faixas li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-2) var(--espaco-3);
+}
+
+.copsoq-dimensoes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+
+.copsoq-dimensao {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--espaco-1) var(--espaco-3);
+  align-items: center;
+  padding: var(--espaco-3) 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.copsoq-dimensao:last-child {
+  border-bottom: 0;
+}
+
+.copsoq-dimensao__nome {
+  font-weight: 600;
+}
+
+.copsoq-dimensao .barra-nota {
+  width: 100%;
+  grid-column: 1 / -1;
+  margin-top: 0;
+}
+
+.copsoq-dimensao__pontos {
+  grid-column: 1 / -1;
+  font-size: 0.875rem;
+  color: var(--texto-2);
+}
+
+.copsoq-ofensivos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--espaco-2);
+}
+
+.copsoq-ofensivos li {
+  display: grid;
+  gap: 2px;
+  padding: var(--espaco-3) var(--espaco-4);
+  border-radius: var(--raio-p);
+  background: var(--superficie-2);
+}
+
+.copsoq-ofensivos__relatado {
+  box-shadow: inset 3px 0 0 var(--status-critico);
+}
+
+.resumo-faixa--risco dd { color: var(--texto); }
